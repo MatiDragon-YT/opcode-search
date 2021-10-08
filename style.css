@@ -1,0 +1,39 @@
+:root {
+	--code: #f9f9f9;
+	--back: #343a40;
+	--comment: #9e9e9e;
+	--variable: #2196f3;
+	--string: #ff9100;
+	--number: #f44336;
+	--model: #f44336;
+	--classe: #eeff41;
+	--command: #26a69a;
+	--label: #4caf50;
+	--operator: #ff80ab;
+}
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+body {
+    background: #16252c;
+    color: white;
+}
+
+pre {
+    background: rgb(0 0 0 / 33%);
+    padding: 3px 5px;
+}
+
+hlV,hlS,hlN,hlX,hlM,hlL,hlC,hlO{font-weight: bolder;}
+
+hlC {color: var(--comment)}
+hlV {color: var(--variable)}
+hlS {color: var(--string)}
+hlN {color: var(--number)}
+hlX {color: var(--classe)}
+hlM {color: var(--command)}
+hlL {color: var(--label)}
+hlO {color: var(--operator)}
