@@ -19,7 +19,8 @@ function carga (){
 				//Formatear a html
 				let opcodes = $('ul')[0]
 				opcodes.innerHTML = opcodes.innerHTML
-					.replace(/^(.+)\n/gim, '<li><pre>$1</pre></li>');
+					.replace(/^(.+)/gim, '<li style><pre>$1</pre></li>');
+				cantidad();
 			})
 			.catch(error => _(error))
 	}
@@ -43,6 +44,11 @@ function buscar(){
 					LI[i].style.display = "none";
 				}
 			}
+			cantidad();
 		}
-    }
+	}
+}
+
+function cantidad(){
+	$('#found').innerHTML = $('li[style=""]').length
 }
