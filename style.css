@@ -52,12 +52,9 @@ ul {
     list-style: none;
     height: calc(95vh - 52px - 76px);
     overflow: auto;
+    display: flex;
+    flex-direction: column;
     gap: 2px;
-    display: grid;
-}
-
-li {
-    margin: 1px 0px 0px;
 }
 
 pre {
