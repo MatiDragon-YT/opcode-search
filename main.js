@@ -1,5 +1,7 @@
-const $ = Element => document.querySelectorAll(Element),
-	  _ = Message => console.log(Message);
+let $ = Element => Element[0] == '#'
+		? document.querySelector(Element)
+		: document.querySelectorAll(Element),
+	_ = Message => console.log(Message);
 
 let ENTRADA = $('#myInput')[0].value,
 	LISTA = $('#myUL')[0],
