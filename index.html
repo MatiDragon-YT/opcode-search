@@ -7,17 +7,16 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<nav>
-		<input type="radio" id="este" onclick="carga()">
-		<label for="este">click for load opcodes</label>
-	</nav>
-	<header>
-		
-	</header>
-	<main>
-		<section id="searchBar">
+	<header id="searchBar">
+		<nav>
+			<input type="radio" id="este" onclick="carga()">
+			<label for="este">click for load opcodes</label>
+		</nav>
+		<section >
 			Search <input type="search" id="myInput" onkeydown="buscar(event);" placeholder="Press ENTER">
 		</section>
+	</header>
+	<main>
 		<section>
 			<ul id="myUL"></ul>
 		</section>

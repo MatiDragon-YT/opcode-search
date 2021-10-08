@@ -27,6 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    justify-content: space-between
 }
 
 section {
@@ -41,7 +42,7 @@ section {
 
 ul {
     list-style: none;
-    height: 65vh;
+    height: calc(95vh - 52px - 76px);
     overflow: scroll;
 }
 
@@ -53,7 +54,6 @@ pre {
 footer {
     display: flex;
     justify-content: space-between;
-    height: calc(100% - 65vh);
 }
 
 
