@@ -20,17 +20,15 @@ function carga (){
 	}
 }
 
-
 function buscar(){
 	let Filter = $('#myInput').value.toUpperCase().replaceAll(' ', '_');
 	const LI = $('#myUL').getElementsByTagName('li');
 
-
 	window.onkeydown = (event) => {
 		if (event.keyCode === 13){ // IS PRESS ENTER
 			for (let i = 0; i < LI.length; i++) {
-				let a = LI[i].getElementsByTagName("pre")[0];
-				let txtValue = a.textContent || a.innerText;
+				let a = LI[i].getElementsByTagName("pre")[0],
+					txtValue = a.textContent || a.innerText;
 
 				if (txtValue.toUpperCase().indexOf(Filter) > -1) {
 					LI[i].style.display = "";
