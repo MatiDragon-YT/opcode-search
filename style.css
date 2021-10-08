@@ -16,7 +16,9 @@
 	margin: 0;
 	border: none;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
     background: #16252c;
     color: white;
@@ -39,16 +41,30 @@ section {
     color: black;
     font-weight: bold;
 }
-
+#myInput {
+    outline: none;
+    padding: 3px;
+    min-width: 250px;
+    position: relative;
+    left: 7px;
+}
 ul {
     list-style: none;
     height: calc(95vh - 52px - 76px);
-    overflow: scroll;
+    overflow: auto;
+    gap: 2px;
+    display: grid;
+}
+
+li {
+    margin: 1px 0px 0px;
 }
 
 pre {
     background: rgb(0 0 0 / 33%);
     padding: 3px 5px;
+    white-space: pre-wrap;
+    font-family: monospace;
 }
 
 footer {
