@@ -7,12 +7,35 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<input type="search" id="myInput" onkeydown="buscar(event);" placeholder="Search with ENTER">
-<input type="radio" id="este" onclick="carga()">
-click for load opcodes
-<main>
-<ul id="myUL"></ul>
-</main>
+	<nav>
+		<input type="radio" id="este" onclick="carga()">
+		<label for="este">click for load opcodes</label>
+	</nav>
+	<header>
+		
+	</header>
+	<main>
+		<section id="searchBar">
+			Search <input type="search" id="myInput" onkeydown="buscar(event);" placeholder="Press ENTER">
+		</section>
+		<section>
+			<ul id="myUL"></ul>
+		</section>
+	</main>
+	<footer>
+		<section>Found: <span id="found">0</span></section>
+		<section>
+			<item>Sort:
+			<select id="sort">
+				<option value="123">123</option>
+				<option value="321">321</option>
+			</select>
+			</item>
+			<item>
+				F <icon>in_zoom</icon><input type="range" id="fontSize" min="0" max="15"><icon>out_zoom</icon>
+			</item>
+		</section>
+	</footer>
 </body>
 <script src="main.js"></script>
 </html>
