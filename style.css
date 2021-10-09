@@ -11,6 +11,10 @@
 	--label: #4caf50;
 	--operator: #ff80ab;
 }
+::-webkit-scrollbar { width: .7rem; height: .7rem;}
+::-webkit-scrollbar-track { background: #0f191e; }
+::-webkit-scrollbar-corner{ background: var(--background) }
+::-webkit-scrollbar-thumb { background: #4caf50;}
 * {
 	padding: 0;
 	margin: 0;
@@ -31,11 +35,55 @@ body {
     height: 100vh;
     justify-content: space-between
 }
-
+nav {
+    display: flex;
+    background: black;
+    color: white;
+    font-size: small;
+    font-weight: normal;
+    height: 20px;
+    cursor: default;
+}
+item {
+    position: relative;
+    padding: 0px 6px;
+}
+item:hover {
+    background: #464646;
+}
+item:hover div {
+    display: flex;
+    flex-direction: column;
+    border: #a8a8a8 solid 1px;
+}
+item div {
+    display: none;
+    position: absolute;
+    background: black;
+    left: 0;
+    width: max-content;
+}
+item div p{
+    padding: 3px 7px 3px 31px
+}
+item div p:hover {
+    background: #464646;
+    z-index: 1;
+}
+item div p[disabled] {
+    color: #545454;
+}
+item div p[disabled]:hover {
+    background: black;
+    color: #545454;
+}
 section {
     padding: 14px;
 }
-
+hr {
+    border-bottom: white solid 1px;
+    margin: 3px 4px 3px 31px;
+}
 #searchBar, footer{
     background: #4caf50;
     color: black;
@@ -43,10 +91,13 @@ section {
 }
 #myInput {
     outline: none;
-    padding: 3px;
+    padding: 6px;
     min-width: 250px;
     position: relative;
-    left: 7px;
+    left: 5px;
+    background: none;
+    border-bottom: 1px solid rgb(0 0 0 / 33%);
+    mix-blend-mode: color-burn;
 }
 ul {
     list-style: none;
@@ -56,9 +107,11 @@ ul {
     flex-direction: column;
     gap: 2px;
 }
-
+li {
+    margin-right: 3px;
+}
 pre {
-    background: rgb(0 0 0 / 33%);
+    background: #0f191e;
     padding: 3px 5px;
     white-space: pre-wrap;
     font-family: monospace;
