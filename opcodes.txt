@@ -419,11 +419,11 @@
 031A: remove_all_fires
 031D:   actor $0 hit_by_weapon 51
 031E:   car 0@ hit_by_weapon 38
-0321: AS_actor $0 die_headshotted
+0321: AS_actor 0@ die_headshotted
 0323: enable_boat 0@ anchor 1
 0325: 0@ = create_fire_at 0@ car
 0326: 0@ = create_fire_at 0@ actor
-0327: $0 = get_random_car_with_model -1 in_rectangle_cornerA $0 $0 cornerB $0 $0
+0327: $0 = get_random_car_with_model 0 in_rectangle_cornerA $0 $0 cornerB $0 $0
 032A: set_behind_camera_mode_to 1
 032B: $0 = create_weapon_pickup #M4 group 15 ammo 60 at 0.0 0.0 0.0
 0330: set_player $0 infinite_run 0
@@ -447,7 +447,7 @@
 034E: move_object 0@ to 0@ 0@ 0@ speed 0@ 0@ 0@ collision_check 1
 034F: destroy_actor_with_fade 0@
 0350: set_actor 0@ maintain_position_when_attacked 1
-0356:   explosion_type -1 in_cube_cornerA 0@ 0@ 0@ cornerB 0@ 0@ 0@
+0356:   explosion_type 0 in_cube_cornerA 0@ 0@ 0@ cornerB 0@ 0@ 0@
 035C: place_object $0[7] relative_to_car $0 with_offset 0.0 0.0 0.0
 035D: set_object $0 targetable 1
 035F: actor 0@ armour += 100
@@ -707,7 +707,7 @@
 051E: 0@ = get_current_radio_station
 0526: set_actor 0@ stay_in_car_when_jacked  1
 052C: set_player $0 drunk_visuals 100
-053E: 0@ = get_random_car_with_model -1 in_rectangle_cornerA 0@ 0@ cornerB 0@ 0@
+053E: 0@ = get_random_car_with_model 0 in_rectangle_cornerA 0@ 0@ cornerB 0@ 0@
 053F: set_car 0@ tires_vulnerability 0
 0541: car 0@ enable_guns_sound
 0547:   actor 0@ colliding_with_car $0
@@ -760,44 +760,44 @@
 05A6: get_object 0@ rotation_velocity_about_an_axis_X 0@ axis_Y 0@ axis_Z 0@ through_center_of_body
 05A7: set_object 0@ velocity_in_direction_X 0@ direction_Y 0@ direction_Z 0.0
 05A8: 0@ = get_object_speed 0@  
-05A9: s$0 = 'IE16' // s$ // Sunday
+05A9: s$0 = 'IE16' // s$
 05AA: 0@s = s$0 // @0 = 'short'
-05AD:   $0(0@,10s) == 0@s // s$ == 'short'
-05AE:   0@(0@,10s) == 0@s // @0 == 'short'
+05AD:   s$0 == 0@s // s$ == 'short'
+05AE:   0@s == 0@s // @0 == 'short'
 05B0:   unknown_calculate 0@ 0@ 0@ 0@ 0@ 0@ 0@ 0@ store_to 0@ 0@ // IF and SET
 05B6: save_string_to_debug_file "CURRENT_WANTED_LIST = "
-05B9: AS_actor -1 stay_idle 1 ms
-05BA: AS_actor 0@ move_mouth -1 ms
-05BB: AS_actor -1 fall_down 0 time_on_ground 500
-05BC: AS_actor -1 jump 1
+05B9: AS_actor 0@ stay_idle 1 ms
+05BA: AS_actor 0@ move_mouth 0 ms
+05BB: AS_actor 0@ fall_down 0 time_on_ground 500
+05BC: AS_actor 0@ jump 1
 05BD: AS_actor 0@ tired 60000 ms
 05BE: AS_actor 0@ die
 05BF: AS_actor 0@ look_at_actor $0 30000 ms
 05C0: AS_actor 0@ look_at_car 0@ 4000 ms
-05C1: AS_actor -1 speak_from_audio_table 230
+05C1: AS_actor 0@ speak_from_audio_table 230
 05C2: AS_actor 0@ show_the_finger
 05C3: AS_actor 0@ hands_cower
-05C4: AS_actor $0 hands_up 15000 ms
-05C5: AS_actor 0@ cower -1 ms
-05C7: AS_actor -1 use_atm
-05C8: AS_actor -1 look_around
-05C9: AS_actor -1 on_guard 2000 ms
-05CA: AS_actor $0 enter_car 0@ passenger_seat 0 time 10000
-05CB: AS_actor $0 enter_car 0@ as_driver 10000 ms
-05CD: AS_actor -1 exit_car 0@
+05C4: AS_actor 0@ hands_up 15000 ms
+05C5: AS_actor 0@ cower 0 ms
+05C7: AS_actor 0@ use_atm
+05C8: AS_actor 0@ look_around
+05C9: AS_actor 0@ on_guard 2000 ms
+05CA: AS_actor 0@ enter_car 0@ passenger_seat 0 time 10000
+05CB: AS_actor 0@ enter_car 0@ as_driver 10000 ms
+05CD: AS_actor 0@ exit_car 0@
 05CF: AS_actor 0@ exit_car 0@ in_direction 0.0 0.0 0.0
 05D1: AS_actor 0@ drive_car 0@ to 0@ 0@ 0@ speed 0.0 0 model #NULL 0
 05D2: AS_actor 0@ run_to_and_hijack_car 0@ max_search_radius 0.0 traffic_behavior 2
-05D3: AS_actor $0 goto_point 0.0 0.0 0.0 mode 4 time 3000 ms // versionA
-05D4: AS_actor -1 rotate_angle 0.0
+05D3: AS_actor 0@ goto_point 0.0 0.0 0.0 mode 4 time 3000 ms // versionA
+05D4: AS_actor 0@ rotate_angle 0.0
 05D6: clear_scmpath
 05D7: add_point_to_scmpath 0.0 0.0 0.0
 05D8: AS_assign_scmpath to_actor $0 flags 6 0
 05D9: AS_actor 0@ run_to_actor $0 timelimit 5000 stop_within_radius 0.0
 05DA: AS_actor 0@ run_away_in_panic_from 0.0 0.0 0.0 away_radius 0.0 timelimit 15000
-05DB: AS_actor -1 flee_from_actor $0 from_origin_radius 0.0 timelimit -1
+05DB: AS_actor 0@ flee_from_actor $0 from_origin_radius 0.0 timelimit 0
 05DC: AS_actor 0@ run_away_from_point 0.0 0.0 0.0 stop_at_radius 0.0 timelimit 8000
-05DD: AS_actor $0 flee_from_actor $0 from_origin_radius 0.0 timelimit 10000
+05DD: AS_actor 0@ flee_from_actor $0 from_origin_radius 0.0 timelimit 10000
 05DE: AS_actor 0@ walk_around_ped_path
 05E2: AS_actor 0@ kill_actor 0@
 05E5: NOP
@@ -824,9 +824,9 @@
 0600:   actor 0@ in_cube_fll_corner_at 0@ 0@ 0@ fur_corner_at 0@ 0@ 0@ depth 0.0 flag 0 stopped_on_foot
 0601:   actor 0@ in_cube_fll_corner_at 0@ 0@ 0@ fur_corner_at 0@ 0@ 0@ depth 0.0 flag 0 stopped_in_car
 0602:   actor $0 driving_taxi
-0603: AS_actor 0@ goto_point_any_means 0.0 0.0 0.0 mode 7 use_car -1
+0603: AS_actor 0@ goto_point_any_means 0.0 0.0 0.0 mode 7 use_car 0
 0604: get_Z_angle_for_point $0 $0 store_to $0
-0605: actor -1 perform_animation "M_SMKLEAN_LOOP" IFP "LOWRIDER" framedelta 0.0 loop 1 lockX 0 lockY 0 lockF 0 time -1
+0605: actor 0 perform_animation "M_SMKLEAN_LOOP" IFP "LOWRIDER" framedelta 0.0 loop 1 lockX 0 lockY 0 lockF 0 time 0
 0606: create_forbidden_for_scripted_cars_cornerA 0.0 0.0 cornerB 0.0 0.0
 0607: remove_forbidden_for_scripted_cars
 060A: 0@ = create_decision_maker_type 0 // decision\allowed\m_.ped files
@@ -847,7 +847,7 @@
 061D: 0@ = create_AS_origin_at 0.0 0.0 0.0 Z_angle 0.0 unknown_angle 0.0 AS_pack 0@
 061E: remove_references_to_AS_origin 0@
 0621: 0@ = create_actor_pedtype 5 model #VWFYWA2 at_AS_origin 0@ task 1466
-0622: AS_actor $0 bail_car 0@
+0622: AS_actor 0@ bail_car 0@
 0623: integer_stat 214 += 1
 0624: float_stat 160 += 0.0
 0625: integer_stat 184 -= 1
@@ -863,10 +863,10 @@
 0632: release_group $0
 0633: AS_actor 0@ exit_car
 0634: AS_actor 0@ attack_using_weapon_actor 0@ flags 4 perform_actions_after_time 2000 chance_of_action 100
-0635: AS_actor -1 aim_at_actor $0 2000 ms
-0637: AS_actor -1 goto 0.0 0.0 0.0 mode 6 turn_radius 0.0 stop_radius 0.0 look_at_actor $0
+0635: AS_actor 0@ aim_at_actor $0 2000 ms
+0637: AS_actor 0@ goto 0.0 0.0 0.0 mode 6 turn_radius 0.0 stop_radius 0.0 look_at_actor $0
 0638: AS_actor 0@ stay_put 1
-0639: AS_actor -1 rotate_to_actor 0@
+0639: AS_actor 0@ rotate_to_actor 0@
 0642:   actor 0@ at_AS_origin 0@
 0643: set_AS_pack 0@ loop 1
 0646: 0@ = unknown_get_actor $0 task_1560_status // similar to 062E
@@ -892,7 +892,7 @@
 0663: printint "IGFIDX" $0
 0664: printfloat "CHIP_SET_Z" $0
 0665: 0@ = get_actor 0@ model
-0667: AS_actor -1 aim_at 0.0 0.0 0.0 120000 ms
+0667: AS_actor 0@ aim_at 0.0 0.0 0.0 120000 ms
 0668: AS_actor 0@ rotate_and_shoot_at 0.0 0.0 0.0 2000 ms
 0669: 0@ = attach_particle "EXHALE" to_actor $0 with_offset 0@ 0@ 0@ type 1
 066A: 0@ = attach_particle "PETROLCAN" to_actor 0@ with_offset 0.0 0.0 0.0 rotation 0@ 0@ 0@ type 1
@@ -900,11 +900,11 @@
 066C: 0@ = attach_particle "CEMENT" to_car 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 type 1
 066D: 0@ = attach_particle "SMOKE_FLARE" to_object 0@ with_offset 0.0 0.0 0.0 type 1
 066E: 0@ = create_particle "COKE_TRAIL" attached_to_object 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 flag 1
-0672: AS_actor -1 attack_car 0@
+0672: AS_actor 0@ attack_car 0@
 0673: AS_actor 0@ dive_to_offset 0.0 0.0 time_on_ground 1000 ms
 0674: set_car_model $0($0,0i) numberplate "N13_LLF_"
-0676: AS_actor -1 in_car 0@ move_from_passengerseat_to_driverseat
-0677: AS_actor -1 chat_with_actor 0@ lead_speaker_flag 1 unknown_flag 1
+0676: AS_actor 0@ in_car 0@ move_from_passengerseat_to_driverseat
+0677: AS_actor 0@ chat_with_actor 0@ lead_speaker_flag 1 unknown_flag 1
 0679: put_camera_on_car 0@ with_offset 0.0 0.0 $0 rotation 0.0 0.0 0@ tilt 0.0 switchstyle 2
 067A: put_camera_on_car 0@ with_offset 0.0 0.0 0.0 point_to_car 0@ tilt 0.0 switchstyle 2
 067B: put_camera_on_car $0 with_offset 0.0 0.0 0.0 point_to_actor $0 tilt 0.0 2
@@ -920,7 +920,7 @@
 0685:   object 0@ attached
 0686:   car 0@ attached
 0687: clear_actor $0 task
-0688: AS_actor -1 unknown_toggle_ped_threat_scanner 0 0 0
+0688: AS_actor 0@ unknown_toggle_ped_threat_scanner 0 0 0
 0689: set_car 0@ remove_door 1 removed_door_visible 0
 068A: set_car $0 repair_door 2
 068B: set_car 0@ all_disembark
@@ -936,8 +936,8 @@
 06A3: 0@ = get_car 0@ mass
 06A5: AS_actor 0@ jump_forward stay_on_ground 10000 ms and_stands_back
 06A7: put_actor $0 into_turret_on_car 0@ at_car_offset 0.0 0.0 0.0 position 1 shooting_angle 0.0 0.0 with_weapon 43
-06A8: AS_actor -1 run_to_and_look_at_actor $0 timelimit -1 approach_distance 0.0 approach_angle 0.0
-06A9: AS_actor -1 look_at_point $0 $0 $0 999999 ms
+06A8: AS_actor 0@ run_to_and_look_at_actor $0 timelimit 0 approach_distance 0.0 approach_angle 0.0
+06A9: AS_actor 0@ look_at_point $0 $0 $0 999999 ms
 06AA:   NOP_false 0@
 06AB: set_actor 0@ all_weapons_hidden 1
 06AC: $0 = actor $0 movement_speed
@@ -953,19 +953,19 @@
 06B6: set_searchlight 0@ follow_actor $0 speed 0.0
 06B7:   searchlight 0@ spotted_actor $0
 06B9:   cutscene_data_loaded
-06BA: AS_actor $0 turn_to_and_look_at 0.0 0.0 0.0
-06BB: set_actor -1 drive_car 0@ speed 0.0 along_SCM_path
+06BA: AS_actor 0@ turn_to_and_look_at 0.0 0.0 0.0
+06BB: set_actor 0 drive_car 0@ speed 0.0 along_SCM_path
 06BC: create_M4_shoot_from 0.0 0.0 0.0 target $0 $0 $0 energy 1
 06BD:   no_obstacles_between 0@ 0@ 0@ and 0@ 0@ 0@ solid 1 car 0 actor 0 object 0 particle 0
 06BE: 0@ = car 0@ y_angle
 06BF: set_searchlight 0@ follow_car 0@ speed 0.0
 06C0:   searchlight 0@ spotted_car 0@
 06C1: 0@ = create_searchlight_on_car 0@ with_offset 0.0 0.0 0.0 radius 0.0 target 0.0 0.0 0.0 radius 0.0
-06C2: AS_actor -1 goto 0.0 0.0 0.0 mode 4 turn_radius 0.0 stop_radius 0.0 actor 0@ with_offset 0.0 0.0 0.0
+06C2: AS_actor 0@ goto 0.0 0.0 0.0 mode 4 turn_radius 0.0 stop_radius 0.0 actor 0@ with_offset 0.0 0.0 0.0
 06C3: get_number_of_fires_within_sphere_at 0@ 0@ 0@ radius 0.0 store_to 0@
 06C4: 0@ = create_marker_above_searchlight 0@
 06C5: release_car 0@ from_path
-06C7: AS_actor $0 driver_of_car $0 perform_action 6 timelimit 2000000
+06C7: AS_actor 0@ driver_of_car $0 perform_action 6 timelimit 2000000
 06C8: enable_riot 0
 06C9: remove_actor $0 from_group
 06CA: attach_searchlight 0@ to_tower 0@ to_housing 0@ to_bulb 0@ with_offset 0.0 0.0 0.0
@@ -986,8 +986,8 @@
 06DF: destroy_player $0
 06E0: set_2_player_camera_mode_to 1
 06E1: AS_actor 0@ using_car 0@ target_car 0@ with_order 29 max_speed 0.0 traffic_flag 2
-06E2: AS_actor 0@ run_to_object 0@ timelimit -1 stop_within_radius 0.0
-06E3: AS_actor -1 roll_sideways 1
+06E2: AS_actor 0@ run_to_object 0@ timelimit 0 stop_within_radius 0.0
+06E3: AS_actor 0@ roll_sideways 1
 06E4: AS_actor 0@ attempt_to_bust_actor $0
 06E5: get_car $0 possible_to_built_in_component_pool_index $0($0,0i) itemID_to $0($0,0i)
 06E6: get_itemID $0 destinated_component_slot_to $0
@@ -1025,8 +1025,8 @@
 070D: rebuild_player $0
 070E: hydra 0@ attack_player_car $0 radius 0.0
 070F: plane 0@ fly_direction 0.0 altitude_between 0.0 and 0.0
-0710: plane 0@ follow_actor $0 follow_car -1 radius 0.0
-0713: actor 0@ driveby_actor -1 car -1 point 0.0 0.0 0.0 radius 0.0 4 1 firing_rate 90
+0710: plane 0@ follow_actor $0 follow_car 0 radius 0.0
+0713: actor 0@ driveby_actor 0 car 0 point 0.0 0.0 0.0 radius 0.0 4 1 firing_rate 90
 0714: unknown_car 0@ flag 1
 0715: put_player $0 in_RC_mode_in_car 0@ // on foot version
 0716:   object_model #GRASSPLANT in_object_group_at 0.0 0.0 0.0 radius 0.0 destroyed 0 1
@@ -1037,15 +1037,15 @@
 071F: set_object 0@ health_to 1
 0723: break_object $0 intensity 1
 0724: heli 0@ follow_and_attack_player $0 radius 0.0
-0726: heli 0@ follow_actor $0 follow_car -1 radius 0.0
-0727: set_heli 0@ behavior_to_police_heli_and_follow_actor $0 follow_car -1 radius 0.0
-0729: AS_actor $0 hold_cellphone 1
+0726: heli 0@ follow_actor $0 follow_car 0 radius 0.0
+0727: set_heli 0@ behavior_to_police_heli_and_follow_actor $0 follow_car 0 radius 0.0
+0729: AS_actor 0@ hold_cellphone 1
 072A: put_actor $0 into_car $0 driverseat
-072B: put_actor $0 into_car 0@ passengerseat -1
+072B: put_actor $0 into_car 0@ passengerseat 0
 072C: generate_police_bikes 0
 072D: is_flamethrower_fired_in_angled_area_2d 0@ 0@ to 0@ 0@ angle 0.0 sphere 0
 072E: is_flamethrower_fired_in_angled_area_3d 0@ 0@ 0@ to 0@ 0@ 0@ angle 0.0 sphere 0
-072F: enable_car 0@ stuck_check_distance 0.0 time 2000 and_restore_if stuck 1 flipped 1 unk_place_on_road_properly 1 to_path -1 // extended 03CC
+072F: enable_car 0@ stuck_check_distance 0.0 time 2000 and_restore_if stuck 1 flipped 1 unk_place_on_road_properly 1 to_path 0 // extended 03CC
 0730: car 0@ damage_door 1
 0731: set_car 0@ y_angle_to 0@
 0732: random_car_generator_disable_model #SAVANNA
@@ -1067,8 +1067,8 @@
 0749: reset_group_decision_maker 0@ event 54
 074A: set_group_decision_maker 0@ on_event 54 taskID 1513 respect 0.0 hate 0.0 like 0.0 dislike 0.0 in_car 1 on_foot 1 // see *.ped files
 074B: draw_texture 20 position 0@ 0@ scale 0@ 0@ angle $0 color_RGBA 220 220 220 0@
-074C: AS_actor -1 goto_AS_origin 0@
-074D: AS_actor -1 turns_to_and_look_at_actor 0@ timelimit -2
+074C: AS_actor 0@ goto_AS_origin 0@
+074D: AS_actor 0@ turns_to_and_look_at_actor 0@ timelimit -2
 074E: unknown_set_actor_threat_scanner_flags 0@ radius 0.0 peds_to_scan 1
 074F:   actor 0@ ped_event == 31
 0750: set_object $0[6] visibility 0
@@ -1080,7 +1080,7 @@
 075B: zoom_radar 0
 075C:   marker 0@ enabled
 075D: load_shopping_data_SHOPS_subsection "CLOTHES" // "string"
-075E: load_shopping_data_PRICES_subsection $0($0,12s) // "string"
+075E: load_shopping_data_PRICES_subsection $0($0,0s) // "string"
 075F: get_shopping_data_entries_number_to $0
 0760: get_shopping_data_index $0 textureCRC_to $0
 0761: get_shopping_item_with_textureCRC $0 price_to $0
@@ -1094,7 +1094,7 @@
 076F:   text_priority_displayed
 0770: set_actor 0@ target_priority 1
 0771: set_model_numplate #BFINJECT town_texture 2
-0772: AS_actor -1 run_to_car 0@ 60000 ms stop_at_distance 0.0
+0772: AS_actor 0@ run_to_car 0@ 60000 ms stop_at_distance 0.0
 0776: create_objects_in_object_group "CRACK"
 0777: delete_objects_in_object_group "BARRIERS1"
 0778: recreate_objects_in_object_group "TRUTHSFARM"
@@ -1103,7 +1103,7 @@
 077C: clear_actor $0 acquaintance 4 to_all_pedtypes // see ped.dat
 077D: $0 = car 0@ x_angle
 077E: get_active_interior_to $0
-0780: heli 0@ hover_above actor $0 car -1 altitude 0.0 0.0
+0780: heli 0@ hover_above actor $0 car 0 altitude 0.0 0.0
 0781: $0 = get_weapon_with_ID $0 model
 0782: $0 = get_weapon_with_ID $0 weapon_group
 0783: get_shopping_item_with_textureCRC $0 flag 0 store_to $0
@@ -1114,7 +1114,7 @@
 078A: 0@ = get_train 0@ carriage 1 handle
 078B: 0@ = get_heli 0@ attached_car_handle actor_handle_to 0@ object_handle_to 0@
 078C: get_shopping_item_with_textureCRC $0 nametag_to s$0 // 8-byte string
-078F: AS_actor -1 climb 1
+078F: AS_actor 0@ climb 1
 0790: charge_money_for_shopping_item_with_textureCRC $0
 0792: disembark_instantly_actor $0
 0793: save_player_clothes
@@ -1128,9 +1128,9 @@
 079F: unknown_set_game_controller_to_steer_no_crane_objects
 07A0: unknown_actor 0@ unknown_assigned_to_AS 0@ unknown_set 0 unknown_set 3
 07A1: set_walk_speed 4
-07A3: AS_actor $0 run_to_and_follow_actor $0 wait_radius_between 0.0 and 0.0
+07A3: AS_actor 0@ run_to_and_follow_actor $0 wait_radius_between 0.0 and 0.0
 07A4: get_actor 0@ task_1560_flags_store_to 0@ 0@
-07A5: AS_actor -1 attack_actor $0 time 1500
+07A5: AS_actor 0@ attack_actor $0 time 1500
 07A6: get_nearest_tag_location_near_point 0.0 0.0 0.0 store_to 0@ 0@ 0@
 07A7: put_jetpack_on_actor $0
 07A8: enable_area69_sam 0
@@ -1139,11 +1139,11 @@
 07AC: detach_trailer 0@ from_cab 0@
 07AF: $0 = player $0 group
 07B0: get_active_shop_name_to s$0 // s$
-07B1: unknown_get_dance_track_data -1 store_to 0@ 0@ 0@
+07B1: unknown_get_dance_track_data 0 store_to 0@ 0@ 0@
 07B3: set_group 0@ give_command 2
 07B4: set_player $0 gang_recruitment_enabled 0
 07BB: set_heli 0@ horizontal_thrust_power 10
-07BC: set_actor -1 decision_maker_to 0@ // AS_pack_version
+07BC: set_actor 0 decision_maker_to 0@ // AS_pack_version
 07BD: destroy_train 0@
 07BE: remove_references_to_train 0@
 07BF: set_marker 0@($0,0i) tracking_blip 1
@@ -1154,7 +1154,7 @@
 07C5: get_car 0@ axis_angle_relation_to 0@ 0@ 0@ 0@
 07C6: set_car 0@ axis_angle_relation_to 0.0 0.0 0.0 0.0
 07C7: put_train 0@ at 0.0 0.0 0.0
-07C9: AS_actor -1 walk_to_object 0@ then_lift_and_hold_in_hands
+07C9: AS_actor 0@ walk_to_object 0@ then_lift_and_hold_in_hands
 07CB: set_actor $0 supporting_fire 0
 07CC: set_player $0 button_15 0
 07CD: AS_actor 0@ walk_to 0.0 0.0 0.0 stop_with_angle 0.0 within_radius 0.0
@@ -1169,11 +1169,11 @@
 07DE:   model 0@ exists // versionB
 07DF: unknown_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
 07E0: set_marker $0 type_to 1
-07E1: AS_actor $0 swim_to 0@ 0@ 0@
+07E1: AS_actor 0@ swim_to 0@ 0@ 0@
 07E4: get_model 0@ dimensions_cornerA_to $0 $0 $0 dimensions_cornerB_to 0@ 0@ 0@
 07E5: $0 = copy_decision_maker 65543
-07E6: 0@ = copy_group_decision_maker -1
-07E7: AS_assign_scmpath_to_actor -1 in_car 0@ speed 0.0 flags 1 0 1
+07E6: 0@ = copy_group_decision_maker 0
+07E7: AS_assign_scmpath_to_actor 0 in_car 0@ speed 0.0 flags 1 0 1
 07E8:   acquaintance 4 of_actors_type 0@ to_actors_type 0 set
 07EE: car 0@ enable_tire_marks 1
 07EF: get_town_number_from_point 0@ 0@ 0@ store_to 0@
@@ -1195,13 +1195,13 @@
 0800:   in_two_players_mode
 0801: get_camera_zoom_factor_to 0.0 // float
 0803:   car 0@ have_hydraulics
-0804: AS_actor 0@ walk_to 0.0 0.0 0.0 angle 0.0 radius 0.0 animation "GRLFRD_KISS_03" IFP_file "BD_FIRE" rate 0.0 LA 0 LX 0 LY 0 LF 0 LT -1
+0804: AS_actor 0@ walk_to 0.0 0.0 0.0 angle 0.0 radius 0.0 animation "GRLFRD_KISS_03" IFP_file "BD_FIRE" rate 0.0 LA 0 LX 0 LY 0 LF 0 LT 0
 0806: 0@ = player $0 kills_from_last_checkpoint
 080A: get_object 0@ spoot 2 store_to 0@ 0@ 0@
 080E: 0@ = get_actor 0@ event
 0810: get_random_parkplace_in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 position_to $0 $0 $0
 0811: $0 = actor $0 used_car
-0812: AS_actor -1 perform_animation "LRGIRL_IDLELOOP" IFP "LOWRIDER" framedelta 0.0 loopA 0 lockX 0 lockY 0 lockF 0 time -1 // versionB
+0812: AS_actor 0@ perform_animation "LRGIRL_IDLELOOP" IFP "LOWRIDER" framedelta 0.0 loopA 0 lockX 0 lockY 0 lockF 0 time 0 // versionB
 0814: define_unique_jump_start 0.0 0.0 0.0 radius 0.0 0.0 0.0 land 0.0 0.0 0.0 radius 0.0 0.0 0.0 camera 0.0 0.0 0.0 reward 500
 0815: put_object 0@ at 0@ 0@ 0@ and_keep_rotation
 0816: set_actor 0@ dont_chase_victim 1
@@ -1216,7 +1216,7 @@
 081F:   model 0@ plane
 0820:   model 0@ heli
 0822: enable_camera_bumper_view 0
-0823: AS_actor $0 greet_actor 0@ 0.0 5
+0823: AS_actor 0@ greet_actor 0@ 0.0 5
 0825: set_helicopter 0@ instant_rotor_start
 0826: enable_hud 1
 0827: assign_object $0 to_lod_object $0
@@ -1249,12 +1249,12 @@
 0851: set_actor $0 decrease_health_by 10 affect_armour 1
 0852: set_car $0 damages_visible 0
 0853: unknown_heli 0@ flag 3
-0855: 0@ = get_actor -1 noise_level_at 0@ 0@ 0@
+0855: 0@ = get_actor 0 noise_level_at 0@ 0@ 0@
 0856: set_actor 0@ enable_crouch 0
 0858: set_player $0 scan_horizon_to_angle 0.0 rotation_speed 0.0
 0859: AS_actor 0@ walk_alongisde_actor $0
 085A: spawn_emergency_vehicle_model #FIRETRUK on_street_nearest_to 0.0 0.0 0.0
-085B: AS_actor -1 set_kinda_stay_in_same_place 1
+085B: AS_actor 0@ set_kinda_stay_in_same_place 1
 085E: assign_car 0@ to_looped_path 347
 0860: link_actor $0 to_interior 6
 0861:   unknown_player $0 scanning_horizon // param is useless
@@ -1263,7 +1263,7 @@
 0867:   unknown_in_burglary_interior 0
 086A: NOP
 0871: init_jump_table $0 total_jumps 8 default_jump 0 @0 jumps 0 @0 1 @0 2 @0 3 @0 4 @0 5 @0 6 @0
-0872: jump_table_jumps 7 @0 -1 @0 -1 @0 -1 @0 -1 @0 -1 @0 -1 @0 -1 @0 -1 @0
+0872: jump_table_jumps 7 @0 0 @0 0 @0 0 @0 0 @0 0 @0 0 @0 0 @0 0 @0
 0873: release_path 201
 0874: set_zone 'CHC1A' popcycle_group_for_peds_to 9
 0875: set_object 0@ immune_to_nonplayer 1
@@ -1282,7 +1282,7 @@
 0887: set_actor $0 turret_mode_orientation 0 both_side_angle_limit 0.0
 0888: create_marker_above_actor 0@ handle_as 0@ // versionB
 0889: get_actor 0@ center_of_body_position_to $0 $0 $0
-088A: actor 0@ perform_animation "RAIL_FALL" IFP "SWAT" 0.0 loopA 0 lockX 0 lockY 0 lockF 1 time -1 disable_force 0 disable_lockZ 1
+088A: actor 0@ perform_animation "RAIL_FALL" IFP "SWAT" 0.0 loopA 0 lockX 0 lockY 0 lockF 1 time 0 disable_force 0 disable_lockZ 1
 088B: set_car 0@ form_drag_multiplier_to 0.0
 088C: put_car 0@ at $0 0@ $0 // versionB
 088D: set_objects_in_sphere 0.0 0.0 0.0 radius 0.0 with_model #MAN_SAFENEW collision_detection 0
@@ -1409,7 +1409,7 @@
 0920: point_camera 0.0 0.0 0.0 transverse_to 0.0 0.0 0.0 time 7000 smooth_transition 1
 0922: set_camera_zoom_from 0.0 to 0.0 timelimit 10000 smooth_transition 1
 0923: enable_air_traffic 0
-0924: enable_screen_darkness 1 with_value -1
+0924: enable_screen_darkness 1 with_value 0
 0925: restore_camera_to_user_defined
 0926: $0 = external_script_status 66 (CARMOD1)
 0928: init_external_script_trigger 19 (DEALER) with_actor_model #BMYDRUG priority 100
@@ -1491,7 +1491,7 @@
 0982: set_actor 0@ stay_in_car_when_dead 1
 0983: unknown_disable_gang_wars 1
 0984: 0@ = object 0@ model
-0985: set_objects_in_sphere 0.0 0.0 0.0 radius 0.0 with_model -150 solid 0 for_actor 0@
+0985: set_objects_in_sphere 0.0 0.0 0.0 radius 0.0 with_model 050 solid 0 for_actor 0@
 0986: remove_references_to_all_fires
 0987: $0 = get_car $0 blocking
 0988: $0 = get_car $0 paintjob
@@ -1513,8 +1513,8 @@
 099C: jiggle_camera type 1 timelimit 0.0 intensity 0.0
 099D:   night_vision_enabled
 099E: enable_police_patrols 0
-099F: AS_actor -1 ignore_weapon_range 1
-09A0: actor $0 attach_object 0@ with_offset 0.0 0.0 0.0 on_bone 5 16 perform_animation "NULL" IFP_file "NULL" time -1
+099F: AS_actor 0@ ignore_weapon_range 1
+09A0: actor $0 attach_object 0@ with_offset 0.0 0.0 0.0 on_bone 5 16 perform_animation "NULL" IFP_file "NULL" time 0
 09A1: set_actor $0 onbone_attached_objectB_operation 0
 09A2: destroy_object_with_fade 0@
 09A3: show_siterocket_on_bumper_camera 1
@@ -1544,7 +1544,7 @@
 09BD: allow_other_scripts_to_display_text_boxes 1
 09BE:   are_text_boxes_locked_to_any_script
 09BF: set_random_traffic_spawn_to_model #TOPFUN // Load the vehicle model before using this
-09C0: 0@ = get_random_car_in_area 0@ 0@ 0@ 0@ 0.0 with_actors -1
+09C0: 0@ = get_random_car_in_area 0@ 0@ 0@ 0@ 0.0 with_actors 0
 09C1: add_next_text_to_brief_history 0
 09C2: cancel_rampage
 09C3:   police_car_in_rectangle_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0
@@ -1572,7 +1572,7 @@
 09DE:   actor $0 entering_car
 09E0: trip_skip 0.0 0.0 0.0 angle 0.0 when_in_car 0@
 09E1: $0 = get_car_model $0 price
-09E2: $0 = parked_car_generator_w_numberplate #EUROS colors -1 -1 force_spawn 0 alarm 50 door_lock 0 min_delay 0 max_delay 10000 plate "IMPEXP__" at 0.0 0.0 0.0 angle 0.0
+09E2: $0 = parked_car_generator_w_numberplate #EUROS colors 0 0 force_spawn 0 alarm 50 door_lock 0 min_delay 0 max_delay 10000 plate "IMPEXP__" at 0.0 0.0 0.0 angle 0.0
 09E3:   train $0 traveling_clockwise
 09E4: enable_aircraftcarrier_sam 0
 09E5: create_flash_light_at 0@ 0@ 0@ RGB_mask 255 255 255 radius 0.0
@@ -1621,7 +1621,7 @@
 0A17: set_parked_car_generator $0 to_player_owned 1
 0A18: set_dialogue_classA_question_GXT 0@s answer_yes_GXT 0@s answer_no_GXT 0@s question_WAV 0@ answer_yes_WAV 0@ answer_no_WAV 0@
 0A19: display_zone_text "MARKS" // Saint Mark's
-0A1A: actor 0@ perform_walk_animation "HIKER_POSE_L" IFP "MISC" framedelta 0.0 loopA 0 lockX 0 lockY 0 lockF 1 -1 ms // versionC
+0A1A: actor 0@ perform_walk_animation "HIKER_POSE_L" IFP "MISC" framedelta 0.0 loopA 0 lockX 0 lockY 0 lockF 1 0 ms // versionC
 0A1B:   actor 0@ colliding_with_actor $0
 0A1C: set_helicopter 0@ play_engine_sounds 1
 0A1D: AS_actor 0@ rotate_to_and_look_at_actor $0
@@ -1848,9 +1848,9 @@
 0D31: 0@ = bone 0@ offset_vector_pointer
 0D32: 0@ = bone 0@ quat_pointer
 0D33: set_car 0@ door DOOR_RF window_state OPENED
-0D34: get_car 0@ collided_entities_to 0@ 0@ -1 -1 -1 -1
-0D35: get_actor 0@ collided_entities_to 0@ 0@ -1 -1 -1 -1
-0D36: get_object 0@ collided_entities_to 0@ 0@ -1 -1 -1 -1
+0D34: get_car 0@ collided_entities_to 0@ 0@ 0 0 0 0
+0D35: get_actor 0@ collided_entities_to 0@ 0@ 0 0 0 0
+0D36: get_object 0@ collided_entities_to 0@ 0@ 0 0 0 0
 0D37: struct 0@ param 0 = 0.0
 0D38: 0@ = struct 0@ param 0
 0D39: 0@ = actor 0@ max_health
