@@ -68,7 +68,7 @@ function sanny() {
 		/*** BOOLEANS ***/
 		.replace(/\b(true|false)\b/gmi, `<hlN>$1<\/hlN>`)
 		/*** NUMBERS ***/
-		.replace(/(\s|\-|\,|\()(?!\$)(\d+)(?!\:|\@)(i|f)?\b/gmi, `$1<hlN>$2$3<\/hlN>`)
+		.replace(/(\s|\-|\,|\()(?!\$)(\d+)(?!\:|\@)(i|f|s|v)?\b/gmi, `$1<hlN>$2$3<\/hlN>`)
 		/*** MODELS ***/
 		.replace(/(\#+\w+)/gm, `<hlN>$1<\/hlN>`)
 		/*** CLASSES ***/
@@ -81,7 +81,7 @@ function sanny() {
 		/*** VARIABLES ***/
 		.replace(/(\d+)(\@s|\@v|\@)(\:|\s|\n|\]|\.|\,||\))/gm, `<hlV>$1$2<\/hlV>$3`)
 		.replace(/(\&amp\d+)/gim, `<hlV>$1<\/hlV>`)
-		.replace(/(\x{00}|s|v)(\$[0-9A-Z_a-z]+)/gm, `<hlV>$1$2<\/hlV>`)
+		.replace(/(s|v)?(\$[0-9A-Z_a-z]+)/gm, `<hlV>$1$2<\/hlV>`)
 		/*** OTHERS ***/
 		.replace(/(\t)/gmi, `    `)
 		.replace(/^(\w|\W)/gmi, `<c></c>$1`)
