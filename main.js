@@ -5,7 +5,7 @@ let $ = Element => Element[0] == '#'
 
 
 function carga (){
-	fetch('opcodes.txt')
+	fetch('opcodes/sa.txt')
 	.then(response => response.text())
 	.then(Data => {
 		// WRITE TXT
@@ -62,7 +62,7 @@ function sanny() {
 		/*** ARRAYS ***/
 		.replace(/(\[)([\d+]*)(\])/gmi, `$1<hlN>$2<\/hlN>$3`)
 		/*** OPCODES ***/
-		.replace(/^(\s*)([a-fA-F0-9]{4}\:)/gmi, `$1<spa'uppercase'>$2<\/span>`)
+		.replace(/^(\s*)([a-fA-F0-9]{4}\:)/gmi, `$1<hlF>$2<\/hlF>`)
 		/*** HEXALES ***/
 		.replace(/\b(\d+)(x|\.)(\w+)\b/gmi, `<hlN>$1$2$3<\/hlN>`)
 		/*** BOOLEANS ***/
@@ -81,12 +81,13 @@ function sanny() {
 		/*** VARIABLES ***/
 		.replace(/(\d+)(\@s|\@v|\@)(\:|\s|\n|\]|\.|\,||\))/gm, `<hlV>$1$2<\/hlV>$3`)
 		.replace(/(\&amp\d+)/gim, `<hlV>$1<\/hlV>`)
-		.replace(/(s|v)?(\$[0-9A-Z_a-z]+)/gm, `<hlV>$1$2<\/hlV>`)
+		.replace(/(s|v)?(\$[0-9A-Z_a-z]+)/gm, `<hlG>$1$2<\/hlG>`)
 		/*** OTHERS ***/
 		.replace(/(\t)/gmi, `    `)
 		.replace(/^(\w|\W)/gmi, `<c></c>$1`)
 		/*** KEYWORDS ***/
 		.replace(/\b(longstring|shortstring|integer|jump_if_false|thread|create_thread|create_custom_thread|end_thread|name_thread|end_thread_named|if|then|else|hex|end|else_jump|jump|jf|print|const|while|not|wait|repeat|until|break|continue|for|gosub|var|array|of|and|or|to|downto|step|call|return_true|return_false|return|ret|rf|tr|Inc|Dec|Mul|Div|Alloc|Sqr|Random|int|string|float|bool|fade|DEFINE|select_interior|set_weather|set_wb_check_to|nop)\b/gmi, `<b>$1<\/b>`)
-		//.replace(/\s(\=|\+|\-|\*|\/|\%|\=\=|\+\=|\-\=|\*\=|\/\=|\%\=|\+\+|\-\-|\<|\>|\<\=|\>\=)\s/gmi," <font class=operador>$1<\/font> ")
+		/*** OPERADORS ***/
+		.replace(/\s(\+|\-|\*|\/|\^|\%|\||\&lt;|\&gt;|\&lt;\&lt;|\&gt;\&gt;|=)?(=|~|\*|\&lt;|\&gt;)\s/gmi," <hlO>$1$2<\/hlO> ")
 	}
 }
