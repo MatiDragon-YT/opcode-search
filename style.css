@@ -1,15 +1,16 @@
 :root {
 	--code: #f9f9f9;
 	--back: #343a40;
-	--comment: #9e9e9e;
+	--comment: #4c636f;
 	--variable: #2196f3;
+    --local: #304ffe;
 	--string: #ff9100;
 	--number: #f44336;
 	--model: #f44336;
 	--classe: #eeff41;
 	--command: #26a69a;
 	--label: #4caf50;
-	--operator: #ff80ab;
+	--operator: #c554ff;
 }
 ::-webkit-scrollbar { width: .7rem; height: .7rem;}
 ::-webkit-scrollbar-track { background: #0f191e; }
@@ -63,17 +64,24 @@ item div {
     left: 0;
     width: max-content;
 }
-item div p{
-    padding: 3px 7px 3px 31px
+item p,
+item a {
+    padding: 3px 7px 3px 31px;
+    color: white;
+    text-decoration: none;
+    cursor: default;
 }
-item div p:hover {
+item p:hover,
+item a:hover {
     background: #464646;
     z-index: 1;
 }
-item div p[disabled] {
+item p[disabled],
+item a[disabled] {
     color: #545454;
 }
-item div p[disabled]:hover {
+item p[disabled]:hover,
+item a[disabled]:hover {
     background: black;
     color: #545454;
 }
@@ -123,9 +131,10 @@ footer {
 }
 
 
-hlV,hlS,hlN,hlX,hlM,hlL,hlC,hlO{font-weight: bolder;}
+hlV,hlS,hlN,hlX,hlM,hlL,hlC,hlO,hlG{font-weight: bolder;}
 
 hlC {color: var(--comment)}
+hlF {color: var(--comment)}
 hlV {color: var(--variable)}
 hlS {color: var(--string)}
 hlN {color: var(--number)}
@@ -133,3 +142,4 @@ hlX {color: var(--classe)}
 hlM {color: var(--command)}
 hlL {color: var(--label)}
 hlO {color: var(--operator)}
+hlG {color: var(--variable)}
