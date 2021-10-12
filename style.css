@@ -109,7 +109,7 @@ hr {
 }
 ul {
     list-style: none;
-    height: calc(95vh - 52px - 76px);
+    height: calc(95vh - 52px - 85px);
     overflow: auto;
     display: flex;
     flex-direction: column;
