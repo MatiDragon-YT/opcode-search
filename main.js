@@ -5,6 +5,7 @@
 | The constants of a value or enumeration must be in uppercase.
 | Only objects must end with a semicolon at the end of the braces.
 | Exceeding 90 characters per line is not allowed, except for templates.
+| Always leave spaces between the operators and their values.
 */
 
 let $ = Element => Element[0] == '#'
@@ -12,51 +13,74 @@ let $ = Element => Element[0] == '#'
 		: document.querySelectorAll(Element),
 	_ = Message => console.log(Message);
 
+let text = {
+	write : (Message) => {
+		$("#myUL").innerHTML = Message || ''
+	},
+	format : (Opcodes = $('ul')[0]) => {
+		Opcodes.innerHTML =
+		Opcodes.innerHTML.replace(/^(.+)/gim, '<li style><pre>$1</pre></li>')
+	},
+	clear : () => {
+		text.write()
+		found(0)
+	}
+};
 
-function carga (){
-	fetch('opcodes/sa.txt')
+function found(Counter) {
+	$('#found').innerHTML = Counter || $('li[style=""]').length
+}
+
+function carga (FileList = 'sa.txt'){
+	fetch('opcodes/' + FileList)
 	.then(response => response.text())
 	.then(Data => {
-		// WRITE TXT
-		$("#myUL").innerHTML = Data;
-		// FORMAT TO HTML
-		let Opcodes = $('ul')[0]
-		Opcodes.innerHTML = Opcodes.innerHTML
-			.replace(/^(.+)/gim, '<li style><pre>$1</pre></li>');
-		found();
-		//sanny();
+		text.write(Data)
+		text.format()
+		found()
+		iniciar()
 	})
 	.catch(error => _(error))
 }
 
 function buscar(){
-	let Filter = $('#myInput').value.toUpperCase().replaceAll(' ', '_');
-	const LI = $('#myUL').getElementsByTagName('li');
-
 	window.onkeydown = (event) => {
-		if (event.keyCode === 13){ // IS PRESS ENTER
-			for (let i = 0; i < LI.length; i++) {
-				let a = LI[i].getElementsByTagName("pre")[0],
-					txtValue = a.textContent || a.innerText;
-
-				if (txtValue.toUpperCase().indexOf(Filter) > -1) {
-					LI[i].style.display = "";
-				}else {
-					LI[i].style.display = "none";
-				}
-			}
-			found();
+		if (event.keyCode === 13){ // PRESS ENTER
+			iniciar();
 		}
 	}
 }
 
-function found() {
-	$('#found').innerHTML = $('li[style=""]').length
+function iniciar(){
+	let Filter = $('#myInput').value.toUpperCase().replaceAll(' ', '_'),
+		LI = $('#myUL').getElementsByTagName('li'),
+		Counter = 0,
+		Length = LI.length;
+
+	if (Length == 0 && Filter != ''){carga()}
+
+	for (Counter; Counter < Length; Counter++) {
+		let Element = LI[Counter].getElementsByTagName("pre")[0],
+			txtValue = Element.textContent || Element.innerText;
+
+		if (txtValue.toUpperCase().indexOf(Filter) > -1) {
+			LI[Counter].style.display = "";
+		}else {
+			LI[Counter].style.display = "none";
+		}
+	}
+	if ($('li[style=""]').length < 50){sanny()}
+	found();
 }
 
 function sanny() {
-	for (let i = 0;i < $("pre").length;i++){
-		$("pre")[i].innerHTML = $("pre")[i].innerHTML
+	let Element = $("li[style=''] pre"),
+		Counter = 0,
+		Length = Element.length;
+
+	for (Counter; Counter < Length; Counter++){
+		Element[Counter].innerHTML =
+		Element[Counter].innerHTML
 		/*** COMMENTS ***/
 		.replace(/(\/\/.+)/gm, `<hlC>$1</hlC>`)
 		.replace(/(\/\*[\x09-.0-■]*\*\/)/gmi, `<hlC>$1</hlC>`)
@@ -91,9 +115,6 @@ function sanny() {
 		.replace(/(\d+)(\@s|\@v|\@)(\:|\s|\n|\]|\.|\,||\))/gm, `<hlV>$1$2<\/hlV>$3`)
 		.replace(/(\&amp\d+)/gim, `<hlV>$1<\/hlV>`)
 		.replace(/(s|v)?(\$[0-9A-Z_a-z]+)/gm, `<hlG>$1$2<\/hlG>`)
-		/*** OTHERS ***/
-		.replace(/(\t)/gmi, `    `)
-		.replace(/^(\w|\W)/gmi, `<c></c>$1`)
 		/*** KEYWORDS ***/
 		.replace(/\b(longstring|shortstring|integer|jump_if_false|thread|create_thread|create_custom_thread|end_thread|name_thread|end_thread_named|if|then|else|hex|end|else_jump|jump|jf|print|const|while|not|wait|repeat|until|break|continue|for|gosub|var|array|of|and|or|to|downto|step|call|return_true|return_false|return|ret|rf|tr|Inc|Dec|Mul|Div|Alloc|Sqr|Random|int|string|float|bool|fade|DEFINE|select_interior|set_weather|set_wb_check_to|nop)\b/gmi, `<b>$1<\/b>`)
 		/*** OPERADORS ***/
