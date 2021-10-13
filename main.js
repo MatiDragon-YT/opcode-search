@@ -13,7 +13,13 @@ let $ = Element => Element[0] == '#'
 		: document.querySelectorAll(Element),
 	_ = Message => console.log(Message);
 
-let text = {
+let file = {
+	get : async function (Type, Url , Callback) {
+		return await fetch(Url)
+					 .then(Res => Res == 'json' ? Res.json() : Res.text())
+					 .then(Data => Callback(Data))
+					 .catch(Error => _(Error))
+	},
 	write : (Message) => {
 		$("#myUL").innerHTML = Message || ''
 	},
@@ -22,7 +28,7 @@ let text = {
 		Opcodes.innerHTML.replace(/^(.+)/gim, '<li style><pre>$1</pre></li>')
 	},
 	clear : () => {
-		text.write()
+		file.write()
 		found(0)
 	}
 };
@@ -32,15 +38,12 @@ function found(Counter) {
 }
 
 function carga (FileList = 'sa.txt'){
-	fetch('opcodes/' + FileList)
-	.then(response => response.text())
-	.then(Data => {
-		text.write(Data)
-		text.format()
+	file.get('text', 'opcodes/' + FileList, Data => {
+		file.write(Data)
+		file.format()
 		found()
 		iniciar()
 	})
-	.catch(error => _(error))
 }
 
 function buscar(){
