@@ -20,8 +20,8 @@ let file = {
 					 .then(Data => Callback(Data))
 					 .catch(Error => _(Error))
 	},
-	write : (Message) => {
-		$("#myUL").innerHTML = Message || ''
+	write : (Message = '') => {
+		$("#myUL").innerHTML = Message
 	},
 	format : (Opcodes = $('ul')[0]) => {
 		Opcodes.innerHTML =
@@ -33,8 +33,8 @@ let file = {
 	}
 };
 
-function found(Counter) {
-	$('#found').innerHTML = Counter || $('li[style=""]').length
+function found(Counter = $('li[style=""]').length) {
+	$('#found').innerHTML = Counter
 }
 
 function carga (FileList = 'sa.txt'){
