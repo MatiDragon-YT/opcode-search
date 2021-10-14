@@ -46,44 +46,41 @@ function carga (FileList = 'sa.txt'){
 	})
 }
 
-function buscar(){
+function keyPressed(VirtualKey, Callback) {
 	window.onkeydown = (event) => {
-		if (event.keyCode === 13){ // PRESS ENTER
-			iniciar();
+		if (event.keyCode === VirtualKey){
+			Callback();
 		}
 	}
 }
 
 function iniciar(){
 	let Filter = $('#myInput').value.toUpperCase().replaceAll(' ', '_'),
-		LI = $('#myUL').getElementsByTagName('li'),
-		Counter = 0,
-		Length = LI.length;
+		Elements = $('#myUL').querySelectorAll('li');
 
-	if (Length == 0 && Filter != ''){carga()}
+	if (Elements.length == 0 && Filter != '') carga() ;
 
-	for (Counter; Counter < Length; Counter++) {
-		let Element = LI[Counter].getElementsByTagName("pre")[0],
+	Elements.forEach(Selected => {
+		let Element = Selected.getElementsByTagName('pre')[0],
 			txtValue = Element.textContent || Element.innerText;
 
 		if (txtValue.toUpperCase().indexOf(Filter) > -1) {
-			LI[Counter].style.display = "";
+			Selected.style.display = '';
 		}else {
-			LI[Counter].style.display = "none";
+			Selected.style.display = 'none';
 		}
-	}
-	if ($('li[style=""]').length < 50){sanny()}
+	})
+
+	if ($('li[style=""]').length < 50) sanny() ;
 	found();
 }
 
 function sanny() {
-	let Element = $("li[style=''] pre"),
-		Counter = 0,
-		Length = Element.length;
+	let Elements = $("li[style=''] pre")
 
-	for (Counter; Counter < Length; Counter++){
-		Element[Counter].innerHTML =
-		Element[Counter].innerHTML
+	Elements.forEach(Select => {
+		Select.innerHTML =
+		Select.innerHTML
 		/*** COMMENTS ***/
 		.replace(/(\/\/.+)/gm, `<hlC>$1</hlC>`)
 		.replace(/(\/\*[\x09-.0-■]*\*\/)/gmi, `<hlC>$1</hlC>`)
@@ -122,5 +119,5 @@ function sanny() {
 		.replace(/\b(longstring|shortstring|integer|jump_if_false|thread|create_thread|create_custom_thread|end_thread|name_thread|end_thread_named|if|then|else|hex|end|else_jump|jump|jf|print|const|while|not|wait|repeat|until|break|continue|for|gosub|var|array|of|and|or|to|downto|step|call|return_true|return_false|return|ret|rf|tr|Inc|Dec|Mul|Div|Alloc|Sqr|Random|int|string|float|bool|fade|DEFINE|select_interior|set_weather|set_wb_check_to|nop)\b/gmi, `<b>$1<\/b>`)
 		/*** OPERADORS ***/
 		.replace(/\s(\+|\-|\*|\/|\^|\%|\||\&lt;|\&gt;|\&lt;\&lt;|\&gt;\&gt;|=)?(=|~|\*|\&lt;|\&gt;)\s/gmi," <hlO>$1$2<\/hlO> ")
-	}
+	})
 }
