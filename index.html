@@ -22,7 +22,7 @@
 		<nav>
 			<item>File
 				<div>
-					<p onclick="carga()">Load</p>
+					<p onclick="load()">Load</p>
 					<p disabled>Load from Local</p>
 					<hr>
 					<p disabled>Save</p>
@@ -44,7 +44,7 @@
 			</item>
 		</nav>
 		<section >
-			<label for="myInput">Search</label> <input type="text" id="myInput" onkeydown="keyPressed(13, () => {iniciar()})" placeholder="Press ENTER">
+			<label for="myInput">Search</label> <input type="text" id="myInput" onkeydown="keyPressed(13, () => {start()})" placeholder="Press ENTER">
 		</section>
 	</header>
 	<main>

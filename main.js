@@ -39,12 +39,12 @@ function found(Counter = $('li[style=""]').length) {
 	$('#found').innerHTML = Counter
 }
 
-function carga (FileList = 'sa.txt'){
+function load (FileList = 'sa.txt'){
 	file.get({url: 'opcodes/' + FileList}, Data => {
 		file.write(Data)
 		file.format()
 		found()
-		iniciar()
+		start()
 	})
 }
 
@@ -56,11 +56,11 @@ function keyPressed(VirtualKey, Callback) {
 	}
 }
 
-function iniciar(){
+function start(){
 	let Filter = $('#myInput').value.toUpperCase().replaceAll(' ', '_'),
 		Elements = $('#myUL li');
 
-	if (Elements.length == 0 && Filter != '') carga() ;
+	if (Elements.length == 0 && Filter != '') load() ;
 
 	Elements.forEach(Selected => {
 		let Element = Selected.getElementsByTagName('pre')[0],
