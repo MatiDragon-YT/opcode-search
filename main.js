@@ -8,9 +8,9 @@
 | Always leave spaces between the operators and their values.
 */
 
-let $ = Element => Element[0] == '#'
-		? document.querySelector(Element)
-		: document.querySelectorAll(Element),
+let $ = Element => Element[0] != '#' || /\s/g.test(Element)
+		? document.querySelectorAll(Element)
+		: document.querySelector(Element)
 	_ = Message => console.log(Message);
 
 let file = {
@@ -58,7 +58,7 @@ function keyPressed(VirtualKey, Callback) {
 
 function iniciar(){
 	let Filter = $('#myInput').value.toUpperCase().replaceAll(' ', '_'),
-		Elements = $('#myUL').querySelectorAll('li');
+		Elements = $('#myUL li');
 
 	if (Elements.length == 0 && Filter != '') carga() ;
 
