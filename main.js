@@ -14,9 +14,10 @@ let $ = Element => Element[0] == '#'
 	_ = Message => console.log(Message);
 
 let file = {
-	get : async function (Type, Url , Callback) {
-		return await fetch(Url)
-					 .then(Res => Res == 'json' ? Res.json() : Res.text())
+	get : async function (Info, Callback) {
+		let X = {type: Info.type || 'text'}
+		return await fetch(Info.url)
+					 .then(Res => X.type == 'json' ? Res.json() : Res.text())
 					 .then(Data => Callback(Data))
 					 .catch(Error => _(Error))
 	},
@@ -29,6 +30,7 @@ let file = {
 	},
 	clear : () => {
 		file.write()
+		$('#myInput').value = ''
 		found(0)
 	}
 };
@@ -38,7 +40,7 @@ function found(Counter = $('li[style=""]').length) {
 }
 
 function carga (FileList = 'sa.txt'){
-	file.get('text', 'opcodes/' + FileList, Data => {
+	file.get({url: 'opcodes/' + FileList}, Data => {
 		file.write(Data)
 		file.format()
 		found()
@@ -76,9 +78,7 @@ function iniciar(){
 }
 
 function sanny() {
-	let Elements = $("li[style=''] pre")
-
-	Elements.forEach(Select => {
+	$("li[style=''] pre").forEach(Select => {
 		Select.innerHTML =
 		Select.innerHTML
 		/*** COMMENTS ***/
