@@ -84,7 +84,7 @@ function start(){
 }
 
 function sanny() {
-	$("li[style=''] pre").forEach(Select => {
+	$('li[style=""] pre').forEach(Select => {
 		Select.innerHTML =
 		Select.innerHTML
 		/*** COMMENTS ***/
