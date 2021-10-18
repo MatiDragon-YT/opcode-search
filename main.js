@@ -8,10 +8,13 @@
 | Always leave spaces between the operators and their values.
 */
 
-let $ = (Element, Parent = document) => Element[0] != '#' || /\s/g.test(Element)
-		? Parent.querySelectorAll(Element)
-		: Parent.querySelector(Element)
-	_ = Message => console.log(Message);
+let $ = (Element, Parent = document) =>
+	'#' == Element[0] && !/\s/.test(Element)
+	|| 1 == Parent.querySelectorAll(Element).length
+		? Parent.querySelector(Element)
+		: Parent.querySelectorAll(Element)
+
+let _ = Message => console.log(Message)
 
 let file = {
 	get : async function (Info, Callback) {
@@ -24,7 +27,7 @@ let file = {
 	write : (Message = '') => {
 		$("#myUL").innerHTML = Message
 	},
-	format : (Opcodes = $('ul')[0]) => {
+	format : (Opcodes = $('ul')) => {
 		Opcodes.innerHTML =
 		Opcodes.innerHTML.replace(/^(.+)/gim, '<li style><pre>$1</pre></li>')
 	},
