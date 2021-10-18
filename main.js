@@ -6,6 +6,9 @@
 | Only objects must end with a semicolon at the end of the braces.
 | Exceeding 90 characters per line is not allowed, except for templates & regex.
 | Always leave spaces between the operators and their values.
+
+## SETTINGS
+| Tab Size: 4
 */
 
 let $ = (Element, Parent = document) =>
