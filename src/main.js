@@ -139,7 +139,7 @@ function start(){
 
 	})
 
-	const MAX_COUNT_LI = 50
+	const MAX_COUNT_LI = 100
 
 	if ($('li[style=""]').length < MAX_COUNT_LI){
 		sanny()
