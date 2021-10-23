@@ -51,7 +51,7 @@ const file = {
 const dir = {
 	local : () =>
 		origin == 'https://matidragon-yt.github.io'
-			? origin + '/page/'
+			? origin + '/opcode-search/'
 			: origin + '/'
 	,
 	imagen : () => dir.local() + 'static/images/',
