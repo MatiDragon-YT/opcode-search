@@ -1,19 +1,3 @@
-/** 
-# RULES
-=
-| They should all start with a capital letter, except for the objects.
-| The constants of a value or enumeration must be in uppercase.
-| Only objects must end with a semicolon at the end of the braces.
-| Exceeding 90 characters per line is not allowed, except for templates & regex.
-| Always leave spaces between the operators and their values.
-
-## SETTINGS
-| Tab Size: 4
-| camelCase: 
-| PascalCase:
-| SNAKE_CASE: 
-*/
-
 const _ = MESSAGE => console.log(MESSAGE)
 
 const $ = (ELEMENT, PARENT = document) =>
@@ -22,6 +6,44 @@ const $ = (ELEMENT, PARENT = document) =>
 			? PARENT.querySelector(ELEMENT)
 			: PARENT.querySelectorAll(ELEMENT)
 
+const css = (...WORKER) => {
+	const LENGTH = WORKER.length
+
+	let values = []
+
+	for (let COUNTER = 0; COUNTER < LENGTH; COUNTER++){
+		const [ELEMENT, PROPERTIES] = WORKER[COUNTER]
+		const TYPE = typeof PROPERTIES
+
+		if (TYPE === 'object') {
+			for (let SELECTOR in PROPERTIES) {
+		    	ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
+		    }
+		}
+		else if (TYPE === 'string') {
+			values.push(
+				getComputedStyle(ELEMENT)
+				.getPropertyValue(PROPERTIES)
+			)
+			if(COUNTER == LENGTH - 1){
+				return values.length == 1
+					? values[0]
+					: values
+			}
+		}
+		else {
+			_('Enter OBJECT for set properties or STRING for get.')
+		}
+	}
+}
+
+function keyPressed(VIRTUAL_KEY, CALLBACK) {
+	window.onkeydown = (EVENT) => {
+		if (EVENT.keyCode === VIRTUAL_KEY){
+			CALLBACK()
+		}
+	}
+}
 const file = {
 	get : async function (INFO, CALLBACK) {
 		const TYPE = INFO.type || 'text'
@@ -88,36 +110,15 @@ function load (FILELIST = dir.local() + '/assets/opcodes/sa.txt'){
 	})
 }
 
-function keyPressed(VIRTUAL_KEY, CALLBACK) {
-	window.onkeydown = (EVENT) => {
-		if (EVENT.keyCode === VIRTUAL_KEY){
-			CALLBACK()
-		}
-	}
-}
-
-function css(ELEMENT, PROPERTIES) {
-	if (typeof PROPERTIES === 'object') {
-	    for (let SELECTOR in PROPERTIES) {
-	    	ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
-	    }
-	} else {
-		return getComputedStyle(ELEMENT).getPropertyValue(PROPERTIES)
-	}
-}
-
 function restarRenderNav() {
-	css(
-		$('item')[0],{
-			display: 'none'
-		}
-	)
+	const ITEM = $('item')[0];
+
+	css([ITEM, {display: 'none'}])
+
 	setTimeout(() =>{ 
-		css(
-			$('item')[0],{
-				display: 'block'
-			}
-		)
+
+		css([ITEM, {display: 'block'}])
+
 	}, 0)					
 }
 
@@ -134,8 +135,8 @@ function start(){
 		const TEXTVALUE = ELEMENT.textContent || ELEMENT.innerText
 
 		TEXTVALUE.toUpperCase().indexOf(FILTER) > -1
-			? css(SELECTED, {display: ''})
-			: css(SELECTED, {display: 'none'})
+			? css([SELECTED, {display: ''}])
+			: css([SELECTED, {display: 'none'}])
 
 	})
 
