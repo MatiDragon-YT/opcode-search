@@ -1,10 +1,17 @@
-const _ = MESSAGE => console.log(MESSAGE)
+const SETTINGS = {
+	LOG_BY_CONSOLE: true
+}
+
+const print = (MESSAGE, CSS) =>
+	SETTINGS.LOG_BY_CONSOLE == true
+		? console.log(MESSAGE, CSS)
+		: alert(MESSAGE)
 
 const $ = (ELEMENT, PARENT = document) =>
-		ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
-		|| PARENT.querySelectorAll(ELEMENT).length === 1
-			? PARENT.querySelector(ELEMENT)
-			: PARENT.querySelectorAll(ELEMENT)
+	ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
+	|| PARENT.querySelectorAll(ELEMENT).length === 1
+		? PARENT.querySelector(ELEMENT)
+		: PARENT.querySelectorAll(ELEMENT)
 
 const css = (...WORKER) => {
 	const LENGTH = WORKER.length
@@ -17,14 +24,11 @@ const css = (...WORKER) => {
 
 		if (TYPE === 'object') {
 			for (let SELECTOR in PROPERTIES) {
-		    	ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
-		    }
+	    	ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
+	    }
 		}
 		else if (TYPE === 'string') {
-			values.push(
-				getComputedStyle(ELEMENT)
-				.getPropertyValue(PROPERTIES)
-			)
+			values.push(getComputedStyle(ELEMENT).getPropertyValue(PROPERTIES))
 			if(COUNTER == LENGTH - 1){
 				return values.length == 1
 					? values[0]
@@ -48,9 +52,9 @@ const file = {
 	get : async function (INFO, CALLBACK) {
 		const TYPE = INFO.type || 'text'
 		return await fetch(INFO.url)
-					 .then(RES => TYPE == 'json' ? RES.json() : RES.text())
-					 .then(DATA => CALLBACK(DATA))
-					 .catch(ERROR => _(ERROR))
+		 .then(RES => TYPE == 'json' ? RES.json() : RES.text())
+		 .then(DATA => CALLBACK(DATA))
+		 .catch(ERROR => print(ERROR))
 	},
 
 	write : (MESSAGE = '') => {
@@ -193,3 +197,5 @@ function sanny() {
 		.replace(/\s(\+|\-|\*|\/|\^|\%|\||\&lt;|\&gt;|\&lt;\&lt;|\&gt;\&gt;|=)?(=|~|\*|\&lt;|\&gt;)\s/gmi," <hlO>$1$2<\/hlO> ")
 	})
 }
+
+print("%cStop! better download the repository.\nhttps://github.com/MatiDragon-YT/opcode-search", "color: black;background-color: #4caf50;font-size: 1rem;font-weight:bold;padding:.45rem 1rem")
