@@ -22,18 +22,19 @@
 		<nav id="L">
 			<item>File
 				<div>
-					<p onclick="load();restarRenderNav()">Load</p>
+					<p id="file-load">Load</p>
 					<p disabled>Load from Local</p>
 					<hr>
 					<p disabled>Save</p>
 					<p disabled>Save as</p>
 					<hr>
-					<p onclick="file.clear()">Close</p>
+					<p id="file-clear">Clear</p>
 				</div>
 			</item>
 			<item>Preferences
 				<div>
-					<p onclick="sanny()"><i class="icon" title="Only the results that are displayed will be highlighted">info</i>Highlighter</p>
+					<p id="pref-settings">Settings</p>
+					<hr>
 					<p disabled>Theme Light</p>
 				</div>
 			</item>
@@ -44,7 +45,7 @@
 			</item>
 		</nav>
 		<section >
-			<label for="myInput">Search</label> <input type="text" id="myInput" onkeydown="keyPressed(13, () => {start()})" placeholder="Press ENTER">
+			<label for="myInput">Search</label> <input type="text" id="myInput" placeholder="Press ENTER">
 		</section>
 	</header>
 	<main>
@@ -68,6 +69,30 @@
 		</section>
 	-->
 	</footer>
+<section id="modal">
+    <element id="modal-window">
+    <div id="modal-header">
+    	<h1 id="modal-title">Settings</h1>
+    	<span>
+	    	<i id="modal-save" class="icon">save</i>
+	    	<i id="modal-close" class="icon">close</i>
+    	</span>
+    </div>
+    <div id="modal-container">
+        <p>With love for you ;)</p>
+        <br>
+        <b>Highlighter opcodes</b><br>
+        <blockquote>
+        	<label for="limit-h">Limited to number of found to </label>
+        	<input type="number" id="limit-h" value="100"><br>
+        	<label for="limit-h" class="comment">
+        		The higher the number, the longer it will take to display the results.<br>
+        		With 0 disables the function and -1 you will highlight all.
+        	</label>
+        </blockquote>
+    </div>
+</element>
+</section>
 </body>
-<script src="src/main.min.js"></script>
+<script type="module" src="src/main.js"></script>
 </html>

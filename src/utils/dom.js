@@ -1,0 +1,33 @@
+export const $ = (ELEMENT, PARENT = document) =>
+	ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
+	|| PARENT.querySelectorAll(ELEMENT).length === 1
+		? PARENT.querySelector(ELEMENT)
+		: PARENT.querySelectorAll(ELEMENT)
+
+export const css = (...WORKER) => {
+	const LENGTH = WORKER.length
+
+	let values = []
+
+	for (let COUNTER = 0; COUNTER < LENGTH; COUNTER++){
+		const [ELEMENT, PROPERTIES] = WORKER[COUNTER]
+		const TYPE = typeof PROPERTIES
+
+		if (TYPE === 'object') {
+			for (let SELECTOR in PROPERTIES) {
+	    	ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
+	    }
+		}
+		else if (TYPE === 'string') {
+			values.push(getComputedStyle(ELEMENT).getPropertyValue(PROPERTIES))
+			if(COUNTER == LENGTH - 1){
+				return values.length == 1
+					? values[0]
+					: values
+			}
+		}
+		else {
+			_('Enter OBJECT for set properties or STRING for get.')
+		}
+	}
+}

@@ -1,53 +1,48 @@
+import { $, css } from './utils/dom.js'
+import { sanny } from './utils/hl.js'
+
 const SETTINGS = {
-	LOG_BY_CONSOLE: true
+	LOG_BY_CONSOLE: true,
+	MAX_COUNT_LI: () => {
+		return $('#limit-h').value
+	},
 }
 
-const print = (MESSAGE, CSS) =>
+const print = (MESSAGE, CSS = '') =>
 	SETTINGS.LOG_BY_CONSOLE == true
 		? console.log(MESSAGE, CSS)
 		: alert(MESSAGE)
 
-const $ = (ELEMENT, PARENT = document) =>
-	ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
-	|| PARENT.querySelectorAll(ELEMENT).length === 1
-		? PARENT.querySelector(ELEMENT)
-		: PARENT.querySelectorAll(ELEMENT)
-
-const css = (...WORKER) => {
-	const LENGTH = WORKER.length
-
-	let values = []
-
-	for (let COUNTER = 0; COUNTER < LENGTH; COUNTER++){
-		const [ELEMENT, PROPERTIES] = WORKER[COUNTER]
-		const TYPE = typeof PROPERTIES
-
-		if (TYPE === 'object') {
-			for (let SELECTOR in PROPERTIES) {
-	    	ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
-	    }
-		}
-		else if (TYPE === 'string') {
-			values.push(getComputedStyle(ELEMENT).getPropertyValue(PROPERTIES))
-			if(COUNTER == LENGTH - 1){
-				return values.length == 1
-					? values[0]
-					: values
-			}
-		}
-		else {
-			_('Enter OBJECT for set properties or STRING for get.')
-		}
-	}
-}
-
-function keyPressed(VIRTUAL_KEY, CALLBACK) {
-	window.onkeydown = (EVENT) => {
+function keyPressed(ELEMENT, VIRTUAL_KEY, CALLBACK) {
+	ELEMENT.onkeydown = function (EVENT) {
 		if (EVENT.keyCode === VIRTUAL_KEY){
 			CALLBACK()
 		}
 	}
 }
+
+$('#myInput').onkeydown = () => keyPressed($('#myInput'), 13, () => start())
+$('#file-load').onclick = () => load()
+$('#file-clear').onclick = () => file.clear()
+$('#pref-settings').onclick = () => css([$('#modal'), {display: 'grid'}])
+$('#modal-close').onclick = () => css([$('#modal'), {display: 'none'}])
+$('#limit-h').onchange = () => {
+	css( [$('#modal-save'), {display: 'initial'}] )
+}
+$('#modal-save').onclick = () => {
+	let saved = localStorage.getItem('limit-h')
+	let displayer = $('#limit-h').value
+
+	if(saved != displayer){
+		localStorage.setItem('limit-h', displayer)
+	}
+	css( [$('#modal-save'), {display: 'none'}] )
+}
+onload = () => {
+	$('#limit-h').value = localStorage.getItem('limit-h')
+	css( [$('#modal-save'), {display: 'none'}] )
+}
+
 const file = {
 	get : async function (INFO, CALLBACK) {
 		const TYPE = INFO.type || 'text'
@@ -102,7 +97,7 @@ const doc = {
 }
 
 function found(COUNTER = $('li[style=""]').length) {
-	$('#found').innerHTML = COUNTER
+	$('#found').innerHTML = COUNTER || 1
 }
 
 function load (FILELIST = dir.local() + '/assets/opcodes/sa.txt'){
@@ -142,60 +137,13 @@ function start(){
 			? css([SELECTED, {display: ''}])
 			: css([SELECTED, {display: 'none'}])
 
-	})
+	}) 
 
-	const MAX_COUNT_LI = 100
-
-	if ($('li[style=""]').length < MAX_COUNT_LI){
+	if (SETTINGS.MAX_COUNT_LI() == -1 || $('li[style=""]').length < SETTINGS.MAX_COUNT_LI()){
 		sanny()
 	}
 
 	found()
-}
-
-function sanny() {
-	$('li[style=""] pre').forEach(SELECT => {
-		SELECT.innerHTML =
-		SELECT.innerHTML
-		/*** COMMENTS ***/
-		.replace(/(\/\/.+)/gm, `<hlC>$1</hlC>`)
-		.replace(/(\/\*[\x09-.0-■]*\*\/)/gmi, `<hlC>$1</hlC>`)
-		.replace(/(\{[\x09-z\|~-■]*\})/gmi, `<hlC>$1</hlC>`)
-		/*** STRINGS ***/
-		.replace(/\"([\x09-\!#-■]*)\"/gmi, `<hlS>\"$1\"<\/hlS>`)
-		.replace(/\'([!-&(-■]+)\'/gmi, `<hlS>\'$1\'<\/hlS>`)
-		/*** LABELS ***/
-		.replace(/(\s+\@+\w+|\:+\w+)/gm, `<hlL>$1<\/hlL>`)
-		/*** GOSUBS ***/
-		.replace(/(\s[A-Za-z0-9_]+\(\))/gm, `<hlM>$1<\/hlM>`)
-		/*** ARRAYS ***/
-		.replace(/(\[)([\d+]*)(\])/gmi, `$1<hlN>$2<\/hlN>$3`)
-		/*** OPCODES ***/
-		.replace(/^(\s*)([a-fA-F0-9]{4}\:)/gmi, `$1<hlF>$2<\/hlF>`)
-		/*** HEXALES ***/
-		.replace(/\b(\d+)(x|\.)(\w+)\b/gmi, `<hlN>$1$2$3<\/hlN>`)
-		/*** BOOLEANS ***/
-		.replace(/\b(true|false)\b/gmi, `<hlN>$1<\/hlN>`)
-		/*** NUMBERS ***/
-		.replace(/(\s|\-|\,|\()(?!\$)(\d+)(?!\:|\@)(i|f|s|v)?\b/gmi, `$1<hlN>$2$3<\/hlN>`)
-		/*** MODELS ***/
-		.replace(/(\#+\w+)/gm, `<hlN>$1<\/hlN>`)
-		/*** CLASSES ***/
-		.replace(/(Actor|Animation|Attractor|Audio|AudioStream|Blip|Boat|Button|Camera|Car|CarGenerator|CardDecks|Checkpoint|Clock|Component|Credits|Cutscene|Debugger|DecisionMaker|DecisionMakerActor|DecisionMakerGroup|DynamicLibrary|File|Fs|Fx|Game|Gang|Garage|Group|Heli|Hid|ImGui|IniFile|Input|Interior|Key|Marker|Math|Memory|Menu|Model|Mouse|Multiplayer|List|Object|ObjectGroup|Particle|Path|Pickup|Plane|Player|Rampage|Rc|Render|Restart|Screen|ScriptEvent|ScriptFire|Searchlight|Sequence|Shopping|Skip|Sound|Soundtrack|SpecialActor|Sphere|Sprite|Stat|StreamedScript|Streaming|String|StuckCarCheck|Task|Text|Texture|Trailer|Train|Txd|WeaponInfo|Weather|Widget|World|Zone)(\.)(\w+)/gmi, `<hlX>$1<\/hlX>$2<hlM>$3</hlM>`)
-		/*** METHODS ***/
-		.replace(/(\$\w+|\d+\@)\.([0-9A-Z_a-z]+)/gm, `$1.<hlM>$2</hlM>`)
-		/*** DIRECTIVES ***/
-		.replace(/(\{\$)(CLEO|OPCODE|NOSOURCE)(\s\w+\}|\})/gmi, `<hlV>$1$2$3<\/hlV>`)
-		.replace(/\b(timera|timerb)\b/gmi, `<hlV>$1<\/hlV>`)
-		/*** VARIABLES ***/
-		.replace(/(\d+)(\@s|\@v|\@)(\:|\s|\n|\]|\.|\,||\))/gm, `<hlV>$1$2<\/hlV>$3`)
-		.replace(/(\&amp\d+)/gim, `<hlV>$1<\/hlV>`)
-		.replace(/(s|v)?(\$[0-9A-Z_a-z]+)/gm, `<hlG>$1$2<\/hlG>`)
-		/*** KEYWORDS ***/
-		.replace(/\b(longstring|shortstring|integer|jump_if_false|thread|create_thread|create_custom_thread|end_thread|name_thread|end_thread_named|if|then|else|hex|end|else_jump|jump|jf|print|const|while|not|wait|repeat|until|break|continue|for|gosub|var|array|of|and|or|to|downto|step|call|return_true|return_false|return|ret|rf|tr|Inc|Dec|Mul|Div|Alloc|Sqr|Random|int|string|float|bool|fade|DEFINE|select_interior|set_weather|set_wb_check_to|nop)\b/gmi, `<b>$1<\/b>`)
-		/*** OPERADORS ***/
-		.replace(/\s(\+|\-|\*|\/|\^|\%|\||\&lt;|\&gt;|\&lt;\&lt;|\&gt;\&gt;|=)?(=|~|\*|\&lt;|\&gt;)\s/gmi," <hlO>$1$2<\/hlO> ")
-	})
 }
 
 print("%cStop! better download the repository.\nhttps://github.com/MatiDragon-YT/opcode-search", "color: black;background-color: #4caf50;font-size: 1rem;font-weight:bold;padding:.45rem 1rem")
