@@ -39,7 +39,7 @@ $('#modal-save').onclick = () => {
 	css( [$('#modal-save'), {display: 'none'}] )
 }
 onload = () => {
-	$('#limit-h').value = localStorage.getItem('limit-h')
+	$('#limit-h').value = localStorage.getItem('limit-h') || 50
 	css( [$('#modal-save'), {display: 'none'}] )
 }
 
