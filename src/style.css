@@ -1,14 +1,12 @@
 :root {
-	--code: #f9f9f9;
-	--back: #343a40;
-	--comment: #4c636f;
+	--text: #f9f9f9;
+	--background: #343a40;
+    --ground:  #0f191e;
+    --comment: #4c636f;
+    --opcode: #4c636f;
 	--variable: #2196f3;
-    --local: #304ffe;
 	--string: #ff9100;
 	--number: #f44336;
-	--model: #f44336;
-	--classe: #eeff41;
-	--command: #26a69a;
 	--label: #4caf50;
 	--operator: #c554ff;
 }
@@ -102,8 +100,10 @@ hr {
     border-bottom: white solid 1px;
     margin: 3px 4px 3px 31px;
 }
-#myInput {
+input[type=text]{
     outline: none;
+}
+#myInput {
     padding: 6px;
     min-width: 250px;
     background: none;
@@ -123,7 +123,7 @@ li {
     margin-right: 2px;
 }
 pre {
-    background: #0f191e;
+    background: var(--ground);
     padding: 3px 5px;
     font-family: monospace;
     overflow-y: scroll;
@@ -142,8 +142,6 @@ hlF {color: var(--comment)}
 hlV {color: var(--variable)}
 hlS {color: var(--string)}
 hlN {color: var(--number)}
-hlX {color: var(--classe)}
-hlM {color: var(--command)}
 hlL {color: var(--label)}
 hlO {color: var(--operator)}
 hlG {color: var(--variable)}
@@ -178,6 +176,7 @@ nav i.icon {
     display: flex;
     justify-content: space-between;
     position: relative;
+    /* box-shadow: 0px 11px 25px -7px black;*/
 }
 #modal-header .icon {
     text-align: center;
@@ -196,7 +195,9 @@ nav i.icon {
     padding: 0 1rem;
 }
 #modal-container{
-    padding: 0.5px 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 1rem;
+    height: calc(100% - 3.3rem);
+    overflow-y: scroll;
 }
 blockquote{
     margin: 0.15rem 2.3rem 0.6rem;
@@ -204,4 +205,15 @@ blockquote{
 .comment {
     color: rgb(255 255 255 / 47%);
     font-weight: lighter;
+}
+table,
+table input {
+    width: 100%;
+}
+table input {
+    background: #16252c;
+    border-bottom: solid 1px rgb(255 255 255 / 33%);
+    padding: 0.45rem 0;
+    margin: 0 -7px;
+    text-align: center;
 }

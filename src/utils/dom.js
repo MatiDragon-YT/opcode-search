@@ -1,3 +1,10 @@
+export const log = (MESSAGE, INFO) => {
+	const TYPE = INFO.logByConsole || true
+	TYPE
+		? console.log(MESSAGE, INFO.css || '')
+		: alert(MESSAGE)
+}
+
 export const $ = (ELEMENT, PARENT = document) =>
 	ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
 	|| PARENT.querySelectorAll(ELEMENT).length === 1
@@ -15,8 +22,8 @@ export const css = (...WORKER) => {
 
 		if (TYPE === 'object') {
 			for (let SELECTOR in PROPERTIES) {
-	    	ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
-	    }
+				ELEMENT.style[SELECTOR] = PROPERTIES[SELECTOR];
+			}
 		}
 		else if (TYPE === 'string') {
 			values.push(getComputedStyle(ELEMENT).getPropertyValue(PROPERTIES))
@@ -27,7 +34,28 @@ export const css = (...WORKER) => {
 			}
 		}
 		else {
-			_('Enter OBJECT for set properties or STRING for get.')
+			log('Enter OBJECT for set properties or STRING for get.')
+		}
+	}
+}
+
+export const doc = {
+	header : () => document.title.split(" - "),
+	title : () => doc.header()[0],
+	subtitle : () => doc.header()[1],
+	description : () => {
+		const Element = $("meta[name='description']")
+		return Element != null
+			? Element.getAttribute("content")
+			: "MatiDragon"
+	}
+}
+
+
+export const keyPressed = (ELEMENT, VIRTUAL_KEY, CALLBACK) => {
+	ELEMENT.onkeydown = function (EVENT) {
+		if (EVENT.keyCode === VIRTUAL_KEY){
+			CALLBACK()
 		}
 	}
 }
