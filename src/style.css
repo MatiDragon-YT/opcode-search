@@ -1,19 +1,19 @@
 :root {
-	--text: #f9f9f9;
-	--background: #343a40;
-    --ground:  #0f191e;
-    --comment: #4c636f;
-    --opcode: #4c636f;
-	--variable: #2196f3;
-	--string: #ff9100;
-	--number: #f44336;
-	--label: #4caf50;
-	--operator: #c554ff;
+	--text: #F9F9F9;
+	--background: #343A40;
+    --ground:  #0F191E;
+    --comment: #4C636F;
+    --opcode: #4C636F;
+	--variable: #2196F3;
+	--string: #FF9100;
+	--number: #F44336;
+	--label: #4CAF50;
+	--operator: #C554FF;
 }
 ::-webkit-scrollbar { width: .7rem; height: .33rem;}
-::-webkit-scrollbar-track { background: #0f191e }
+::-webkit-scrollbar-track { background: #0F191E }
 ::-webkit-scrollbar-corner{ background: var(--background) }
-::-webkit-scrollbar-thumb { background: #4caf50}
+::-webkit-scrollbar-thumb { background: #4CAF50}
 ::-webkit-input-placeholder {color: black }
 
 :-ms-input-placeholder {color: black }
