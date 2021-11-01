@@ -1,9 +1,5 @@
-export const log = (MESSAGE, INFO) => {
-	const TYPE = INFO.logByConsole || true
-	TYPE
-		? console.log(MESSAGE, INFO.css || '')
-		: alert(MESSAGE)
-}
+export const log = (MESSAGE, CSS = '') =>
+	console.log(MESSAGE, CSS)
 
 export const $ = (ELEMENT, PARENT = document) =>
 	ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
@@ -50,7 +46,6 @@ export const doc = {
 			: "MatiDragon"
 	}
 }
-
 
 export const keyPressed = (ELEMENT, VIRTUAL_KEY, CALLBACK) => {
 	ELEMENT.onkeydown = function (EVENT) {

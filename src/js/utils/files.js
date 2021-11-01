@@ -2,7 +2,10 @@ import { $, log } from './dom.js'
 import { found } from '../search.js'
 export const fileServer = {
 	get : async function (INFO, CALLBACK) {
+		$('#list').innerHTML = 'Loading...'
+
 		const TYPE = INFO.type || 'text'
+
 		return await fetch(INFO.url)
 		 .then(RES => TYPE == 'json' ? RES.json() : RES.text())
 		 .then(DATA => CALLBACK(DATA))
@@ -10,7 +13,7 @@ export const fileServer = {
 	},
 
 	write : (MESSAGE = '') => {
-		$("#myUL").innerHTML = MESSAGE
+		$("#list").innerHTML = MESSAGE
 	},
 
 	format : (OPCODES) => {
@@ -19,9 +22,9 @@ export const fileServer = {
 		.replace(/^(.+)/gim, '<li style><pre>$1</pre></li>')
 	},
 
-	clear : () => {
+	clear : (ELEMENT) => {
 		fileServer.write()
-		$('#myInput').value = ''
+		ELEMENT.value = ''
 		found(0)
 	}
 }

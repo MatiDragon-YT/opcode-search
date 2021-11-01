@@ -30,7 +30,7 @@ export function restarRenderNav() {
 
 export function start(){
 	const FILTER = $('#myInput').value.toUpperCase().replaceAll(' ', '_')
-	const ELEMENTS = $('#myUL li')
+	const ELEMENTS = $('#list li')
 
 	if (ELEMENTS.length == 0 && FILTER != ''){
 		load()
@@ -46,7 +46,7 @@ export function start(){
 
 	}) 
 	
-	const MAX_COUNT_LI = $('#limit-h').value
+	const MAX_COUNT_LI = $('#settings-limit-h').value
 
 	if (MAX_COUNT_LI == -1 || $('li[style=""]').length < MAX_COUNT_LI){
 		sanny()
