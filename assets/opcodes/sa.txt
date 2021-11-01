@@ -27,7 +27,7 @@
 001A:   0 > $GLOBAL
 001B:   0 > 0@
 001C:   $GLOBAL > $1 // (int)
-001D:   0@ > 1@ // (int)
+001D:   0@ > 1@      // (int)
 001E:   $GLOBAL > 0@ // (int)
 001F:   0@ > $GLOBAL // (int)
 0020:   $GLOBAL > 0.0
@@ -35,7 +35,7 @@
 0022:   0.0 > $GLOBAL
 0023:   0.0 > 0@
 0024:   $GLOBAL > $1 // (float)
-0025:   0@ > 1@ // (float)
+0025:   0@ > 1@      // (float)
 0026:   $GLOBAL > 0@ // (float)
 0027:   0@ > $GLOBAL // (float)
 0028:   $GLOBAL >= 0
@@ -43,7 +43,7 @@
 002A:   0 >= $GLOBAL
 002B:   0 >= 0@
 002C:   $GLOBAL >= $1 // (int)
-002D:   0@ >= 1@ // (int)
+002D:   0@ >= 1@      // (int)
 002E:   $GLOBAL >= 0@ // (int)
 002F:   0@ >= $GLOBAL // (int)
 0030:   $GLOBAL >= 0.0
@@ -51,18 +51,18 @@
 0032:   0.0 >= $GLOBAL
 0033:   0.0 >= 0@
 0034:   $GLOBAL >= $1 // (float)
-0035:   0@ >= 1@ // (float)
+0035:   0@ >= 1@      // (float)
 0036:   $GLOBAL >= 0@ // (float)
 0037:   0@ >= $GLOBAL // (float)
 0038:   $GLOBAL == 0
 0039:   0@ == 0
 003A:   $GLOBAL == $1 // (int)
-003B:   0@ == 1@ // (int)
+003B:   0@ == 1@      // (int)
 003C:   $GLOBAL == 0@ // (int)
 0042:   $GLOBAL == 0.0
 0043:   0@ == 0.0
 0044:   $GLOBAL == $1 // (float)
-0045:   0@ == 1@ // (float)
+0045:   0@ == 1@      // (float)
 0046:   $GLOBAL == 0@ // (float)
 004D: jump_if_false @LABEL
 004E: terminate_this_script
@@ -73,32 +73,32 @@
 0053: $GLOBAL = create_player #NULL at 0.0 0.0 0.0
 0058: $GLOBAL += $1 // (int)
 0059: $GLOBAL += $1 // (float)
-005A: 0@ += 1@ // (int)
-005B: 0@ += 1@ // (float)
+005A: 0@ += 1@      // (int)
+005B: 0@ += 1@      // (float)
 005C: 0@ += $GLOBAL // (int)
 005D: 0@ += $GLOBAL // (float)
 005E: $GLOBAL += 0@ // (int)
 005F: $GLOBAL += 0@ // (float)
 0060: $GLOBAL -= $1 // (int)
 0061: $GLOBAL -= $1 // (float)
-0062: 0@ -= 1@ // (int)
-0063: 0@ -= 1@ // (float)
+0062: 0@ -= 1@      // (int)
+0063: 0@ -= 1@      // (float)
 0064: 0@ -= $GLOBAL // (int)
 0065: 0@ -= $GLOBAL // (float)
 0066: $GLOBAL -= 0@ // (int)
 0067: $GLOBAL -= 0@ // (float)
 0068: $GLOBAL *= $1 // (int)
 0069: $GLOBAL *= $1 // (float)
-006A: 0@ *= 1@ // (int)
-006B: 0@ *= 1@ // (float)
+006A: 0@ *= 1@      // (int)
+006B: 0@ *= 1@      // (float)
 006C: $GLOBAL *= 0@ // $ *= @ (int)
 006D: $GLOBAL *= 0@ // (float)
 006E: 0@ *= $GLOBAL // (int)
 006F: 0@ *= $GLOBAL // (float)
 0070: $GLOBAL /= $1 // (int)
 0071: $GLOBAL /= $1 // (float)
-0072: 0@ /= 1@ // (int)
-0073: 0@ /= 1@ // (float)
+0072: 0@ /= 1@      // (int)
+0073: 0@ /= 1@      // (float)
 0074: $GLOBAL /= 0@ // (int)
 0075: $GLOBAL /= 0@ // (float)
 0076: 0@ /= $GLOBAL // (int)
@@ -136,16 +136,16 @@
 0096: make $GLOBAL absolute_float
 0097: make 0@ absolute_float
 0098: 0@ = random_float_in_ranges_0.0_to_0.0
-0099: $GLOBAL = random_int_in_ranges_0_to_32767
+0099: 0@ = random_int_in_ranges_0_to_32767
 009A: 0@ = create_actor_pedtype 0 model #MALE01 at 0.0 0.0 0.0
 009B: destroy_actor 0@
-00A0: get_actor $GLOBAL position_to $GLOBAL $GLOBAL $GLOBAL
+00A0: get_actor $GLOBAL position_to 0@ 0@ 0@
 00A1: put_actor $GLOBAL at 0.0 0.0 0.0
-00A3:   actor $GLOBAL sphere 0 in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
-00A4:   actor $GLOBAL sphere 0 in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0
+00A3:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
+00A4:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0
 00A5: 0@ = create_car #PONY at 0.0 0.0 0.0
 00A6: destroy_car 0@
-00A7: car 0@ drive_to 0@ 0@ 0@
+00A7: car 0@ drive_to 0.0 0.0 0.0
 00A8: set_car 0@ to_psycho_driver
 00A9: set_car 0@ to_normal_driver
 00AA: get_car 0@ position_to 0@ 0@ 0@
@@ -153,13 +153,13 @@
 00AD: set_car 0@ max_speed_to 0.0
 00AE: set_car 0@ traffic_behaviour_to 0
 00AF: set_car 0@ driver_behaviour_to 0
-00B0:   car 0@ sphere 0 in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
-00B1:   car 0@ sphere 0 in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0
+00B0:   car 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
+00B1:   car 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0
 00BA: show_text_styled GXT "LONG" time 0 style 0
 00BB: show_text_lowpriority GXT 'SHORT' time 0 flag 0
 00BC: show_text_highpriority GXT 'SHORT' time 0 flag 0
 00BE: text_clear_all
-00BF: $GLOBAL = current_time_hours, $GLOBAL = current_time_minutes
+00BF: get_current_time 0@ 0@
 00C0: set_current_time 0 0
 00C1: 0@ = get_minutes_left_to_time_hours 0@ time_minutes 0@
 00C2:   sphere_onscreen 0@ 0@ 0@ radius 0.0
@@ -172,24 +172,24 @@
 00DF:   actor $GLOBAL driving
 00E1:   player 0 pressed_key 0
 00E2: 0@ = player 0 key 0 state
-00EC:   actor $GLOBAL sphere 0 near_point 0.0 0.0 radius 0.0 0.0
-00ED:   actor $GLOBAL sphere 0 near_point 0.0 0.0 radius 0.0 0.0 on_foot
-00EE:   actor $GLOBAL sphere 0 near_point 0.0 0.0 radius 0.0 0.0 in_car
-00EF:   actor 0@ sphere 0 near_point 0.0 0.0 radius 0.0 0.0 stopped
-00F0:   actor 0@ 0 near_point 0.0 0.0 radius 0.0 0.0 stopped_on_foot
-00F1:   actor $GLOBAL sphere 0 near_point 0.0 0.0 radius 0.0 0.0 stopped_in_car
-00F2:   actor 0@ near_actor $GLOBAL radius 0.0 0.0 sphere 0
-00F3:   actor $GLOBAL near_actor 0@ radius 0.0 0.0 sphere 0 on_foot
-00F4:   actor 0@ near_actor $GLOBAL radius 0.0 0.0 sphere 0 in_car
-00FE:   actor $GLOBAL sphere 0 in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0
-00FF:   actor $GLOBAL sphere 0 in_sphere $GLOBAL $GLOBAL $GLOBAL radius 0.0 0.0 0.0 on_foot
-0100:   actor $GLOBAL in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 sphere 0 in_car
-0101:   actor $GLOBAL in_sphere 0@ 0@ 0@ radius 0.0 0.0 0.0 sphere 0 stopped
-0102:   actor $GLOBAL in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 sphere 0 stopped_on_foot
-0103:   actor $GLOBAL in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 sphere 0 stopped_in_car
-0104:   actor $GLOBAL near_actor 0@ radius 0.0 0.0 0.0 sphere 0
-0105:   actor $GLOBAL near_actor 0@ radius 0.0 0.0 0.0 sphere 0 on_foot
-0106:   actor $GLOBAL near_actor 0@ radius 0.0 0.0 0.0 sphere 0 in_car
+00EC:   actor 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0
+00ED:   actor 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0 on_foot
+00EE:   actor 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0 in_car
+00EF:   actor 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0 stopped
+00F0:   actor 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0 stopped_on_foot
+00F1:   actor 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0 stopped_in_car
+00F2:   actor 0@ near_actor 0@ radius 0.0 0.0 sphere false
+00F3:   actor 0@ near_actor 0@ radius 0.0 0.0 sphere false on_foot
+00F4:   actor 0@ near_actor 0@ radius 0.0 0.0 sphere false in_car
+00FE:   actor 0@ sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0
+00FF:   actor 0@ sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 on_foot
+0100:   actor 0@ in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 sphere false in_car
+0101:   actor 0@ in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 sphere false stopped
+0102:   actor 0@ in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 sphere false stopped_on_foot
+0103:   actor 0@ in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 sphere false stopped_in_car
+0104:   actor 0@ near_actor 0@ radius 0.0 0.0 0.0 sphere false
+0105:   actor 0@ near_actor 0@ radius 0.0 0.0 0.0 sphere false on_foot
+0106:   actor 0@ near_actor 0@ radius 0.0 0.0 0.0 sphere false in_car
 0107: $GLOBAL = create_object #AD_FLATDOOR at 0.0 0.0 0.0
 0108: destroy_object $GLOBAL
 0109: player $GLOBAL money += 0
@@ -227,7 +227,7 @@
 0162: NOP
 0164: disable_marker $GLOBAL
 0165: set_marker 0@ color_to 0
-0167: 0@ = create_marker_at 0@ 0@ 0@ color 0 flag 0
+0167: 0@ = create_marker_at 0.0 0.0 0.0 color 0 flag 0
 0168: set_marker 0@ size 0
 0169: set_fade_color_RGB 0 0 0
 016A: fade 0 time 0
@@ -235,13 +235,13 @@
 016C: restart_if_wasted_at 0.0 0.0 0.0 angle 0.0 town_number 0
 016D: restart_if_busted_at 0.0 0.0 0.0 angle 0.0 town_number 0
 016E: override_next_restart at 0.0 0.0 0.0 angle 0.0
-016F: create_particle 0 rotation_factor 0.0 size 0.0 intensity 0 flags 0 0 0 at 0@ 0@ 0@
-0172: $GLOBAL = actor 0@ Z_angle
+016F: create_particle 0 rotation_factor 0.0 size 0.0 intensity 0 flags 0 0 0 at 0.0 0.0 0.0
+0172: 0@ = actor $GLOBAL Z_angle
 0173: set_actor $GLOBAL Z_angle_to 0.0
-0174: $GLOBAL = car $GLOBAL Z_angle
-0175: set_car 0@ Z_angle_to 0.0
-0176: 0@ = object 0@ Z_angle
-0177: set_object 0@ Z_angle_to 0.0
+0174: 0@ = car $GLOBAL Z_angle
+0175: set_car $GLOBAL Z_angle_to 0.0
+0176: 0@ = object $GLOBAL Z_angle
+0177: set_object $GLOBAL Z_angle_to 0.0
 0179:   actor $GLOBAL colliding_with_object 0@
 017B: set_actor $GLOBAL weapon 0 ammo_to 0
 0180: set_on_mission_flag_to $GLOBAL // Note: your missions have to use the variable defined here
@@ -250,7 +250,7 @@
 0186: $GLOBAL = create_marker_above_car $GLOBAL
 0187: 0@ = create_marker_above_actor 0@
 0188: 0@ = create_marker_above_object 0@
-018A: 0@ = create_checkpoint_at 0@ 0@ 0@
+018A: 0@ = create_checkpoint_at 0.0 0.0 0.0
 018B: set_marker $GLOBAL radar_mode 0
 018C: play_sound 0 at 0.0 0.0 0.0
 018D: NOP 0@ 0 0.0 0.0 0.0
@@ -258,22 +258,22 @@
 018F:   is_car_stuck_on_roof 0@
 0190: add_car 0@ to_upsidedown_check // 6 max
 0191: remove_car 0@ from_upsidedown_check
-01A1:   actor $GLOBAL sphere 0 in_rectangle_cornerA 0.0 0.0 cornerB 0@ 0@ on_foot
-01A2:   actor $GLOBAL sphere 0 in_rectangle_cornerA 0@ 0@ cornerB 0@ 0@ in_car
-01A3:   actor $GLOBAL sphere 0 in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
-01A4:   actor 0@ sphere 0 in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped_on_foot
-01A5:   actor $GLOBAL sphere 0 in_rectangle_cornerA 0@ 0@ cornerB 0@ 0@ stopped_in_car
-01A6:   actor $GLOBAL sphere 0 in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 on_foot
-01A7:   actor $GLOBAL sphere 0 in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 in_car
-01A8:   actor $GLOBAL sphere 0 in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped
-01A9:   actor $GLOBAL sphere 0 in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped_on_foot
-01AA:   actor $GLOBAL sphere 0 in_cube_cornerA 0@ 0@ 0@ cornerB 0@ 0@ 0@ stopped_in_car
-01AB:   car 0@ sphere 0 in_rectangle_cornerA 0@ 0@ cornerB 0@ 0@ stopped
-01AC:   car 0@ sphere 0 in_cube_cornerA 0.0 0@ 0.0 cornerB 0.0 0@ 0.0 stopped
-01AD:   car 0@ sphere 0 near_point 0@ 0@ radius 0.0 0.0
-01AE:   car 0@ sphere 0 near_point 0.0 0.0 radius 0.0 0.0 stopped
-01AF:   car 0@ sphere 0 in_sphere 0@ 0@ 0@ radius 0.0 0.0 0.0
-01B0:   car 0@ sphere 0 in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 stopped
+01A1:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 on_foot
+01A2:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 in_car
+01A3:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
+01A4:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped_on_foot
+01A5:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped_in_car
+01A6:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 on_foot
+01A7:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 in_car
+01A8:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped
+01A9:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped_on_foot
+01AA:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped_in_car
+01AB:   car $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped
+01AC:   car $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped
+01AD:   car $GLOBAL sphere false near_point 0.0 0.0 radius 0.0 0.0
+01AE:   car $GLOBAL sphere false near_point 0.0 0.0 radius 0.0 0.0 stopped
+01AF:   car $GLOBAL sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0
+01B0:   car $GLOBAL sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 stopped
 01B2: give_actor 0@ weapon 0 ammo 0 // Load the weapon model before using this
 01B4: set_player $GLOBAL can_move 0
 01B5: force_weather 0
@@ -281,7 +281,7 @@
 01B7: release_weather
 01B9: set_actor 0@ armed_weapon_to 0
 01BB: get_object 0@ position_to $GLOBAL $GLOBAL $GLOBAL
-01BC: put_object 0@ at $GLOBAL $GLOBAL $GLOBAL
+01BC: put_object 0@ at 0.0 0.0 0.0
 01BD: $GLOBAL = current_time_in_ms
 01C0: $GLOBAL = player $GLOBAL wanted_level
 01C1:   car $GLOBAL stopped
@@ -310,9 +310,9 @@
 01F9: init_rampage_gxt 'SHORT' weapon 0 time_limit 0 targets 0 target_models #CABBIE #TAXI #CABBIE #TAXI completed_text 0
 01FA: 0@ = rampage_status
 01FB: 0@ = square_root 0@
-0202:   actor $GLOBAL near_car 0@ radius 0.0 0.0 sphere 0
+0202:   actor $GLOBAL near_car 0@ radius 0.0 0.0 sphere false
 0203:   actor $GLOBAL near_car 0@ radius 0.0 0.0 flag 0 on_foot
-0204:   actor 0@ near_car 0@ radius 0.0 0.0 sphere 0 in_car
+0204:   actor $GLOBAL near_car 0@ radius 0.0 0.0 sphere false in_car
 0205:   actor $GLOBAL near_car 0@ radius 0.0 0.0 0.0 flag 0
 0206:   actor $GLOBAL near_car 0@ radius 0.0 0.0 0.0 flag 0 on_foot
 0207:   actor $GLOBAL near_car 0@ radius 0.0 0.0 0.0 flag 0 in_car
@@ -320,7 +320,7 @@
 0209: 0@ = random_int_in_ranges 0 0
 020A: set_car 0@ door_status_to 0
 020B: explode_car 0@
-020C: create_explosion_with_radius 0 at 0@ 0@ 0@
+020C: create_explosion_with_radius 0 at 0.0 0.0 0.0
 020D:   car $GLOBAL flipped
 0213: $GLOBAL = create_pickup #INFO type 0 at 0.0 0.0 0.0
 0214:   pickup $GLOBAL picked_up
@@ -345,10 +345,10 @@
 0241:   player $GLOBAL in_remote_mode
 0244: set_cutscene_pos 0@ 0@ 0@
 0245: set_actor $GLOBAL walk_style_to "LONG"
-0247: load_model $GLOBAL($GLOBAL,0i)
-0248:   model 0@ available
-0249: release_model $GLOBAL($GLOBAL,0i)
-024F: create_corona_with_radius 0.0 type 2 lensflares 0 with_color 255 0 0 at $GLOBAL $GLOBAL $GLOBAL
+0247: load_model #FAM1
+0248:   model #FAM1 available
+0249: release_model #FAM1
+024F: create_corona_with_radius 0.0 type 2 lensflares 0 with_color 255 0 0 at 0.0 0.0 0.0
 0253: save_current_time
 0254: restore_current_time
 0256:   player $GLOBAL defined
@@ -363,8 +363,8 @@
 02A3: enable_widescreen 1
 02A4: NOP
 02A5: NOP
-02A7: $GLOBAL = create_icon_marker_and_sphere $GLOBAL at $GLOBAL $GLOBAL $GLOBAL
-02A8: $GLOBAL = create_marker $GLOBAL at $GLOBAL $GLOBAL $GLOBAL
+02A7: $GLOBAL = create_icon_marker_and_sphere $GLOBAL at 0.0 0.0 0.0
+02A8: $GLOBAL = create_marker $GLOBAL at 0.0 0.0 0.0
 02A9: set_actor 0@ immune_to_nonplayer 1
 02AA: set_car 0@ immune_to_nonplayer 1
 02AB: set_actor 0@ immunities BP 0 FP 0 EP 1 CP 1 MP 0
@@ -377,7 +377,7 @@
 02CA:   car 0@ bounding_sphere_visible
 02CB:   actor $GLOBAL bounding_sphere_visible
 02CC:   object 0@ bounding_sphere_visible
-02CE: 0@ = ground_z_at 0@ 0@ 0@
+02CE: 0@ = ground_z_at 0.0 0.0 0.0
 02CF: 0@ = create_fire_at 0.0 0.0 0.0 propagation 0 size 1
 02D0:   fire 0@ extinguished
 02D1: remove_fire 0@
@@ -597,14 +597,14 @@
 0468: clear_car 0@ last_weapon_damage
 046C: 0@ = car 0@ driver
 046D: 0@ = actor 0@ members_in_group
-046E: put_player $GLOBAL in_RC_mode_at 0@ 0@ 0@ angle 0.0 RC_model #RCBARON
+046E: put_player $GLOBAL in_RC_mode_at 0.0 0.0 0.0 angle 0.0 RC_model #RCBARON
 0470: 0@ = actor $GLOBAL current_weapon
-0471:   actor $GLOBAL near_object_in_rectangle $GLOBAL radius 0.0 0.0 sphere 0
-0472:   actor $GLOBAL near_object_in_rectangle 0@ radius 0.0 0.0 sphere 0 on_foot
-0473:   actor 0@ near_object_in_rectangle 0@ radius 0.0 0.0 sphere 0 in_car
-0474:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere 0
-0475:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere 0 on_foot
-0476:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere 0 in_car
+0471:   actor $GLOBAL near_object_in_rectangle $GLOBAL radius 0.0 0.0 sphere false
+0472:   actor $GLOBAL near_object_in_rectangle 0@ radius 0.0 0.0 sphere false on_foot
+0473:   actor 0@ near_object_in_rectangle 0@ radius 0.0 0.0 sphere false in_car
+0474:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false
+0475:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false on_foot
+0476:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false in_car
 0477: set_car 0@ action 3 time 6000
 047A:   actor $GLOBAL driving_bike
 0480:   actor 0@ looking_at_death_of_actor_pedtype 25
@@ -640,7 +640,7 @@
 04B6:   0.0 >= $GLOBAL // constant >= $
 04B7:   3000 >= 0@ // constant >= @
 04B8: get_weapon_data_from_actor $GLOBAL slot 2 weapon 0@ ammo 0@ model 0@
-04B9: unknown_get_at 0@ 0@ 0@ height 0.0 radius 0.0 store_to 0@ 0@ 0@ 0@ 0@ 0@ 0@
+04B9: unknown_get_at 0.0 0.0 0.0 height 0.0 radius 0.0 store_to 0@ 0@ 0@ 0@ 0@ 0@ 0@
 04BA: set_car 0@ speed_to 0.0
 04BB: select_interior 0
 04BD: set_car 0@ is_part_of_convoy 1
@@ -668,10 +668,10 @@
 04E2: NOP $GLOBAL 1
 04E3: unknown_set_player $GLOBAL flag 7 time 360000
 04E4: refresh_game_renderer_at 0.0 0.0
-04E5:   object 0@ near_point 0@ 0@ radius 0.0 0.0 sphere 0
+04E5:   object 0@ near_point 0@ 0@ radius 0.0 0.0 sphere false
 04E6:   object 0@ near_point 0@ 0@ 0@ radius 0.0 0.0 0.0 flag 0
 04E7:   object 0@ in_water
-04E9:   object 0@ in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 sphere 0
+04E9:   object 0@ in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 sphere false
 04EA:   object 0@ in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 flag 0
 04EB: AS_actor 0@ crouch 1
 04ED: load_animation  "LONG"
@@ -697,8 +697,8 @@
 050F: get_max_wanted_level_to 0@
 0512: show_permanent_text_box 'SHORT' // If your health reaches zero, you will pass out and you will be treated at the local medical center.
 0513: show_text_box_1number 'SHORT' number 0@ // ~k~~VEHICLE_ENTER_EXIT~ Use Slot Machine $~1~
-0517: $GLOBAL = create_unavailable_asset_pickup 'SHORT' at $GLOBAL $GLOBAL $GLOBAL // You cannot buy this property yet.
-0518: $GLOBAL = create_available_asset_pickup 'SHORT' at $GLOBAL $GLOBAL $GLOBAL price $GLOBAL // Press ~k~~PED_ANSWER_PHONE~ to buy this property.
+0517: $GLOBAL = create_unavailable_asset_pickup 'SHORT' at 0.0 0.0 0.0 // You cannot buy this property yet.
+0518: $GLOBAL = create_available_asset_pickup 'SHORT' at 0.0 0.0 0.0 price $GLOBAL // Press ~k~~PED_ANSWER_PHONE~ to buy this property.
 0519: set_car 0@ locked 1
 051A:   actor 0@ damaged_by_actor $GLOBAL
 051B:   actor 0@ damaged_by_car 0@
@@ -731,7 +731,7 @@
 056C:   actor $GLOBAL driving_police_car
 056D:   actor 0@ defined
 056E:   car 0@ defined
-0570: $GLOBAL = create_asset_radar_marker_with_icon 36 at $GLOBAL $GLOBAL $GLOBAL
+0570: $GLOBAL = create_asset_radar_marker_with_icon 36 at 0.0 0.0 0.0
 0572: enable_taxi_nitros 1
 0574: set_car 0@ keep_position 1
 0575: set_actor 0@ pinned_position 0
@@ -811,18 +811,18 @@
 05F3: set_car 0@ follow_car 0@ keep_6o_clock
 05F4: set_car 0@ follow_car 0@ keep_12o_clock
 05F5: AS_actor 0@ goto_point_using_paths 0.0 0.0 0.0 mode 4 time 5500
-05F6:   actor $GLOBAL in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere 0
-05F7:   actor $GLOBAL in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere 0 on_foot
-05F8:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere 0 in_car
+05F6:   actor $GLOBAL in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere false
+05F7:   actor $GLOBAL in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere false on_foot
+05F8:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere false in_car
 05F9:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 flag 0 stopped
-05FA:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere 0 stopped_on_foot
+05FA:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere false stopped_on_foot
 05FB:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ height 0@ flag 0 stopped_in_car
-05FC:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere 0
-05FD:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere 0 on_foot
-05FE:   actor $GLOBAL in_cube_fll_corner_at 0@ 0@ 0@ fur_corner_at 0@ 0@ 0@ depth 0.0 flag 0 in_car
-05FF:   actor 0@ in_cube_fll_corner_at 0@ 0@ 0@ fur_corner_at 0@ 0@ 0@ depth 0.0 flag 0 stopped
-0600:   actor 0@ in_cube_fll_corner_at 0@ 0@ 0@ fur_corner_at 0@ 0@ 0@ depth 0.0 flag 0 stopped_on_foot
-0601:   actor 0@ in_cube_fll_corner_at 0@ 0@ 0@ fur_corner_at 0@ 0@ 0@ depth 0.0 flag 0 stopped_in_car
+05FC:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere false
+05FD:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere false on_foot
+05FE:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 in_car
+05FF:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 stopped
+0600:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 stopped_on_foot
+0601:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 stopped_in_car
 0602:   actor $GLOBAL driving_taxi
 0603: AS_actor 0@ goto_point_any_means 0.0 0.0 0.0 mode 7 use_car 0
 0604: get_Z_angle_for_point $GLOBAL $GLOBAL store_to $GLOBAL
@@ -872,7 +872,7 @@
 0646: 0@ = unknown_get_actor $GLOBAL task_1560_status // similar to 062E
 0647: AS_actor 0@ clear_look_task
 0648: unknown_actor 0@ task_set 0.0 // float
-064B: 0@ = create_particle "LONG" at 0@ 0@ 0@ type 1
+064B: 0@ = create_particle "LONG" at 0.0 0.0 0.0 type 1
 064C: make_particle 0@ visible
 064E: stop_particle 0@
 064F: remove_references_to_particle 0@
@@ -902,7 +902,7 @@
 066E: 0@ = create_particle "LONG" attached_to_object 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 flag 1
 0672: AS_actor 0@ attack_car 0@
 0673: AS_actor 0@ dive_to_offset 0.0 0.0 time_on_ground 1000 ms
-0674: set_car_model $GLOBAL($GLOBAL,0i) numberplate "LONG"
+0674: set_car_model $GLOBAL numberplate "LONG"
 0676: AS_actor 0@ in_car 0@ move_from_passengerseat_to_driverseat
 0677: AS_actor 0@ chat_with_actor 0@ lead_speaker_flag 1 unknown_flag 1
 0679: put_camera_on_car 0@ with_offset 0.0 0.0 $GLOBAL rotation 0.0 0.0 0@ tilt 0.0 switchstyle 2
@@ -962,7 +962,7 @@
 06C0:   searchlight 0@ spotted_car 0@
 06C1: 0@ = create_searchlight_on_car 0@ with_offset 0.0 0.0 0.0 radius 0.0 target 0.0 0.0 0.0 radius 0.0
 06C2: AS_actor 0@ goto 0.0 0.0 0.0 mode 4 turn_radius 0.0 stop_radius 0.0 actor 0@ with_offset 0.0 0.0 0.0
-06C3: get_number_of_fires_within_sphere_at 0@ 0@ 0@ radius 0.0 store_to 0@
+06C3: get_number_of_fires_within_sphere_at 0.0 0.0 0.0 radius 0.0 store_to 0@
 06C4: 0@ = create_marker_above_searchlight 0@
 06C5: release_car 0@ from_path
 06C7: AS_actor 0@ driver_of_car $GLOBAL perform_action 6 timelimit 2000000
@@ -989,7 +989,7 @@
 06E2: AS_actor 0@ run_to_object 0@ timelimit 0 stop_within_radius 0.0
 06E3: AS_actor 0@ roll_sideways 1
 06E4: AS_actor 0@ attempt_to_bust_actor $GLOBAL
-06E5: get_car $GLOBAL possible_to_built_in_component_pool_index $GLOBAL($GLOBAL,0i) itemID_to $GLOBAL($GLOBAL,0i)
+06E5: get_car $GLOBAL possible_to_built_in_component_pool_index $GLOBAL itemID_to $GLOBAL
 06E6: get_itemID $GLOBAL destinated_component_slot_to $GLOBAL
 06E7: add_car 0@ component #WHEEL_OR1 to_mod 0@
 06E8: car 0@ destroy_component 2
@@ -1011,8 +1011,8 @@
 06FD: set_car 0@ speed_on_path_to 0.0
 06FF:   any_ped_near_actor 0@ in_range 0.0
 0701: end_scene_skip
-0702: $GLOBAL = get_tags_painted_percentage_at 0@ 0@ 0@ 0@
-0703: set_tags_painted_percentage_at 0@ 0@ 0@ 0@ value 0
+0702: $GLOBAL = get_tags_painted_percentage_at 0.0 0.0 0.0 0@
+0703: set_tags_painted_percentage_at 0.0 0.0 0.0 0@ value 0
 0704: car 0@ drive_to $GLOBAL $GLOBAL $GLOBAL
 0705: car 0@ assign_to_path 342 and_drive_normal
 0706: advance_car 0@ further_along_path 0.0
@@ -1043,8 +1043,8 @@
 072A: put_actor $GLOBAL into_car $GLOBAL driverseat
 072B: put_actor $GLOBAL into_car 0@ passengerseat 0
 072C: generate_police_bikes 0
-072D: is_flamethrower_fired_in_angled_area_2d 0@ 0@ to 0@ 0@ angle 0.0 sphere 0
-072E: is_flamethrower_fired_in_angled_area_3d 0@ 0@ 0@ to 0@ 0@ 0@ angle 0.0 sphere 0
+072D: is_flamethrower_fired_in_angled_area_2d 0@ 0@ to 0@ 0@ angle 0.0 sphere false
+072E: is_flamethrower_fired_in_angled_area_3d 0@ 0@ 0@ to 0@ 0@ 0@ angle 0.0 sphere false
 072F: enable_car 0@ stuck_check_distance 0.0 time 2000 and_restore_if stuck 1 flipped 1 unk_place_on_road_properly 1 to_path 0 // extended 03CC
 0730: car 0@ damage_door 1
 0731: set_car 0@ y_angle_to 0@
@@ -1080,7 +1080,7 @@
 075B: zoom_radar 0
 075C:   marker 0@ enabled
 075D: load_shopping_data_SHOPS_subsection "LONG" // "LONG"
-075E: load_shopping_data_PRICES_subsection $GLOBAL($GLOBAL,0s) // "LONG"
+075E: load_shopping_data_PRICES_subsection $GLOBAL // "LONG"
 075F: get_shopping_data_entries_number_to $GLOBAL
 0760: get_shopping_data_index $GLOBAL textureCRC_to $GLOBAL
 0761: get_shopping_item_with_textureCRC $GLOBAL price_to $GLOBAL
@@ -1203,7 +1203,7 @@
 0811: $GLOBAL = actor $GLOBAL used_car
 0812: AS_actor 0@ perform_animation "LONG" IFP "LONG" framedelta 0.0 loopA 0 lockX 0 lockY 0 lockF 0 time 0 // versionB
 0814: define_unique_jump_start 0.0 0.0 0.0 radius 0.0 0.0 0.0 land 0.0 0.0 0.0 radius 0.0 0.0 0.0 camera 0.0 0.0 0.0 reward 500
-0815: put_object 0@ at 0@ 0@ 0@ and_keep_rotation
+0815: put_object 0@ at 0.0 0.0 0.0 and_keep_rotation
 0816: set_actor 0@ dont_chase_victim 1
 0817: assign_actor 0@ to_animation_path_with_walk_mode 4 route_mode 3
 0818:  actor $GLOBAL in_air
@@ -1238,7 +1238,7 @@
 0840: link_car 0@ to_interior 0@
 0841: flying_vehicle 0@ use_secondary_gun 1
 0842: $GLOBAL = player $GLOBAL town_number
-0843: s$GLOBAL = get_zone_at 0@ 0@ 0@ nameA // 8-byte string
+0843: s$GLOBAL = get_zone_at 0.0 0.0 0.0 nameA // 8-byte string
 0844:   string s$GLOBAL empty // s$
 0845:   string 0@s empty // @LABEL
 0846:   string v$GLOBAL empty // v$
@@ -1249,7 +1249,7 @@
 0851: set_actor $GLOBAL decrease_health_by 10 affect_armour 1
 0852: set_car $GLOBAL damages_visible 0
 0853: unknown_heli 0@ flag 3
-0855: 0@ = get_actor 0 noise_level_at 0@ 0@ 0@
+0855: 0@ = get_actor 0 noise_level_at 0.0 0.0 0.0
 0856: set_actor 0@ enable_crouch 0
 0858: set_player $GLOBAL scan_horizon_to_angle 0.0 rotation_speed 0.0
 0859: AS_actor 0@ walk_alongisde_actor $GLOBAL
@@ -1313,7 +1313,7 @@
 08B3: set_gang_zone 'SHORT' as_only_one_available_for_gangwars
 08B4:   test $GLOBAL bit 1
 08B5:   test $GLOBAL bit $GLOBAL
-08B6:   test $GLOBAL($GLOBAL,0i) bit 0@
+08B6:   test $GLOBAL bit 0@
 08B7:   test 0@ bit 5
 08B8:   test $GLOBAL bit 20
 08B9:   test 0@ bit 0@
@@ -1353,7 +1353,7 @@
 08E0: override_restart_if_busted_at 0.0 0.0 0.0 within_radius 0.0 angle 0.0
 08E1: $GLOBAL = total_tags_sprayed
 08E2: $GLOBAL = territories_controlled_percentage
-08E3:   object 0@ sphere 0 in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ radius 0.0
+08E3:   object 0@ sphere false in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ radius 0.0
 08E5: 0@ = in_sphere 0@ 0@ 0@ radius 0.0 get_actor
 08E6: set_plane 0@ landing_gear 1
 08E7: disable_entrance_markers 1
@@ -1366,7 +1366,7 @@
 08EE: set_panel $GLOBAL column 1 row 0@ text_1number GXT 'SHORT' number $GLOBAL // $~1~
 08EF: set_panel 0@ column 2 row 0@ text_2numbers GXT 'SHORT' numbers 0@ 0@ // ~1~ @LABEL~1~
 08F0: set_cutscene_model 'SHORT' texture 'SHORT' // 8-byte strings
-08F1: s$GLOBAL = get_zone_at 0@ 0@ 0@ nameB // 8-byte string
+08F1: s$GLOBAL = get_zone_at 0.0 0.0 0.0 nameB // 8-byte string
 08F2: set_car 0@ targettable_by_heatseeker 0
 08F3: set_car $GLOBAL contains_goodies 0
 08F4: set_max_group_members 0
@@ -1455,7 +1455,7 @@
 0959: $GLOBAL = create_horseshoe_at 0.0 0.0 0.0
 095A: $GLOBAL = create_oyster_at 0.0 0.0 0.0
 095B:  is_object_moveable 0@
-095C: create_smoke_at 0@ 0@ 0@ velocity 0@ 0@ 0@ RGBA 0@ 0@ 0@ 0@ size 0@ last_factor 0@
+095C: create_smoke_at 0.0 0.0 0.0 velocity 0@ 0@ 0@ RGBA 0@ 0@ 0@ 0@ size 0@ last_factor 0@
 095D:   actor $GLOBAL stuck_under_car
 095E: set_car 0@ door 4 unlatch 1 angle 0.0
 095F: 0@ = get_car 0@ door 6 angle
@@ -1540,7 +1540,7 @@
 09B9: show_entered_car_name 0
 09BA: show_entered_zone_name 0
 09BB:   car 0@ has_visible_damage_on_component 0
-09BC: put_actor $GLOBAL at $GLOBAL $GLOBAL $GLOBAL no_offset_and_dont_warp_gang
+09BC: put_actor $GLOBAL at 0.0 0.0 0.0 no_offset_and_dont_warp_gang
 09BD: allow_other_scripts_to_display_text_boxes 1
 09BE:   are_text_boxes_locked_to_any_script
 09BF: set_random_traffic_spawn_to_model #TOPFUN // Load the vehicle model before using this
@@ -1562,11 +1562,11 @@
 09D2: set_cops_chase_criminals 0
 09D4: suspend_wanted_level
 09D5: unknown_get_actor 0@ unknown 345 flags 1 0 0 store_to 0@ // extended 0947
-09D6: unknown_set_actor 0@ sound $GLOBAL($GLOBAL,0i) flags 1 1 0
+09D6: unknown_set_actor 0@ sound $GLOBAL flags 1 1 0
 09D7: set_player $GLOBAL force_interior_lighting 1
 09D8: NOP 1
 09D9: detonate_all_satchel_charges
-09DA:   cash_pickup_at 0@ 0@ 0@
+09DA:   cash_pickup_at 0.0 0.0 0.0
 09DB: set_panel 0@ column 0 width 192
 09DD: unknown_player_group 1
 09DE:   actor $GLOBAL entering_car
@@ -1575,7 +1575,7 @@
 09E2: $GLOBAL = parked_car_generator_w_numberplate #EUROS colors 0 0 force_spawn 0 alarm 50 door_lock 0 min_delay 0 max_delay 10000 plate "LONG" at 0.0 0.0 0.0 angle 0.0
 09E3:   train $GLOBAL traveling_clockwise
 09E4: enable_aircraftcarrier_sam 0
-09E5: create_flash_light_at 0@ 0@ 0@ RGB_mask 255 255 255 radius 0.0
+09E5: create_flash_light_at 0.0 0.0 0.0 RGB_mask 255 255 255 radius 0.0
 09E6: set_burglary_houses_accessible 1
 09E7:   player $GLOBAL not_frozen
 09E8: $GLOBAL = actor $GLOBAL active_interior

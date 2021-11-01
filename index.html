@@ -82,50 +82,62 @@
     	</span>
     </div>
     <div id="modal-container">
-        <p>With love for you ;)</p>
-        <br>
-        <b>Highlighter opcodes</b><br>
-        <blockquote>
-        	<label for="limit-h">Limited to number of found to </label>
-        	<input type="number" id="settings-limit-h"><br>
-        	<p class="comment">
-        		The higher the number, the longer it will take to display the results.<br>
-        		With 0 disables the function and -1 you will highlight all.
-        	</p>
-        </blockquote>
-        <b>Color theme</b> <u>Partially at work</u><br>
-        <blockquote>
-<div class="table" style="
-    display: flex;
-    justify-content: space-between;
-">
-	<div class="row"><p>
-		<b>Element</b><br>
-		Text<br>
-		Ground<br>
-		Opcode<br>
-		Operator<br>
-		Number<br>
-		String<br>
-		Variable<br>
-		Comment<br>
-		Label</p>
-	</div>
-	<div class="row">
-		<b>Color</b><br>
-		<input type="text" id="text"><br>
-		<input type="text" id="ground"><br>
-		<input type="text" id="opcode"><br>
-		<input type="text" id="operator"><br>
-		<input type="text" id="number"><br>
-		<input type="text" id="string"><br>
-		<input type="text" id="variable"><br>
-		<input type="text" id="comment"><br>
-		<input type="text" id="label">
-	</div>
-	<div class="row">
-		<b>View</b><br>
-<pre> text_example_xd
+With love for you ;)
+.
+.
+**Highlighter opcodes**
+| Limited to number of found to <input type="number" id="settings-limit-h">
+| <p class="comment">The higher the number, the longer it will take to display the results.<br>With 0 disables the function and -1 you will highlight all.</p>
+
+**Color theme**
+.
+<blockquote>
+<div class="table">
+<div class="row"><p>
+**Element**
+.
+Text
+.
+Ground
+.
+Opcode
+.
+Operator
+.
+Number
+.
+String
+.
+Variable
+.
+Comment
+.
+Label</p>
+</div>
+<div class="row">
+**Color**
+.
+<input type="text" id="text">
+.
+<input type="text" id="ground">
+.
+<input type="text" id="opcode">
+.
+<input type="text" id="operator">
+.
+<input type="text" id="number">
+.
+<input type="text" id="string">
+.
+<input type="text" id="variable">
+.
+<input type="text" id="comment">
+.
+<input type="text" id="label">
+</div>
+<div class="row">
+<b>View</b><br>
+<pre>text_example_xd
 
 00AD:
 == += -= < <= * => > - +
@@ -135,9 +147,24 @@ false 10 0xFF 0.0 #FAM1
 // comment example
 @example_0AF023
 </pre>
-	</div>
 </div>
-        </blockquote>
+</div>
+</blockquote>
+<!--
+<b>Danger Zone</b>
+<blockquote style="
+    text-align: center;
+">
+<button style="
+    background: #f4432b;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+">Reset settings</button>
+</blockquote>
+-->
     </div>
 </element>
 </section>

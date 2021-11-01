@@ -48,6 +48,10 @@
     color: rgb(255 255 255 / 47%);
     font-weight: lighter;
 }
+#modal .table {
+    display: flex;
+    justify-content: space-between;
+}
 #modal .row input {
     width: 20vw;
 }

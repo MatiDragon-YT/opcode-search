@@ -1,5 +1,5 @@
 export const markdown = ELEMENT => {
-	markdown.innerHTML = markdown.innerHTML
+	ELEMENT.innerHTML = ELEMENT.innerHTML
 	/*** CITE ***/
 	.replace(/^\|([A-Za-z]+(-(\d|\w)+)?)\s(.+)/gim, '<blockquote class="$1">$4</blockquote>')
 	.replace(/^\|\s(.+)/gim, '<blockquote>$1</blockquote>')
@@ -12,8 +12,8 @@ export const markdown = ELEMENT => {
 	.replace(/^##\s([\x20-\x22\x24-\xFF].+)/gm, '<h2 id="$1">$1</h2>')
 	.replace(/^#\s([\x20-\x22\x24-\xFF].+)/gm, '<h1 id="$1">$1</h1>')
 	.replace(/^(---|=)\n/gm, '<hr>\n')
-	.replace(/^\.([A-Za-z]+(-(\d|\w)+)?)\s(.+)/gim, '<p class="$1">$4</p>')
-	.replace(/^\.\n/gm, '</p><p>')
+	.replace(/^\.([A-Za-z]+(-(\d|\w)+)?)\s(.+)/gim, '<div class="$1">$4</div>')
+	.replace(/^\.\n/gm, '<br>')
 	/*** LIST ***/
 	.replace(/^\*\s(.+)/gim, '<ul><li>$1</li></ul>')
 	.replace(/^_\s(.+)/gim, '<ol><li>$1</li></ol>')

@@ -9,10 +9,12 @@ export function found(COUNTER = $('li[style=""]').length || 1) {
 
 export function load (FILELIST = local() + '/assets/opcodes/sa.txt'){
 	fileServer.get({url: FILELIST}, Data => {
-		fileServer.write(Data)
-		fileServer.format($('ul'))
-		found()
-		start()
+		setTimeout(() => {
+			fileServer.write(Data)
+			fileServer.format($('ul'))
+			found()
+			start()
+		}, 150)
 	})
 }
 

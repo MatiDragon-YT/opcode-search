@@ -2,7 +2,7 @@ import { $, log } from './dom.js'
 import { found } from '../search.js'
 export const fileServer = {
 	get : async function (INFO, CALLBACK) {
-		$('#list').innerHTML = 'Loading...'
+		$('#list').innerHTML = 'Loading database...'
 
 		const TYPE = INFO.type || 'text'
 

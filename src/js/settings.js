@@ -8,13 +8,17 @@ export const settings = () => {
 		'number', 'string', 'variable', 'comment', 'label'
 	]
 
+	const display = (ELEMENT, MODE) => 
+		css([$('#'+ELEMENT), JSON.parse(`{"display": "${MODE}"}`)])
+
 	const modal = {
-		hide : () => css([$('#modal'), {display: 'none'}]),
-		show : () => css([$('#modal'), {display: 'grid'}])
+		hide : () => display('modal', 'none'),
+		show : () => display('modal', 'grid')
 	}
+
 	const save = {
-		show : () => css([$('#modal-save'), {display: 'initial'}]),
-		hide : () => css([$('#modal-save'), {display: 'none'}])
+		show : () => display('modal-save', 'initial'),
+		hide : () => display('modal-save', 'none')
 	}
 
 	$('#myInput').onkeydown = () => keyPressed($('#myInput'), 13, () => start())
@@ -50,10 +54,17 @@ export const settings = () => {
 	onload = () => {
 		save.hide()
 
-		//getSaved
-		ITEMS.forEach(ELEMENT => {
-			$('#' + ELEMENT).value =
-				localStorage.getItem(ELEMENT) || css([$(':root'), '--' + ELEMENT])
+		ITEMS.forEach((ELEMENT, index) => {
+			if(index > 0) {
+				const saved =
+					localStorage.getItem(ELEMENT)
+					|| css([$(':root'), '--' + ELEMENT])
+
+				$('#' + ELEMENT).value =saved
+					
+				$(':root').style.setProperty('--' + ELEMENT, $('#' + ELEMENT).value)
+			}
+
 		})
 		$('#' + ITEMS[0]).value = localStorage.getItem(ITEMS[0]) || 50
 	}

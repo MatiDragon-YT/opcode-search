@@ -19,8 +19,8 @@ Display 576px 768px 992px 1200px 1400px
 ::-webkit-scrollbar-track { background: #0F191E }
 ::-webkit-scrollbar-corner{ background: var(--background) }
 ::-webkit-scrollbar-thumb { background: #4CAF50}
-::-webkit-input-placeholder {color: black }
 
+::-webkit-input-placeholder {color: black }
 :-ms-input-placeholder {color: black }
 ::placeholder {color: black }
 
