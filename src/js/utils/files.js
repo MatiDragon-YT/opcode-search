@@ -1,12 +1,12 @@
 import { $, log } from './dom.js'
 import { found } from '../search.js'
 export const fileServer = {
-	get : async function (INFO, CALLBACK) {
+	get : async function (URL, CALLBACK) {
 		$('#list').innerHTML = 'Loading database...'
 
-		const TYPE = INFO.type || 'text'
+		const TYPE = URL.replace(/(.*\.)/, '')
 
-		return await fetch(INFO.url)
+		return await fetch(URL)
 		 .then(RES => TYPE == 'json' ? RES.json() : RES.text())
 		 .then(DATA => CALLBACK(DATA))
 		 .catch(ERROR => log(ERROR))

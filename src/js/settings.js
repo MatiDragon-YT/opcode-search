@@ -9,7 +9,7 @@ export const settings = () => {
 	]
 
 	const display = (ELEMENT, MODE) => 
-		css([$('#'+ELEMENT), JSON.parse(`{"display": "${MODE}"}`)])
+		css([$('#' + ELEMENT), JSON.parse(`{"display": "${MODE}"}`)])
 
 	const modal = {
 		hide : () => display('modal', 'none'),
@@ -21,7 +21,12 @@ export const settings = () => {
 		hide : () => display('modal-save', 'none')
 	}
 
-	$('#myInput').onkeydown = () => keyPressed($('#myInput'), 13, () => start())
+	const _ = localStorage
+	const _get = KEY => _.getItem(KEY)
+	const _set = (KEY, VALUE) => _.setItem(KEY, VALUE)
+
+	const VK_ENTER = 13
+	$('#myInput').onkeydown = () => keyPressed($('#myInput'), VK_ENTER, () => start())
 
 	$('#file-load').onclick = () => load()
 	$('#file-clear').onclick = () => fileServer.clear($('#myInput'))
@@ -32,8 +37,8 @@ export const settings = () => {
 		//get set
 		ITEMS.forEach(KEY => {
 			const ELEMENT = $('#' + KEY).value
-			if(localStorage.getItem(KEY) != ELEMENT){
-				localStorage.setItem(KEY, ELEMENT)
+			if(_get(KEY) != ELEMENT){
+				_set(KEY, ELEMENT)
 			}
 		})
 
@@ -56,16 +61,16 @@ export const settings = () => {
 
 		ITEMS.forEach((ELEMENT, index) => {
 			if(index > 0) {
-				const saved =
-					localStorage.getItem(ELEMENT)
+				const SAVED =
+					_get(ELEMENT)
 					|| css([$(':root'), '--' + ELEMENT])
 
-				$('#' + ELEMENT).value =saved
+				$('#' + ELEMENT).value = SAVED
 					
 				$(':root').style.setProperty('--' + ELEMENT, $('#' + ELEMENT).value)
 			}
 
 		})
-		$('#' + ITEMS[0]).value = localStorage.getItem(ITEMS[0]) || 50
+		$('#' + ITEMS[0]).value = _get(ITEMS[0]) || 50
 	}
 }
