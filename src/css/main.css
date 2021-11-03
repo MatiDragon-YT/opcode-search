@@ -114,3 +114,11 @@ hlN {color: var(--number)}
 hlL {color: var(--label)}
 hlO {color: var(--operator)}
 hlG {color: var(--variable)}
+
+#sms {
+    display: grid;
+    height: 100%;
+    font-size: 2rem;
+    align-items: center;
+    text-align: center;
+}

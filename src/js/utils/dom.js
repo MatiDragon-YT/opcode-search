@@ -35,18 +35,6 @@ export const css = (...WORKER) => {
 	}
 }
 
-export const doc = {
-	header : () => document.title.split(" - "),
-	title : () => doc.header()[0],
-	subtitle : () => doc.header()[1],
-	description : () => {
-		const Element = $("meta[name='description']")
-		return Element != null
-			? Element.getAttribute("content")
-			: "MatiDragon"
-	}
-}
-
 export const keyPressed = (ELEMENT, VIRTUAL_KEY, CALLBACK) => {
 	ELEMENT.onkeydown = function (EVENT) {
 		if (EVENT.keyCode === VIRTUAL_KEY){

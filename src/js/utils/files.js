@@ -23,8 +23,21 @@ export const fileServer = {
 	},
 
 	clear : (ELEMENT) => {
-		fileServer.write()
+		fileServer.write('<div id="sms">Find fast and easy any opcode of gta sa.</div>')
 		ELEMENT.value = ''
 		found(0)
 	}
+}
+
+export const doc = {
+	header : () => document.title.split(" - "),
+	title : () => doc.header()[0],
+	subtitle : () => doc.header()[1],
+	description : () => {
+		const Element = $("meta[name='description']")
+		return Element != null
+			? Element.getAttribute("content")
+			: "Opcode Search"
+	},
+	lang : () => $('html').getAttribute('lang') || 'en'
 }
