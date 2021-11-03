@@ -2,7 +2,7 @@ import { $, log } from './dom.js'
 import { found } from '../search.js'
 export const fileServer = {
 	get : async function (URL, CALLBACK) {
-		$('#list').innerHTML = 'Loading database...'
+		$('#sms').innerHTML = 'Loading database...'
 
 		const TYPE = URL.replace(/(.*\.)/, '')
 

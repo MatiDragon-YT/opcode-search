@@ -1,4 +1,6 @@
 @import url('partial/modal.css');
+@import url('partial/icon.css');
+@import url('partial/nav.css');
 
 :root {
 	--text:#F9F9F9;
@@ -46,78 +48,36 @@ body {
     height: 100vh;
     justify-content: space-between
 }
-nav {
-    display: flex;
-    background: black;
-    color: white;
-    font-size: small;
-    font-weight: normal;
-    height: 20px;
-    cursor: default;
-}
-#searchBar, footer{
+header, footer{
     background: #4caf50;
     color: black;
     font-weight: bold;
 }
-item {
-    position: relative;
-    padding: 0px 6px;
-}
-item:hover {
-    background: #464646;
-}
-item:hover div {
-    display: flex;
-    flex-direction: column;
-    border: #a8a8a8 solid 1px;
-}
-item div {
-    display: none;
-    position: absolute;
-    background: black;
-    left: 0;
-    width: max-content;
-}
-item p,
-item a {
-    padding: 3px 7px 3px 31px;
-    color: white;
-    text-decoration: none;
-    cursor: default;
-    min-width: 132px;
-}
-item p:hover,
-item a:hover {
-    background: #464646;
-    z-index: 1;
-}
-item p[disabled],
-item a[disabled] {
-    color: #545454;
-}
-item p[disabled]:hover,
-item a[disabled]:hover {
-    background: black;
-    color: #545454;
-}
 section {
     padding: 14px;
-}
-hr {
-    border-bottom: white solid 1px;
-    margin: 3px 4px 3px 31px;
 }
 input[type=text]{
     outline: none;
 }
 #myInput {
     padding: 6px;
-    min-width: 250px;
+    width: calc(100% - 44px);
     background: none;
     border-bottom: 1px solid rgb(0 0 0 / 33%);
     margin: 0 0 0 6px;
     color: black;
+}
+
+@media (min-width:576px) {
+    #myInput {
+        min-width: 250px;
+    }
+}
+@media (min-width:992px) {
+}
+@media (min-width:1200px) {
+}
+@media (min-width:1400px) {
 }
 ul {
     list-style: none;
@@ -154,14 +114,3 @@ hlN {color: var(--number)}
 hlL {color: var(--label)}
 hlO {color: var(--operator)}
 hlG {color: var(--variable)}
-
-@font-face { font-family: 'Material Icons'; font-style: normal; font-weight: 400; src: url(https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2') }
-i.icon { font-family: 'Material Icons'; font-weight: 400; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased;user-select: none; }
-i.icon { text-rendering: optimizeLegibility; -webkit-font-feature-settings: 'liga'; -moz-font-feature-settings: 'liga'; font-feature-settings: 'liga' }
-nav i.icon {
-    font-size: initial;
-    margin: 0px 3px;
-    position: absolute;
-    left: 3px;
-    top: 4px;
-}

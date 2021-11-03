@@ -45,6 +45,16 @@ export const settings = () => {
 		save.hide()
 		start()
 	}
+	$('#reverse').onclick = () => {
+		const ELEMENT = $('#list')
+
+		if ($('#reverse').checked) {
+			css([ELEMENT, {"flex-direction" : 'column-reverse'}])
+			ELEMENT.scrollTop = ELEMENT.scrollHeight * -1
+		} else {
+			css([ELEMENT, {"flex-direction" : 'column'}])
+		}
+	}
 
 	ITEMS.forEach((ELEMENT, index) => {
 		$('#' + ELEMENT).oninput = () => {

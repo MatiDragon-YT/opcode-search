@@ -45,32 +45,43 @@
 			</item>
 		</nav>
 		<section >
-			<label for="myInput">Search</label> <input type="text" id="myInput" placeholder="Press ENTER">
+			<input type="text" id="myInput" placeholder="Search"><i class="icon">search</i>
 		</section>
 	</header>
 	<main>
 		<section>
-			<ul id="list"></ul>
+			<ul id="list">
+				<div id="sms" style="
+    display: grid;
+    height: 100%;
+    font-size: 2rem;
+    align-items: center;
+    text-align: center;
+">Find fast and easy any opcode of gta sa.</div>
+			</ul>
 		</section>
 		<!--
 		<section class="pagenumbers" id="pagination"></section>
-	-->
+		-->
 	</main>
 	<footer>
 		<section>Found: <span id="found">0</span></section>
-		<!--
 		<section>
-			<item>Sort:
-			<select id="sort">
-				<option value="123">123</option>
-				<option value="321">321</option>
-			</select>
-			</item>
 			<item>
-				F <icon>in_zoom</icon><input type="range" id="fontSize" min="0" max="15"><icon>out_zoom</icon>
+				<!--Sort:
+				<select id="sort">
+					<option value="123">Opcode</option>
+					<option value="text">Text</option>
+				</select>
+				-->
+				<input type="checkbox" id="reverse"> <label for="reverse">Reverse</label>
 			</item>
+			<!--
+			<item>
+				<i class="icon">format_size</i> <input type="number" id="fontSize">
+			</item>
+			-->
 		</section>
-	-->
 	</footer>
 <section id="modal">
     <element id="modal-window">
