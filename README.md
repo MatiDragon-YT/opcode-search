@@ -2,7 +2,7 @@
 > Find fast and easy any opcode of gta sa.
 
 
-Written optimized to work on any server, from FrontEnd
+Written optimized to work on any server, from Frontend
 
 
 ## SETTINGS
