@@ -1,5 +1,5 @@
-export const log = (MESSAGE, CSS = '') =>
-	console.log(MESSAGE, CSS)
+export const log =(MESSAGE, _CSS = '') =>
+	console.log((_CSS != '' ? '%c' : '') + MESSAGE, _CSS)
 
 export const $ = (ELEMENT, PARENT = document) =>
 	ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
