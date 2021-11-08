@@ -7,7 +7,7 @@ export function found(COUNTER = $('li[style=""]').length || 1) {
 	$('#found').innerHTML = COUNTER
 }
 
-export function load (FILELIST = local() + '/assets/opcodes/sa.txt'){
+export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){
 	fileServer.get(FILELIST, Data => {
 		fileServer.write(Data)
 		fileServer.format($('ul'))

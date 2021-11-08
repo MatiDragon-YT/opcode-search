@@ -139,10 +139,10 @@
 0099: 0@ = random_int_in_ranges_0_to_32767
 009A: 0@ = create_actor #MALE01 pedtype 0 at 0.0 0.0 0.0
 009B: destroy_actor 0@
-00A0: get_actor $GLOBAL position_to 0@ 0@ 0@
-00A1: put_actor $GLOBAL at 0.0 0.0 0.0
-00A3:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
-00A4:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0
+00A0: get_actor 0@ position_to 0@ 0@ 0@
+00A1: put_actor 0@ at 0.0 0.0 0.0
+00A3:   actor 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
+00A4:   actor 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0
 00A5: 0@ = create_car #PONY at 0.0 0.0 0.0
 00A6: destroy_car 0@
 00A7: car 0@ drive_to 0.0 0.0 0.0
@@ -166,10 +166,10 @@
 00D6: if
 00D7: start_new_script @LABEL // without extra params
 00D8: mission_cleanup
-00D9: 0@ = actor $GLOBAL car // add to mission cleanup
-00DB:   actor $GLOBAL in_car 0@
-00DD:   actor $GLOBAL driving_car_with_model #AMBULAN
-00DF:   actor $GLOBAL driving
+00D9: 0@ = actor 0@ car // add to mission cleanup
+00DB:   actor 0@ in_car 0@
+00DD:   actor 0@ driving_car_with_model #AMBULAN
+00DF:   actor 0@ driving
 00E1:   player 0 pressed_key 0
 00E2: 0@ = player 0 key 0 state
 00EC:   actor 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0
@@ -215,7 +215,7 @@
 014E: start_timer_at $GLOBAL count_in_direction 0 // global_variable
 014F: stop_timer $GLOBAL
 0151: remove_status_text $GLOBAL
-0154:   actor $GLOBAL in_zone 'SHORT'
+0154:   actor 0@ in_zone 'SHORT'
 0158: camera_on_car 0@ mode 0 switchstyle 0
 0159: camera_on_ped 0@ mode 0 switchstyle 0
 015A: restore_camera
@@ -242,7 +242,7 @@
 0175: set_car $GLOBAL Z_angle_to 0.0
 0176: 0@ = object $GLOBAL Z_angle
 0177: set_object $GLOBAL Z_angle_to 0.0
-0179:   actor $GLOBAL colliding_with_object 0@
+0179:   actor 0@ colliding_with_object 0@
 017B: set_actor $GLOBAL weapon 0 ammo_to 0
 0180: set_on_mission_flag_to $GLOBAL // Note: your missions have to use the variable defined here
 0184:   actor 0@ health > 0
@@ -258,33 +258,33 @@
 018F:   is_car_stuck_on_roof 0@
 0190: add_car 0@ to_upsidedown_check // 6 max
 0191: remove_car 0@ from_upsidedown_check
-01A1:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 on_foot
-01A2:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 in_car
-01A3:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
-01A4:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped_on_foot
-01A5:   actor $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped_in_car
-01A6:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 on_foot
-01A7:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 in_car
-01A8:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped
-01A9:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped_on_foot
-01AA:   actor $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped_in_car
-01AB:   car $GLOBAL sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped
-01AC:   car $GLOBAL sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped
-01AD:   car $GLOBAL sphere false near_point 0.0 0.0 radius 0.0 0.0
-01AE:   car $GLOBAL sphere false near_point 0.0 0.0 radius 0.0 0.0 stopped
-01AF:   car $GLOBAL sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0
-01B0:   car $GLOBAL sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 stopped
+01A1:   actor 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 on_foot
+01A2:   actor 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 in_car
+01A3:   actor 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
+01A4:   actor 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped_on_foot
+01A5:   actor 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped_in_car
+01A6:   actor 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 on_foot
+01A7:   actor 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 in_car
+01A8:   actor 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped
+01A9:   actor 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped_on_foot
+01AA:   actor 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped_in_car
+01AB:   car 0@ sphere false in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0 stopped
+01AC:   car 0@ sphere false in_cube_cornerA 0.0 0.0 0.0 cornerB 0.0 0.0 0.0 stopped
+01AD:   car 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0
+01AE:   car 0@ sphere false near_point 0.0 0.0 radius 0.0 0.0 stopped
+01AF:   car 0@ sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0
+01B0:   car 0@ sphere false in_sphere 0.0 0.0 0.0 radius 0.0 0.0 0.0 stopped
 01B2: give_actor 0@ weapon 0 ammo 0 // Load the weapon model before using this
 01B4: set_player $GLOBAL can_move 0
 01B5: force_weather 0
 01B6: set_weather 0
 01B7: release_weather
 01B9: set_actor 0@ armed_weapon_to 0
-01BB: get_object 0@ position_to $GLOBAL $GLOBAL $GLOBAL
+01BB: get_object 0@ position_to 0@ 0@ 0@
 01BC: put_object 0@ at 0.0 0.0 0.0
 01BD: $GLOBAL = current_time_in_ms
 01C0: $GLOBAL = player $GLOBAL wanted_level
-01C1:   car $GLOBAL stopped
+01C1:   car 0@ stopped
 01C2: remove_references_to_actor 0@ // Like turning an actor into a random pedestrian
 01C3: remove_references_to_car $GLOBAL
 01C4: remove_references_to_object 0@ // This object will now disappear when the player looks away
@@ -301,8 +301,8 @@
 01EB: set_traffic_density_multiplier_to 0.0
 01EC: make_car 0@ very_heavy 0
 01F0: set_max_wanted_level_to 0
-01F3:   car $GLOBAL in_air
-81F3:   car $GLOBAL on_something 
+01F3:   car 0@ in_air
+81F3:   car 0@ on_something 
 01F4:   car 0@ flipped
 01F5: $GLOBAL = player $GLOBAL actor
 01F6: cancel_override_restart
@@ -310,18 +310,18 @@
 01F9: init_rampage_gxt 'SHORT' weapon 0 time_limit 0 targets 0 target_models #CABBIE #TAXI #CABBIE #TAXI completed_text 0
 01FA: 0@ = rampage_status
 01FB: 0@ = square_root 0@
-0202:   actor $GLOBAL near_car 0@ radius 0.0 0.0 sphere false
-0203:   actor $GLOBAL near_car 0@ radius 0.0 0.0 flag 0 on_foot
-0204:   actor $GLOBAL near_car 0@ radius 0.0 0.0 sphere false in_car
-0205:   actor $GLOBAL near_car 0@ radius 0.0 0.0 0.0 flag 0
-0206:   actor $GLOBAL near_car 0@ radius 0.0 0.0 0.0 flag 0 on_foot
-0207:   actor $GLOBAL near_car 0@ radius 0.0 0.0 0.0 flag 0 in_car
+0202:   actor 0@ near_car 0@ radius 0.0 0.0 sphere false
+0203:   actor 0@ near_car 0@ radius 0.0 0.0 flag 0 on_foot
+0204:   actor 0@ near_car 0@ radius 0.0 0.0 sphere false in_car
+0205:   actor 0@ near_car 0@ radius 0.0 0.0 0.0 flag 0
+0206:   actor 0@ near_car 0@ radius 0.0 0.0 0.0 flag 0 on_foot
+0207:   actor 0@ near_car 0@ radius 0.0 0.0 0.0 flag 0 in_car
 0208: 0@ = random_float_in_ranges 0.0 0.0
 0209: 0@ = random_int_in_ranges 0 0
 020A: set_car 0@ door_status_to 0
 020B: explode_car 0@
 020C: create_explosion_with_radius 0 at 0.0 0.0 0.0
-020D:   car $GLOBAL flipped
+020D:   car 0@ flipped
 0213: 0@ = create_pickup #INFO type 0 at 0.0 0.0 0.0
 0214:   pickup $GLOBAL picked_up
 0215: destroy_pickup $GLOBAL
@@ -359,7 +359,7 @@
 0298: get_player $GLOBAL destroyed_model #TOPFUN quantity_to $GLOBAL
 0299: activate_garage 'SHORT'
 029B: 0@ = init_object #NF_BLACKBOARD at 0.0 0.0 0.0
-02A0:   actor $GLOBAL stopped
+02A0:   actor 0@ stopped
 02A3: enable_widescreen 1
 02A4: NOP
 02A5: NOP
@@ -375,7 +375,7 @@
 02C1: get_to 0@ 0@ 0@ car_path_coords_closest_to 0@ 0@ 0@
 02C2: car 0@ drive_to 0.0 0.0 0.0
 02CA:   car 0@ bounding_sphere_visible
-02CB:   actor $GLOBAL bounding_sphere_visible
+02CB:   actor 0@ bounding_sphere_visible
 02CC:   object 0@ bounding_sphere_visible
 02CE: 0@ = ground_z_at 0.0 0.0 0.0
 02CF: 0@ = create_fire 0 propagation 0 at 0.0 0.0 0.0
@@ -383,11 +383,11 @@
 02D1: remove_fire 0@
 02D3: boat 0@ sail_to 0@ 0@ 0.0
 02D4: car 0@ turn_off_engine
-02D6:   actor $GLOBAL fires_weapon 0 in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
-02D8:   actor $GLOBAL current_weapon == 28
+02D6:   actor 0@ fires_weapon 0 in_rectangle_cornerA 0.0 0.0 cornerB 0.0 0.0
+02D8:   actor 0@ current_weapon == 28
 02DB: set_boat 0@ speed_to 0.0
 02DD: 0@ = get_random_ped_in_zone 'SHORT' with_pedtype_civilian 1 gang 0 criminal/prostitute 1
-02E0:   actor $GLOBAL firing_weapon
+02E0:   actor 0@ firing_weapon
 02E1: 0@ = create_cash_pickup 500 permanence_flag 1 at 0.0 0.0 0.0
 02E2: set_actor 0@ weapon_accuracy_to 75
 02E3: 0@ = car 0@ speed
@@ -417,7 +417,7 @@
 0317: increment_mission_attempts
 0318: set_latest_mission_passed 'SHORT' // Big Smoke
 031A: remove_all_fires
-031D:   actor $GLOBAL hit_by_weapon 51
+031D:   actor 0@ hit_by_weapon 51
 031E:   car 0@ hit_by_weapon 38
 0321: AS_actor 0@ die_headshotted
 0323: enable_boat 0@ anchor 1
@@ -566,7 +566,7 @@
 042D: $GLOBAL = metric $GLOBAL to_imperial
 042E: downdate_integer_stat 212 to 0@ // same as 0582
 0430: put_actor 0@ into_car $GLOBAL passenger_seat 0
-0431:   car $GLOBAL passenger_seat_free 0
+0431:   car 0@ passenger_seat_free 0
 0432: 0@ = get_actor_handle_from_car $GLOBAL passenger_seat 0
 0433: set_actor 0@ criminal_flag 1
 0434: show_credits
@@ -576,9 +576,9 @@
 0441: 0@ = car $GLOBAL model
 0445:   are_car_cheats_used
 0446: set_actor 0@ dismemberment_possible 0
-0448:   actor $GLOBAL in_car $GLOBAL
-0449:   actor $GLOBAL in_a_car
-044B:   actor $GLOBAL on_foot
+0448:   actor 0@ in_car $GLOBAL
+0449:   actor 0@ in_a_car
+044B:   actor 0@ on_foot
 044D: NOP
 0453: set_object $GLOBAL XY_rotation 0.0 0.0 angle $GLOBAL
 0454: useless_store_debug_camera_position_to $GLOBAL $GLOBAL $GLOBAL
@@ -599,14 +599,14 @@
 046D: 0@ = actor 0@ members_in_group
 046E: put_player $GLOBAL in_RC_mode_at 0.0 0.0 0.0 angle 0.0 RC_model #RCBARON
 0470: 0@ = actor $GLOBAL current_weapon
-0471:   actor $GLOBAL near_object_in_rectangle $GLOBAL radius 0.0 0.0 sphere false
-0472:   actor $GLOBAL near_object_in_rectangle 0@ radius 0.0 0.0 sphere false on_foot
+0471:   actor 0@ near_object_in_rectangle $GLOBAL radius 0.0 0.0 sphere false
+0472:   actor 0@ near_object_in_rectangle 0@ radius 0.0 0.0 sphere false on_foot
 0473:   actor 0@ near_object_in_rectangle 0@ radius 0.0 0.0 sphere false in_car
-0474:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false
-0475:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false on_foot
-0476:   actor $GLOBAL near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false in_car
+0474:   actor 0@ near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false
+0475:   actor 0@ near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false on_foot
+0476:   actor 0@ near_object_in_cube 0@ radius 0.0 0.0 0.0 sphere false in_car
 0477: set_car 0@ action 3 time 6000
-047A:   actor $GLOBAL driving_bike
+047A:   actor 0@ driving_bike
 0480:   actor 0@ looking_at_death_of_actor_pedtype 25
 0484: 0@ = player $GLOBAL RC_car
 0485:  return_true
@@ -616,7 +616,7 @@
 048B: set_car 0@ route_seed $GLOBAL
 048C:   pickup_at 0.0 0.0 0.0 available_to_be_picked_up
 048F: actor $GLOBAL remove_weapons
-0491:   actor $GLOBAL has_weapon 0
+0491:   actor 0@ has_weapon 0
 0494: get_joystick 0 data_to $GLOBAL $GLOBAL $GLOBAL $GLOBAL
 0495:   car 0@ burning
 0496:   car 0@ tire 0 deflated
@@ -648,7 +648,7 @@
 04C1: remove_references_to_roadblocks
 04C4: from_actor 0@ with_offset 0.0 0.0 0.0 return_pos $GLOBAL $GLOBAL $GLOBAL
 04C5:   actor 0@ photographed
-04C8:   actor $GLOBAL driving_flying_vehicle
+04C8:   actor 0@ driving_flying_vehicle
 04CE: 0@ = create_icon_marker_without_sphere 18 at 0.0 0.0 0.0
 04D0: force_heli 0@ looking_angle_to 0.0
 04D1: reset_heli 0@ looking_angle
@@ -728,7 +728,7 @@
 0566: link_object $GLOBAL to_interior 1
 0568: set_actor 0@ untargetable 1
 056A:   cutscene_skipped
-056C:   actor $GLOBAL driving_police_car
+056C:   actor 0@ driving_police_car
 056D:   actor 0@ defined
 056E:   car 0@ defined
 0570: 0@ = create_asset_radar_marker_with_icon 36 at 0.0 0.0 0.0
@@ -745,7 +745,7 @@
 058C: $GLOBAL = percentage_completed
 0594: unknown_car 0@ flag 0
 0595: mission_complete
-0597:   actor $GLOBAL crouching
+0597:   actor 0@ crouching
 059A:  return_false
 059C: enable_status_text $GLOBAL flashing 0 // global_variable
 059D: shuffle_card_decks 1
@@ -811,19 +811,19 @@
 05F3: set_car 0@ follow_car 0@ keep_6o_clock
 05F4: set_car 0@ follow_car 0@ keep_12o_clock
 05F5: AS_actor 0@ goto_point_using_paths 0.0 0.0 0.0 mode 4 time 5500
-05F6:   actor $GLOBAL in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere false
-05F7:   actor $GLOBAL in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere false on_foot
-05F8:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere false in_car
-05F9:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 flag 0 stopped
-05FA:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere false stopped_on_foot
-05FB:   actor $GLOBAL in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ height 0@ flag 0 stopped_in_car
-05FC:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere false
-05FD:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere false on_foot
-05FE:   actor $GLOBAL in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 in_car
+05F6:   actor 0@ in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere false
+05F7:   actor 0@ in_rectangle_ll_corner_at 0.0 0.0 lr_corner_at 0.0 0.0 angle 0.0 sphere false on_foot
+05F8:   actor 0@ in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere false in_car
+05F9:   actor 0@ in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 flag 0 stopped
+05FA:   actor 0@ in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ angle 0.0 sphere false stopped_on_foot
+05FB:   actor 0@ in_rectangle_ll_corner_at 0@ 0@ lr_corner_at 0@ 0@ height 0@ flag 0 stopped_in_car
+05FC:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere false
+05FD:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 angle 0.0 sphere false on_foot
+05FE:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 in_car
 05FF:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 stopped
 0600:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 stopped_on_foot
 0601:   actor 0@ in_cube_fll_corner_at 0.0 0.0 0.0 fur_corner_at 0.0 0.0 0.0 depth 0.0 flag 0 stopped_in_car
-0602:   actor $GLOBAL driving_taxi
+0602:   actor 0@ driving_taxi
 0603: AS_actor 0@ goto_point_any_means 0.0 0.0 0.0 mode 7 use_car 0
 0604: get_Z_angle_for_point $GLOBAL $GLOBAL store_to $GLOBAL
 0605: actor 0 perform_animation "LONG" IFP "LONG" framedelta 0.0 loop 1 lockX 0 lockY 0 lockF 0 time 0
@@ -895,11 +895,11 @@
 0667: AS_actor 0@ aim_at 0.0 0.0 0.0 120000 ms
 0668: AS_actor 0@ rotate_and_shoot_at 0.0 0.0 0.0 2000 ms
 0669: 0@ = create_particle "LONG" above_actor 0@ with_offset 0.0 0.0 0.0 type 1
-066A: 0@ = create_particle "LONG" above_actor 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 type 1
+066A: 0@ = create_particle "LONG" above_actor 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 type 1
 066B: 0@ = create_particle "LONG" above_car 0@ with_offset 0.0 0.0 0.0 type 1
 066C: 0@ = create_particle "LONG" above_car 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 type 1
 066D: 0@ = create_particle "LONG" above_object 0@ with_offset 0.0 0.0 0.0 type 1
-066E: 0@ = create_particle "LONG" above_object 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 flag 1
+066E: 0@ = create_particle "LONG" above_object 0@ with_offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0 type 1
 0672: AS_actor 0@ attack_car 0@
 0673: AS_actor 0@ dive_to_offset 0.0 0.0 time_on_ground 1000 ms
 0674: set_car_model $GLOBAL numberplate "LONG"
@@ -1053,12 +1053,12 @@
 0734: reset_random_car_generator_models
 0735:   is_keyboard_key_pressed 49
 0736:   is_keyboard_key_just_pressed 32
-0737:   actor $GLOBAL lifting_object 0@
+0737:   actor 0@ lifting_object 0@
 073B: unknown_car 0@ flag 1
 073C: car 0@ damage_componentB 0
 073E: $GLOBAL = get_car_in_sphere 0.0 0.0 0.0 radius 0.0 model #INFO
 073F: 0@ = get_actor_in_sphere 0@ 0@ 0@ radius 0.0 with_pedtype_civilian 1 gang 1 criminal/prostitute 1
-0741:   actor $GLOBAL busted
+0741:   actor 0@ busted
 0742: set_plane 0@ unknown_trajectory 0.0
 0743: heli 0@ fly_to 0.0 0.0 0.0 altitude 0.0 0.0
 0745: set_hydra 0@ thrust_to_horizontal
@@ -1456,29 +1456,29 @@
 095A: $GLOBAL = create_oyster_at 0.0 0.0 0.0
 095B:  is_object_moveable 0@
 095C: create_smoke_at 0.0 0.0 0.0 velocity 0@ 0@ 0@ RGBA 0@ 0@ 0@ 0@ size 0@ last_factor 0@
-095D:   actor $GLOBAL stuck_under_car
+095D:   actor 0@ stuck_under_car
 095E: set_car 0@ door 4 unlatch 1 angle 0.0
 095F: 0@ = get_car 0@ door 6 angle
 0960: enable_player $GLOBAL stats_box 0
 0961: set_actor 0@ keep_tasks_after_cleanup 1
 0964: create_square_color_panel 'SHORT' position 0.0 0.0 width 0.0 columns 8 interactive 1 background 1 alignment 1 panelID $GLOBAL // Colors
-0965:   actor $GLOBAL swimming
+0965:   actor 0@ swimming
 0966: 0@ = get_actor $GLOBAL swimming_status
 0967: actor 0@ move_mouth 10000 ms
 0968: actor 0@ stop_mouth
-0969:   car $GLOBAL is_big
+0969:   car 0@ is_big
 096A: enable_flying_helis 0
 096B: set_present_mod_apply
 096C: set_present_mod_remove
 096D: 0@ = get_car 0@ component_on_slot 7 model
-096E:   car $GLOBAL lowrider
-096F:   car $GLOBAL street_racing_car
+096E:   car 0@ lowrider
+096F:   car 0@ street_racing_car
 0970: teleport_in_override_restart // 016Eh
 0971: sync_water
 0972: put_actor $GLOBAL at 0.0 0.0 0.0 no_offset
 0973:   fire 0@ exists
 0974: emulated_wasted_busted // +12 hours and clear weapons
-0975:   car $GLOBAL emergency_vehicle
+0975:   car 0@ emergency_vehicle
 0976: destroy_particle 0@ // mission version
 0977:   player_in_radius_of_object 0@ external_script_trigger
 0978: $GLOBAL = copy_decision_maker 65540
@@ -1527,7 +1527,7 @@
 09AB: set_passengers_in_car $GLOBAL speak_from_audio_table 37
 09AC: disable_map_icons 1
 09AD: set_vehicle_camera_mode 3
-09AE:   actor $GLOBAL driving_train
+09AE:   actor 0@ driving_train
 09AF: set_trip_skip_after_mission 0.0 0.0 0.0 angle 0.0
 09B0: set_car 0@ accessible_for_player_using_controller 0
 09B2: get_random_available_car_unk 1 model_to 0@ class_to 0@
@@ -1557,7 +1557,7 @@
 09CB:   vehicle $GLOBAL colliding_with_vehicle 0@
 09CC:   object 0@ model_is #CJ_COIN_OP_2
 09CF: set_train 0@ stop_at_stations 0
-09D0:   car $GLOBAL on_wheels
+09D0:   car 0@ on_wheels
 09D1:   pickup 0@ created
 09D2: set_cops_chase_criminals 0
 09D4: suspend_wanted_level
@@ -1569,7 +1569,7 @@
 09DA:   cash_pickup_at 0.0 0.0 0.0
 09DB: set_panel 0@ column 0 width 192
 09DD: unknown_player_group 1
-09DE:   actor $GLOBAL entering_car
+09DE:   actor 0@ entering_car
 09E0: trip_skip 0.0 0.0 0.0 angle 0.0 when_in_car 0@
 09E1: $GLOBAL = get_car_model $GLOBAL price
 09E2: $GLOBAL = parked_car_generator_w_numberplate #EUROS colors 0 0 force_spawn 0 alarm 50 door_lock 0 min_delay 0 max_delay 10000 plate "LONG" at 0.0 0.0 0.0 angle 0.0

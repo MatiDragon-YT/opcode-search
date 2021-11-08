@@ -9,7 +9,7 @@
     padding: 0;
 }
 #modal-window{
-    background: #16252c;
+    background: var(--ground);
     width: 100vw;
     height: 100vh;
     box-shadow: 0px 6px 13px 1px black;
@@ -44,9 +44,18 @@
 #modal blockquote{
     margin: 0.15rem 2.3rem 0.6rem;
 }
-#modal .comment {
+#modal div.info {
+    display: flex;
+    gap: .5rem;
+}
+#modal div.info i.icon {
+    font-size: 1.45rem;
+}
+#modal div.info p.comment {
     color: rgb(255 255 255 / 47%);
     font-weight: lighter;
+    max-height: 3.2rem;
+    overflow: auto;
 }
 #modal .table {
     display: flex;
@@ -86,10 +95,4 @@
     #modal .row pre {
         width: 27vw;
     }
-}
-@media (min-width:992px) {
-}
-@media (min-width:1200px) {
-}
-@media (min-width:1400px) {
 }

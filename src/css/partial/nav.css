@@ -52,3 +52,8 @@ nav hr {
     border-bottom: white solid 1px;
     margin: 3px 4px 3px 31px;
 }
+#lang {
+    right: 0px;
+    height: inherit;
+    position: absolute;
+}

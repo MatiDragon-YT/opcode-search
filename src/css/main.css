@@ -3,28 +3,35 @@
 @import url('partial/nav.css');
 
 :root {
-	--text:#F9F9F9;
-	--background:#343A40;
-    --ground:#0F191E;
-    --comment:#4C636F;
-    --opcode:#4C636F;
-	--variable:#2196F3;
-	--string:#FF9100;
-	--number:#F44336;
-	--label:#4CAF50;
-	--operator:#C554FF;
+	--color:#F9F9F9;
+	--ground:#16252c;
+
+	--bar-color:black;
+	--bar-ground:#4CAF50;
+	--bar-border:#0F191E;
+
+	--font-size:1rem;
+
+	--op-text:#F9F9F9;
+	--op-ground:#0F191E;
+	--op-comment:#4C636F;
+	--op-opcode:#4C636F;
+	--op-variable:#2196F3;
+	--op-string:#FF9100;
+	--op-number:#F44336;
+	--op-label:#4CAF50;
+	--op-operator:#C554FF;
 }
 /*
 Display 576px 768px 992px 1200px 1400px
 */
 ::-webkit-scrollbar { width: .7rem; height: .33rem;}
-::-webkit-scrollbar-track { background: #0F191E }
-::-webkit-scrollbar-corner{ background: var(--background) }
-::-webkit-scrollbar-thumb { background: #4CAF50}
+::-webkit-scrollbar-track { background: var(--bar-border) }
+::-webkit-scrollbar-thumb { background: var(--bar-ground) }
 
-::-webkit-input-placeholder {color: black }
-:-ms-input-placeholder {color: black }
-::placeholder {color: black }
+::-webkit-input-placeholder {color: var(--bar-color) }
+:-ms-input-placeholder {color: var(--bar-color) }
+::placeholder {color: var(--bar-color) }
 
 * {
 	padding: 0;
@@ -37,88 +44,82 @@ html {
 }
 
 body {
-    background: #16252c;
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between
+	background: var(--ground);
+	color: var(--color);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: var(--font-size);
+	font-weight: 400;
+	line-height: 1.5;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: space-between
 }
 header, footer{
-    background: #4caf50;
-    color: black;
-    font-weight: bold;
+	background: var(--bar-ground);
+	color: var(--bar-color);
+	font-weight: bold;
 }
 section {
-    padding: 14px;
+	padding: 14px;
 }
 input[type=text]{
-    outline: none;
+	outline: none;
 }
 #myInput {
-    padding: 6px;
-    width: calc(100% - 44px);
-    background: none;
-    border-bottom: 1px solid rgb(0 0 0 / 33%);
-    margin: 0 0 0 6px;
-    color: black;
+	padding: 6px;
+	width: calc(100% - 44px);
+	background: none;
+	border-bottom: 1px solid rgb(0 0 0 / 33%);
+	margin: 0 0 0 6px;
+	color: var(--bar-color);
 }
 
 @media (min-width:576px) {
-    #myInput {
-        min-width: 250px;
-    }
-}
-@media (min-width:992px) {
-}
-@media (min-width:1200px) {
-}
-@media (min-width:1400px) {
+	#myInput {
+		min-width: 250px;
+	}
 }
 ul {
-    list-style: none;
-    height: calc(95vh - 52px - 85px);
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+	list-style: none;
+	height: calc(95vh - 52px - 85px);
+	overflow-x: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
 }
 li {
-    margin-right: 2px;
+	margin-right: 2px;
 }
 pre {
-    color: var(--text);
-    background: var(--ground);
-    padding: 3px 5px;
-    font-family: monospace;
-    overflow-y: scroll;
+	color: var(--op-text);
+	background: var(--op-ground);
+	padding: 3px 5px;
+	font-family: monospace;
+	overflow-y: scroll;
 }
 
 footer {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 
-hlV,hlS,hlN,hlX,hlM,hlL,hlC,hlO,hlG{font-weight: bolder;}
+hlV,hlS,hlN,hlL,hlC,hlO,hlG{font-weight: bolder;}
 
-hlC {color: var(--comment)}
-hlF {color: var(--opcode)}
-hlV {color: var(--variable)}
-hlS {color: var(--string)}
-hlN {color: var(--number)}
-hlL {color: var(--label)}
-hlO {color: var(--operator)}
-hlG {color: var(--variable)}
+hlC {color: var(--op-comment)}
+hlF {color: var(--op-opcode)}
+hlV {color: var(--op-variable)}
+hlS {color: var(--op-string)}
+hlN {color: var(--op-number)}
+hlL {color: var(--op-label)}
+hlO {color: var(--op-operator)}
+hlG {color: var(--op-variable)}
 
 #sms {
-    display: grid;
-    height: 100%;
-    font-size: 2rem;
-    align-items: center;
-    text-align: center;
+	display: grid;
+	height: 100%;
+	font-size: calc(var(--font-size) + 1rem);
+	align-items: center;
+	text-align: center;
 }

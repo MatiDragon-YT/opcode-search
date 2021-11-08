@@ -1,11 +1,11 @@
 export const log =(MESSAGE, _CSS = '') =>
 	console.log((_CSS != '' ? '%c' : '') + MESSAGE, _CSS)
 
-export const $ = (ELEMENT, PARENT = document) =>
+export const $ = (ELEMENT, _PARENT = document) =>
 	ELEMENT[0] === '#' && !/\s/.test(ELEMENT)
-	|| PARENT.querySelectorAll(ELEMENT).length === 1
-		? PARENT.querySelector(ELEMENT)
-		: PARENT.querySelectorAll(ELEMENT)
+	|| _PARENT.querySelectorAll(ELEMENT).length === 1
+		? _PARENT.querySelector(ELEMENT)
+		: _PARENT.querySelectorAll(ELEMENT)
 
 export const css = (...WORKER) => {
 	const LENGTH = WORKER.length

@@ -61,7 +61,7 @@ export const settings = () => {
 			save.show()
 
 			if(index > 0) {
-				$(':root').style.setProperty('--' + ELEMENT, $('#' + ELEMENT).value)
+				$(':root').style.setProperty('--op-' + ELEMENT, $('#' + ELEMENT).value)
 			}
 		}
 	})
@@ -73,11 +73,11 @@ export const settings = () => {
 			if(index > 0) {
 				const SAVED =
 					_get(ELEMENT)
-					|| css([$(':root'), '--' + ELEMENT])
+					|| css([$(':root'), '--op-' + ELEMENT])
 
 				$('#' + ELEMENT).value = SAVED
 					
-				$(':root').style.setProperty('--' + ELEMENT, $('#' + ELEMENT).value)
+				$(':root').style.setProperty('--op-' + ELEMENT, $('#' + ELEMENT).value)
 			}
 
 		})

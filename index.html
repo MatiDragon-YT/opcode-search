@@ -43,6 +43,11 @@
 					<a href="https://github.com/MatiDragon-YT/opcode-search">Opcode Search</a>
 				</div>
 			</item>
+			<select id="lang" disabled>
+				<option value="en">English</option>
+				<option value="es">Español</option>
+				<option value="pt">Portuguese</option>
+			</select>
 		</nav>
 		<section >
 			<input type="text" id="myInput" placeholder="Search"><i class="icon">search</i>
@@ -90,15 +95,16 @@
 With love for you ;)
 .
 .
-**Highlighter opcodes**
-| Limited to number of found to <input type="number" id="settings-limit-h">
-| <p class="comment">The higher the number, the longer it will take to display the results. With 0 disables the function and -1 you will highlight all.</p>
-
-**Color theme**
+<b>Highlighter opcodes</b>
+<blockquote>
+Enable at <input type="number" id="settings-limit-h">
+<div class="info"><i class="icon">info</i><p class="comment">The highlighter by default is limited to highlighting only those opcodes that are in the lower range set here. That is, the higher the number, the more likely it is that the results will be highlighted, but it will also take longer to display the results. You can disable the functionality with 0 or it will highlight everything with -1.</p></div>
+</blockquote>
+<b>Color theme</b>
 <blockquote>
 <div class="table">
 <div class="row">
-**Element**<br>
+<b>Element</b><br>
 Text<br>
 Ground<br>
 Opcode<br>
@@ -135,8 +141,9 @@ false 10 0xFF 0.0 #FAM1
 </pre>
 </div>
 </div>
-<p class="comment">
-Enter any CSS3 variants (hex value, color name, or functions: rbg, hsl, linear-gradient). You will see the changes in real time, so it is recommended that you make your changes before loading the database or when there are few results.</p>
+<div class="info">
+<i class="icon">info</i><p class="comment">Enter any CSS3 variants (hex value, color name, or functions: hex, rbg, hsl, hsv, cmyk, linear-gradient, and so on). You will see the changes in real time, so it is recommended that you make your changes before loading the database or when there are few results.</p>	
+</div>
 </blockquote>
 <!--
 <b>Danger Zone</b>
