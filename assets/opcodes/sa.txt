@@ -1339,14 +1339,14 @@
 08D1: get_cutscene_pos_to 0@ 0@ 0@
 08D2: object 0@ scale_model 0.0
 08D3: get_present_zone_popcycle_group_for_peds_and_cars_to 0@
-08D4: $GLOBAL = create_panel_with_title 'SHORT' position 0.0 0.0 width 0.0 columns 1 interactive 1 background 1 alignment 0 // Imports
+08D4: 0@ = create_panel_with_title 'SHORT' position 0.0 0.0 width 0.0 columns 1 interactive 1 background 1 alignment 0 // Imports
 08D6: set_panel 0@ column 0 alignment 1
 08D7: $GLOBAL = panel $GLOBAL active_row
 08D8: $GLOBAL = panel $GLOBAL selected_row
 08D9: set_panel 0@ row 0@ enable 0
 08DA: remove_panel $GLOBAL
 08DB: set_panel $GLOBAL column 0 header 'SHORT' data 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' 'SHORT' // Sunday // Monday // Tuesday // Wednesday // Thursday // Friday // Saturday
-08DC: create_interior_marker $GLOBAL at 0.0 0.0 radius 0.0
+08DC: 0@ = create_interior_marker_at 0.0 0.0 radius 0.0
 08DD: lose_stuff_after_wasted 0
 08DE: lose_stuff_after_busted 0
 08DF: override_restart_if_wasted_at 0.0 0.0 0.0 within_radius 0.0 angle 0.0
@@ -1451,9 +1451,9 @@
 0955: end_playing_loaded_soundtrack
 0956: get_respect_to $GLOBAL
 0957: set_car 0@ provides_cover_from_gunfire 0
-0958: $GLOBAL = create_photo_at 0.0 0.0 0.0
-0959: $GLOBAL = create_horseshoe_at 0.0 0.0 0.0
-095A: $GLOBAL = create_oyster_at 0.0 0.0 0.0
+0958: 0@ = create_photo_at 0.0 0.0 0.0
+0959: 0@ = create_horseshoe_at 0.0 0.0 0.0
+095A: 0@ = create_oyster_at 0.0 0.0 0.0
 095B:  is_object_moveable 0@
 095C: create_smoke_at 0.0 0.0 0.0 velocity 0@ 0@ 0@ RGBA 0@ 0@ 0@ 0@ size 0@ last_factor 0@
 095D:   actor 0@ stuck_under_car
@@ -1558,7 +1558,7 @@
 09CC:   object 0@ model_is #CJ_COIN_OP_2
 09CF: set_train 0@ stop_at_stations 0
 09D0:   car 0@ on_wheels
-09D1:   pickup 0@ created
+09D1:   pickup 0@ defined
 09D2: set_cops_chase_criminals 0
 09D4: suspend_wanted_level
 09D5: unknown_get_actor 0@ unknown 345 flags 1 0 0 store_to 0@ // extended 0947
@@ -1657,7 +1657,7 @@
 0A3D: enable_prostitutes_pay_you 1
 0A3E: 0@ = get_actor_unknown_in_sphere $GLOBAL $GLOBAL $GLOBAL radius 0.0 0.0 0.0
 0A3F: set_unused_flag 0
-0A40: $GLOBAL = create_entrance_marker_at 0.0 0.0 0.0 color 14
+0A40: 0@ = create_entrance_marker_at 0.0 0.0 0.0 color 14
 0A41: destroy_entrance_marker $GLOBAL
 0A43: get_rid_of_player_prostitute
 0A44: override_text_block 1
@@ -1876,11 +1876,11 @@
 0D4D: copy_string "yes" to 0@
 0D4E: 1@ = struct 0@ offset 0x4C4 size 4
 0D4F: struct 0@ offset 0x4C4 size 4 = 0
-0D50: draw_shadow_type TYPE_LIGHT position 0@ 1@ 2@ width 3@ height 4@ rotation 5@ distance 6@ texture 7@ intensity 255 RGB 255 255 255 shadow_data 0
-0D51: draw_permanent_shadow_type TYPE_LIGHT position 0@ 1@ 2@ width 3@ height 4@ rotation 5@ distance 6@ texture 7@ intensity 255 RGB 255 255 255 time 5000
-0D52: draw_light_type LIGHT_DIRECTIONAL position 0@ 1@ 2@ direction 3@ 4@ 5@ radius 3.0 RGBA 255 0 0 affect_entity 0
-0D53: draw_corona_with_texture CORONASTAR color 255 255 255 255 on_entity 0 at 0@ 1@ 2@ size 0.5
-0D54: draw_corona_with_extra_params_texture CORONASTAR color 255 255 255 255 on_entity 0 at 0@ 1@ 2@ size 0.5 far_clip 150.0 near_clip 1.5 flare 0 enable_reflection 1 check_obstacles 0 flash_while_fading 0 fade_speed 15.0 only_from_below 0
+0D50: draw_shadow_type 0 position 0.0 0.0 0.0 width 3@ height 4@ rotation 5@ distance 6@ texture 7@ RGBA 0 0 0 0 0 shadow_data 0
+0D51: draw_permanent_shadow_type 0 position 0@ 1@ 2@ width 3@ height 4@ rotation 5@ distance 6@ texture 7@ RGBA 0 0 0 0 0 time 5000
+0D52: draw_light_type 0 position 0@ 1@ 2@ direction 3@ 4@ 5@ radius 3.0 RGBA 255 0 0 affect_entity 0
+0D53: draw_corona_with_texture 0 RGBA 0 0 0 0 on_entity 0 at 0@ 1@ 2@ size 0.5
+0D54: draw_corona_with_extra_params_texture 0 RGBA 0 0 0 0 on_entity 0 at 0@ 1@ 2@ size 0.5 far_clip 150.0 near_clip 1.5 flare 0 enable_reflection 1 check_obstacles 0 flash_while_fading 0 fade_speed 15.0 only_from_below 0
 0D55: get_sun_colors_core_to 0@ 1@ 2@ glow_to 3@ 4@ 5@
 0D56: get_sun_screen_coords_XY_to 0@ 1@
 0D57: get_sun_position_to 0@ 1@ 2@ // IF and SET
@@ -1953,8 +1953,8 @@
 0E27: get_angle_from_two_coords 1@ 2@ and 3@ 4@ to 5@
 0E28: write_struct 1@ offset 2@ size 3@ value 4@
 0E29: perlin_noise 1@ frequency 2@ amplitude 3@ lacunarity 4@ persistence 5@ store_to 6@
-0E2A: add_cleo_blip 1@ position 2@ 3@ is_short 4@ RGBA 5@ 6@ 7@ 8@ store_to 9@
-0E2B: remove_cleo_blip 1@
+0E2A: 0@ = create_cleo_blip 0 position 0.0 0.0 is_short false RGBA 0 0 0 0
+0E2B: destroy_cleo_blip 0@
 0E2C: get_current_save_slot 1@
 0E2D: is_game_first_start
 0E2E: 0@ = create_render_object #AK47 at_actor $GLOBAL of_bone 3 offset 0.0 0.0 0.0 rotation 0.0 0.0 0.0
