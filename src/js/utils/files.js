@@ -13,7 +13,7 @@ export const fileServer = {
 	},
 
 	write : (MESSAGE = '') => {
-		$("#list").innerHTML = MESSAGE
+		$('#list').innerHTML = MESSAGE
 	},
 
 	format : (OPCODES) => {
