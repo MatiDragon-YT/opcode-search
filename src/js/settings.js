@@ -75,10 +75,6 @@ export const settings = () => {
 	const _ = localStorage
 	const _get = KEY => _.getItem(KEY)
 	const _set = (KEY, VALUE) => _.setItem(KEY, VALUE)
-	
-	const click = (ELEMENT, CALLBACK) => $(ELEMENT).onclick = () => {
-		CALLBACK()
-	}
 
 	const VK_ENTER = 13
 	$('#myInput').onkeydown = () => {
