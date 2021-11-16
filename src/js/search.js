@@ -1,10 +1,11 @@
-import { $, css } from './utils/dom.js'
+import { $, css, log } from './utils/dom.js'
 import { local } from './utils/directories.js'
 import { fileServer }  from './utils/files.js'
 import { sanny } from './utils/highlighter.js'
 
 export function found(COUNTER = $('li[style=""]').length || 1) {
-	$('#found').innerHTML = COUNTER
+	$('#found').innerHTML =
+		COUNTER + ((COUNTER > 1) ? '/' + $('#list').childElementCount : '')
 }
 
 export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){
