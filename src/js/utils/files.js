@@ -28,16 +28,3 @@ export const fileServer = {
 		found(0)
 	}
 }
-
-export const doc = {
-	header : () => document.title.split(" - "),
-	title : () => doc.header()[0],
-	subtitle : () => doc.header()[1],
-	description : () => {
-		const Element = $("meta[name='description']")
-		return Element != null
-			? Element.getAttribute("content")
-			: "Opcode Search"
-	},
-	lang : () => $('html').getAttribute('lang') || 'en'
-}

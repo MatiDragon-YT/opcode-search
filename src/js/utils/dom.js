@@ -42,3 +42,16 @@ export const keyPressed = (ELEMENT, VIRTUAL_KEY, CALLBACK) => {
 		}
 	}
 }
+
+export const doc = {
+	header : () => document.title.split(" - "),
+	title : () => doc.header()[0],
+	subtitle : () => doc.header()[1],
+	description : () => {
+		const ELEMENT = $("meta[name='description']")
+		return ELEMENT != null
+			? ELEMENT.getAttribute("content")
+			: "Opcode Search"
+	},
+	lang : () => $('html').getAttribute('lang') || 'en'
+}
