@@ -1,0 +1,20 @@
+:root {
+	--color:#F9F9F9;
+	--ground:#16252c;
+
+	--bar-color:black;
+	--bar-ground:#4CAF50;
+	--bar-border:#0F191E;
+
+	--font-size:1rem;
+
+	--op-text:#F9F9F9;
+	--op-ground:#0F191E;
+	--op-comment:#4C636F;
+	--op-opcode:#4C636F;
+	--op-variable:#2196F3;
+	--op-string:#FF9100;
+	--op-number:#F44336;
+	--op-label:#4CAF50;
+	--op-operator:#C554FF;
+}

@@ -1,27 +1,9 @@
+@import url('variables.css');
 @import url('partial/modal.css');
 @import url('partial/icon.css');
 @import url('partial/nav.css');
+@import url('partial/opcodes.css');
 
-:root {
-	--color:#F9F9F9;
-	--ground:#16252c;
-
-	--bar-color:black;
-	--bar-ground:#4CAF50;
-	--bar-border:#0F191E;
-
-	--font-size:1rem;
-
-	--op-text:#F9F9F9;
-	--op-ground:#0F191E;
-	--op-comment:#4C636F;
-	--op-opcode:#4C636F;
-	--op-variable:#2196F3;
-	--op-string:#FF9100;
-	--op-number:#F44336;
-	--op-label:#4CAF50;
-	--op-operator:#C554FF;
-}
 /*
 Display 576px 768px 992px 1200px 1400px
 */
@@ -80,6 +62,7 @@ input[type=text]{
 		min-width: 250px;
 	}
 }
+
 ul {
 	list-style: none;
 	height: calc(95vh - 52px - 85px);
@@ -88,33 +71,15 @@ ul {
 	flex-direction: column;
 	gap: 2px;
 }
+
 li {
 	margin-right: 2px;
-}
-pre {
-	color: var(--op-text);
-	background: var(--op-ground);
-	padding: 3px 5px;
-	font-family: monospace;
-	overflow-y: scroll;
 }
 
 footer {
 	display: flex;
 	justify-content: space-between;
 }
-
-
-hlV,hlS,hlN,hlL,hlC,hlO,hlG{font-weight: bolder;}
-
-hlC {color: var(--op-comment)}
-hlF {color: var(--op-opcode)}
-hlV {color: var(--op-variable)}
-hlS {color: var(--op-string)}
-hlN {color: var(--op-number)}
-hlL {color: var(--op-label)}
-hlO {color: var(--op-operator)}
-hlG {color: var(--op-variable)}
 
 #sms {
 	display: grid;
