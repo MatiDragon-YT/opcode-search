@@ -1,9 +1,7 @@
 import { $, log } from './utils/dom.js'
 import { sanny, highlighter } from './utils/highlighter.js'
-import { markdown } from './utils/markdown.js'
 import { settings } from './settings.js'
 
-markdown($('#modal-container'))
 settings()
 
 highlighter($('.row pre'))

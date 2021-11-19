@@ -4,8 +4,14 @@ import { fileServer }  from './utils/files.js'
 
 export const settings = () => {
 	const ITEMS = [
-		'settings-limit-h', 'text', 'ground', 'opcode', 'operator',
-		'number', 'string', 'variable', 'comment', 'label'
+		[
+			'settings-limit-h', 'text', 'ground', 'opcode', 'operator',
+			'number', 'string', 'variable', 'comment', 'label'
+		], 
+		[
+			['size', 'ground', 'size'],
+			['nav', 'bars', 'list', 'scroll']
+		]
 	]
 
 	const display = (ELEMENT, MODE) => 
@@ -40,7 +46,7 @@ export const settings = () => {
 	$('#modal-close').onclick = () => modal.hide()
 	$('#modal-save').onclick = () => {
 		//get set
-		ITEMS.forEach(KEY => {
+		ITEMS[0].forEach(KEY => {
 			const ELEMENT = $('#' + KEY).value
 			if(_get(KEY) != ELEMENT){
 				_set(KEY, ELEMENT)
@@ -61,7 +67,7 @@ export const settings = () => {
 		}
 	}
 
-	ITEMS.forEach((ELEMENT, index) => {
+	ITEMS[0].forEach((ELEMENT, index) => {
 		$('#' + ELEMENT).oninput = () => {
 			save.show()
 
@@ -74,7 +80,7 @@ export const settings = () => {
 	onload = () => {
 		save.hide()
 
-		ITEMS.forEach((ELEMENT, index) => {
+		ITEMS[0].forEach((ELEMENT, index) => {
 			if(index > 0) {
 				const SAVED =
 					_get(ELEMENT)
@@ -86,7 +92,7 @@ export const settings = () => {
 			}
 
 		})
-		$('#' + ITEMS[0]).value = _get(ITEMS[0]) || 50
+		$('#' + ITEMS[0][0]).value = _get(ITEMS[0][0]) || 50
 
 		const _h = location.hash
 		if (_h) {

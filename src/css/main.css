@@ -8,8 +8,8 @@
 Display 576px 768px 992px 1200px 1400px
 */
 ::-webkit-scrollbar { width: .7rem; height: .33rem;}
-::-webkit-scrollbar-track { background: var(--bar-border) }
-::-webkit-scrollbar-thumb { background: var(--bar-ground) }
+::-webkit-scrollbar-track { background: var(--scroll-ground) }
+::-webkit-scrollbar-thumb { background: var(--scroll-color) }
 
 ::-webkit-input-placeholder {color: var(--bar-color) }
 :-ms-input-placeholder {color: var(--bar-color) }
@@ -45,8 +45,10 @@ header, footer{
 section {
 	padding: 14px;
 }
-input[type=text]{
+input[type=text],
+input[type=number]{
 	outline: none;
+	font-size: var(--font-size);
 }
 #myInput {
 	padding: 6px;
