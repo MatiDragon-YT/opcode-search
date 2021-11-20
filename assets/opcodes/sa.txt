@@ -829,7 +829,7 @@
 0605: actor 0 perform_animation "LONG" IFP "LONG" framedelta 0.0 loop 1 lockX 0 lockY 0 lockF 0 time 0
 0606: create_forbidden_for_scripted_cars_cornerA 0.0 0.0 cornerB 0.0 0.0
 0607: remove_forbidden_for_scripted_cars
-060A: 0@ = create_decision_maker_type 0 // decision\allowed\m_.ped files
+060A: 0@ = create_decision_maker_type 0 // decision/allowed/m_.ped files
 060B: set_actor 0@ decision_maker_to 65543
 060D: draw_text_shadow 0 rgba 0 0 0 255
 060E:   car 0@ assigned_to_path
@@ -1677,7 +1677,7 @@
 0A91: $div = 1 / 5 // int
 0A92: stream_custom_script "ShowTextBox.s"
 0A93: terminate_this_custom_script
-0A94: load_and_launch_custom_mission "missions\CustomMission1"
+0A94: load_and_launch_custom_mission "missions/CustomMission1"
 0A95: save_this_custom_script
 0A96: $ActorStruct = ped $PLAYER_ACTOR struct
 0A97: $CarStruct = vehicle $MyCar struct
@@ -1691,7 +1691,7 @@
 0A9F: 0@ = get_this_script_struct
 0AA0: gosub_if_false @LABEL
 0AA1: return_if_false
-0AA2: $hLIB = load_dynamic_library "CLEO\version.dll" // IF and SET
+0AA2: $hLIB = load_dynamic_library "CLEO/version.dll" // IF and SET
 0AA3: free_dynamic_library $hLIB
 0AA4: $hPROC = get_dynamic_library_procedure "GetVersion" library $hLIB // IF and SET
 0AA5: call_function $hPROC num_params 1 pop 1 $param
@@ -1700,8 +1700,8 @@
 0AA8: call_method_return 0x4048E0 struct 0xB74494 num_params 1 pop 0 $MyCar 0@
 0AA9:   is_game_version_original
 0AAA: 0@ = get_script_struct_named 'OTB'
-0AAB:   does_file_exist "CLEO\version.dll"
-0AAC: $hMP3 = load_audio_stream "CLEO\playlist\1.mp3"
+0AAB:   does_file_exist "CLEO/version.dll"
+0AAC: $hMP3 = load_audio_stream "CLEO/playlist/1.mp3"
 0AAD: set_audio_stream $hMP3 state 1
 0AAE: remove_audio_stream $hMP3
 0AAF: 0@ = get_audiostream_length $hMP3
@@ -1757,9 +1757,9 @@
 0AE1: $actor = random_char_near_point 0@ 1@ 2@ in_radius 10.0 find_next 1 pass_deads 1
 0AE2: $car = random_vehicle_near_point 0@ 1@ 2@ in_radius 10.0 find_next 1 pass_wrecked 1
 0AE3: $object = random_object_near_point 0@ 1@ 2@ in_radius 10.0 find_next 1 //IF and SET
-0AE4:   does_directory_exist "CLEO\CLEO_INI"
-0AE5: create_directory "CLEO\CLEO_INI" //IF and SET
-0AE6: 0@ = find_first_file "CLEO\*.cs" get_filename_to 1@v // IF and SET
+0AE4:   does_directory_exist "CLEO/CLEO_INI"
+0AE5: create_directory "CLEO/CLEO_INI" //IF and SET
+0AE6: 0@ = find_first_file "CLEO/*.cs" get_filename_to 1@v // IF and SET
 0AE7: 1@v = find_next_file 0@ // IF and SET
 0AE8: find_close 0@
 0AE9: pop_float 0@
@@ -1769,18 +1769,18 @@
 0AED: 0@v = float 0@ to_string_format "%.15g"
 0AEE: 0@ = 2.0 pow 0.5 //all floats
 0AEF: 0@ = log 10.0 base 2.718281828459045 //all floats
-0AF0: 0@ = read_int_from_ini_file "cleo\config.ini" section "SectionName" key "intKey"
-0AF1: write_int 16 to_ini_file "cleo\config.ini" section "SectionName" key "intKey"
-0AF2: 0@ = read_float_from_ini_file "cleo\config.ini" section "SectionName" key "floatKey"
-0AF3: write_float 0.0 to_ini_file "cleo\config.ini" section "SectionName" key "floatKey"
-0AF4: 0@v = read_string_from_ini_file "cleo\config.ini" section "SectionName" key "stringKey"
-0AF5: write_string "new string value" to_ini_file "cleo\config.ini" section "SectionName" key "stringKey"
-0B00: delete_file "CLEO\log.txt"  // IF and SET
-0B01: delete_directory "CLEO\CLEO_SAVES" include_subdirs 0
-0B02: move_file "CLEO\1.txt" to "CLEO\2.txt" //IF and SET
-0B03: move_directory "CLEO\dir1" to "CLEO\dir2" //IF and SET
-0B04: copy_file "CLEO\1.txt" to "CLEO\2.txt" //IF and SET
-0B05: copy_directory "CLEO\dir1" to "CLEO\dir2" //IF and SET
+0AF0: 0@ = read_int_from_ini_file "cleo/config.ini" section "SectionName" key "intKey"
+0AF1: write_int 16 to_ini_file "cleo/config.ini" section "SectionName" key "intKey"
+0AF2: 0@ = read_float_from_ini_file "cleo/config.ini" section "SectionName" key "floatKey"
+0AF3: write_float 0.0 to_ini_file "cleo/config.ini" section "SectionName" key "floatKey"
+0AF4: 0@v = read_string_from_ini_file "cleo/config.ini" section "SectionName" key "stringKey"
+0AF5: write_string "new string value" to_ini_file "cleo/config.ini" section "SectionName" key "stringKey"
+0B00: delete_file "CLEO/log.txt"  // IF and SET
+0B01: delete_directory "CLEO/CLEO_SAVES" include_subdirs 0
+0B02: move_file "CLEO/1.txt" to "CLEO/2.txt" //IF and SET
+0B03: move_directory "CLEO/dir1" to "CLEO/dir2" //IF and SET
+0B04: copy_file "CLEO/1.txt" to "CLEO/2.txt" //IF and SET
+0B05: copy_directory "CLEO/dir1" to "CLEO/dir2" //IF and SET
 0B10: 0@ = 0@ AND 0xFF
 0B11: 0@ = 0@ OR 0x80
 0B12: 0@ = 1@ XOR 1
@@ -1862,7 +1862,7 @@
 0D3F: find_intersection_between_circles_xyr1 0.0 0.0 20.0 and_xyr2 10.0 10.0 20.0 store_point1_to 0@ 1@ point2_to 2@ 3@ // IF and SET 
 0D40: draw_2d_shape_type PRIMTYPETRIFAN texture 0@ numVerts 4 pVerts 1@ vertexAlpha 0 srcBlend 2 dstBlend 2 priority 0 // IF and SET 
 0D41: set_vertices 0@ vertex 1 xyz 0.0 0.0 0.0 rhw 3.33 RGBA 255 255 255 255 uv 0.0 0.0 screenX false screenY true
-0D42: load_txd "rlogos" from "MODELS\\RLOGOS.TXD" // IF and SET 
+0D42: load_txd "rlogos" from "MODELS//RLOGOS.TXD" // IF and SET 
 0D43: 0@ = txd "rlogos" id
 0D44: 0@ = find_texture "radio_wctr" in_dictionary "rlogos" // IF and SET
 0D45: rotate_2d_vertices_shape 0@ num_verts 4 aroundXY 1@ 2@ angle 90.0
@@ -1893,7 +1893,7 @@
 0D5E: get_vehicle 0@ class_to 1@ subclass_to 2@
 0D5F: get_vehicle 0@ dummy_element 0 position 0 to 1@ 2@ 3@ invert_x false // IF and SET 
 0D60: create_projectile 0 launched_from_entity 0@ at 0.0 0.0 0.0 point_to 0.0 0.0 0.0 target_entity 0 force 1.0 // IF and SET
-0D61: 0@ = load_texture_bmp_from "models\\image.bmp" with_mask "models\\imagea.bmp" // IF and SET
+0D61: 0@ = load_texture_bmp_from "models//image.bmp" with_mask "models//imagea.bmp" // IF and SET
 0D64: 0@ = load_texture_png_from "image.png" // IF and SET
 0D65: print "Hello, world" at 50.0 50.0 scale 1.0 1.0 style FONT_GOTHIC
 0D66: print "Hello, world" at 50.0 50.0 scale 1.0 1.0 style FONT_GOTHIC prop TRUE align ALIGN_LEFT wrap 600.0 justify FALSE color 255 255 255 255 outline 0 shadow 0 dropColor 0 0 0 0 background FALSE backColor 0 0 0 0
@@ -2642,7 +2642,7 @@
 0C90: samp  is_client_command_defined "cmd"
 0C91: samp  is_console_command_defined "cmd"
 0C92: samp 0@ = get_cleo_library_version
-0DF0: shader_api 0@ = load_shader_from_file "CLEO\blur.txt"
+0DF0: shader_api 0@ = load_shader_from_file "CLEO/blur.txt"
 0DF1: shader_api draw_shader 0@ technique "ShowScreen" at 0 0 0 0 
 0DF2: shader_api set_shader 0@ float_param "dist" to 0.0 
 0DF3: shader_api set_shader 0@ int_param "dist" to 0
@@ -2650,7 +2650,7 @@
 0DF5: shader_api set_shader 0@ vector_param "dist" to 0 0 0 0 
 0DF6: shader_api set_shader 0@ matrix_param "dist" to 0 
 0DF7: shader_api set_shader 0@ dx_texture_param "dist" to "dist"
-0DF8: shader_api load_dx_texture 0@ from_file "CLEO\blur.png"
+0DF8: shader_api load_dx_texture 0@ from_file "CLEO/blur.png"
 0DF9: shader_api unload_dx_texture 0@ 
 0DFA: shader_api draw_shader 0@ technique "ShowScreen" at 0 0 0 0 as_hud_element 
-0DFB: shader_api set_shader 0@ rw_texture_param "dist" to 1@ 
+0DFB: shader_api set_shader 0@ rw_texture_param "dist" to 1@
