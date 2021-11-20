@@ -2260,3 +2260,397 @@
 0F61: imgui_get_frame_height imguitypeflags 1@ pointer/var (float) 2@ 
 0F62: imgui_get_frame_height_with_spacing var (float) 1@ 
 0F63: imgui_get_style_int imguistyleoffsets 1@ var (int) 2@
+0AF6: samp spawn_player
+0AF7: samp 1@ = get_base
+0AF8: samp add_message_to_chat 1@ color 2@
+0AF9: samp say_msg "lol"
+0AFA: samp  is_samp_available
+0AFB: samp request_class 1@
+0AFC: samp send_scm_event 1@ event_id 2@ param_1 3@ param_2 4@
+0AFD: samp set_special_action 1@
+0AFE: samp send_death_by_player 1@ with_reason 2@
+0AFF: samp 2@ = car_handle_by_samp_vehicle_id 1@
+0B20: samp 2@ = actor_handle_by_samp_player_id 1@
+0B21: 	samp is_chat_opened
+0B22: samp set_sendrate 1@ to 2@
+0B25: samp 2@ = get_player_health 1@
+0B26: samp 2@ = get_player_armor 1@
+0B27: samp set_gamestate 1@
+0B28: samp disconnect_with_reason 1@
+0B29: samp set_local_name "player"
+0B23:  samp is_player_connected 1@
+0B24: samp 2@ = get_player_struct_ptr 1@
+0B2A: samp 2@ = get_player_ping 1@
+0B2B: samp 2@ = get_player_id_by_actor_handle 1@
+0B2C: samp 2@ = get_vehicle_id_by_car_handle 1@
+0B2D: samp write_samp_memory offset 1@ value 2@ size 3@
+0B2E: samp 3@ = read_samp_memory offset 1@ size 2@
+0B2F: samp get_streamed_out_player_pos 1@ to 2@ 3@ 4@
+0B30: samp send_enter_vehicle 1@ as_passenger 2@
+0B31: samp send_exit_vehicle 1@
+0B32: samp send_spawn
+0B33: samp send_damage_vehicle 1@ panel 2@ doors 3@ lights 4@ tires 5@
+0B34: samp register_client_command "mycmd" to_label @cmd_mycmd
+0B35: samp 1@ = get_last_command_params
+0B36: samp 2@ = get_player_nickname 1@
+0B37: samp 2@ = get_player_color 1@
+0B38: samp connect_to_server "127.0.0.1" port 7777
+0B39: samp get_current_server_address 1@ port 2@
+0B3A: samp 1@ = get_current_server_name
+0B3B: samp show_dialog id 1@ caption 2@ text 3@ button_1 4@ button_2 5@ style 6@
+0B3C:  samp is_dialog_responded id 1@ button 2@ list_item 3@ input_text 4@
+0B43: samp cmd_ret
+0B44: samp 10@ = create_3d_text "hey kye!" color 2@ position 3@ 4@ 5@ view_distance 6@ show_behind_walls 7@ attached_to_player 8@ attached_to_vehicle 9@
+0B45: samp destroy_3d_text 1@
+0B46: 	samp 3d_text 1@ defined
+0B47: samp close_current_dialog_with_button 1@
+0B48: 	samp 1@ = get_current_dialog_list_item
+0B49: samp set_current_dialog_list_item 1@
+0B4A: samp 1@ = get_current_dialog_editbox_text
+0B4B: samp set_current_dialog_editbox_text 1@
+0B4C:  samp is_dialog_active 1@
+0B4D: samp 1@ = get_current_dialog_type
+0B4E: samp 1@ = get_current_dialog_id
+0B4F: samp 1@ = get_gamestate
+0B50: samp 2@ = object_handle_by_id 1@
+0B51: samp 2@ = pickup_handle_by_id 1@
+0B52: samp 2@ = object_id_by_handle 1@
+0B53: samp 2@ = pickup_id_by_handle 1@
+0B54: samp 1@ = listbox_items_count
+0B55: samp convert_3D_coords 1@ 2@ 3@ to_screen 4@ 5@
+0B56: samp set_game_key 1@ state 2@
+0B57: samp 2@ = player 1@ animation_id
+0B58: samp get_animation_name_to 2@ file_to 3@ by_id 1@
+0B59: samp 3@ = animation_id_by_name 1@ file 2@
+0B5A: samp get_screen_resolution 1@ 2@
+0B5B: samp get_listbox_item 1@ text_to 2@
+0B5D: samp toggle_cursor 1@
+0B5E: samp get_cursor_pos 1@ 2@
+0B5F: samp convert_window_screen_coords 1@ 2@ to_game_screen_coords 3@ 4@
+0B60: samp convert_game_screen_coords 1@ 2@ to_window_screen_coords 3@ 4@
+0B5C:  samp is_player 1@ paused
+0B61:  samp is_local_player_spawned
+0B62: samp 2@ = player 1@ special_action
+0B63: samp unregister_client_command "mycmd"
+0B64:  samp is_player 1@ npc
+0B65: samp 2@ = player 1@ score
+0B8C:	samp is_cursor_active
+0B8D: samp set_cursor_mode 1@
+0B8E: samp 1@ = get_cursor_mode
+0B74: samp set_chat_string 1@ text 2@ prefix 3@ color 4@ prefix_color 5@
+0B75: samp get_chat_string 1@ text_to 2@ prefix_to 3@ color_to 4@ prefix_color_to 5@
+0B8F: samp convert_screen_coords 1@ 2@ depth 3@ to_world_3d 4@ 5@ 6@
+0B76: samp set_chat_input_text 1@
+0B77: samp get_chat_input_text_to 1@
+0B78: samp log "SAMPFUNCS"
+0B79: samp set_chat_input_enabled 1@
+0B3D: samp raknet 1@ = new_bit_stream
+0B3E: samp raknet delete_bit_stream 1@
+0B3F: samp raknet reset_bit_stream 1@
+0B40: samp raknet bit_stream 1@ write 2@ type 3@ size 4@
+0B41: samp raknet send_rpc 1@ bit_stream 2@ priority 3@ reliability 4@ ordering_channel 5@ shift_timestamp 6@
+0B42: samp raknet send bit_stream 1@ priority 2@ reliability 3@ ordering_channel 4@
+0B8A: samp raknet send_rpc 1@ bit_stream 2@
+0B8B: samp raknet send bit_stream 1@
+0B66: samp render argb 1@ to_a 2@ r 3@ g 4@ b 5@
+0B67: samp render a 1@ r 2@ g 3@ b 4@ to_argb 5@
+0B68: samp render draw_line_point1 1@ 2@ point2 3@ 4@ width 5@ color 6@
+0B69: samp render draw_box_pos 1@ 2@ size 3@ 4@ color 5@
+0B6A: samp render draw_box_with_border_pos 1@ 2@ size 3@ 4@ color 5@ border_size 6@ border_color 7@
+0B6B: samp render 3@ = font 1@ draw_text 2@ length
+0B6C: samp render 2@ = font 1@ draw_height
+0B6D: samp render 4@ = create_font "Arial" height 2@ flags 3@
+0B6E: samp render release_font 1@
+0B6F: samp render font 1@ draw_text 2@ pos 3@ 4@ color 5@
+0B70: samp render draw_polygon_pos 1@ 2@ size 3@ 4@ corners 5@ rotation 6@ color 7@
+0B71: samp render 2@ = load_texture_from_file 1@
+0B72: samp render release_texture 1@
+0B73: samp render draw_texture 1@ pos 2@ 3@ size 4@ 5@ rotation 6@ color 7@
+0B80: samp dialog 2@ = create "SF Dialog"
+0B81: samp dialog 1@ pop_event_to 2@ control_id_to 3@
+0B82: samp dialog 1@ add_button id 2@ text 3@ pos_XY 4@ 5@ size 6@ 7@
+0B83: samp dialog 1@ add_checkbox id 2@ text 3@ pos_XY 4@ 5@ size 6@ 7@
+0B84: samp dialog 1@ set_pos_XY 2@ 3@ size 4@ 5@
+0B85: samp dialog 1@ get_position_to 2@ 3@ size_to 4@ 5@
+0B86: samp dialog 1@ set_visible 2@
+0B87: samp  dialog 1@ is_visible
+0B88: samp dialog 1@ add_editbox id 2@ text 3@ pos_XY 4@ 5@ size 6@ 7@
+0B89: samp dialog 1@ get_control 2@ text_to 3@
+0B90: samp dialog 1@ control 2@ set_visible 3@
+0B91: samp dialog 1@ add_static id 2@ text 3@ pos_XY 4@ 5@ size 6@ 7@
+0B92: samp  dialog 1@ checkbox 2@ is_checked
+0B93: samp dialog 1@ set_background_color 2@
+0B94: samp dialog 1@ set_control 2@ text 3@
+0B95: samp  dialog 1@ control 2@ is_visible
+0B96: samp dialog 1@ add_slider id 2@ pos_XY 3@ 4@ size 5@ 6@ max 7@
+0B97: samp dialog 1@ slider 2@ get_value_to 3@
+0B98: samp dialog 1@ slider 2@ set_value_to 3@
+0B99: samp dialog 1@ add_listbox id 2@ pos_XY 3@ 4@ size 5@ 6@
+0B9A: samp dialog 1@ listbox 2@ insert_element 3@ with_data 4@ after 5@
+0B9B: samp dialog 1@ listbox 2@ selected_element_to 3@ elements_count_to 4@
+0B9C: samp dialog 1@ listbox 2@ delete_element 3@
+0B9D: samp dialog 1@ listbox 2@ element 3@ store_text_to 4@ data_to 5@
+0B9E: samp dialog 1@ checkbox 2@ set_checked 3@
+0B9F: samp dialog 1@ enable_caption 2@
+0BA0: samp  dialog 1@ is_caption_enabled
+0BA1: samp dialog 1@ set_minimized 2@
+0BA2: samp  dialog 1@ is_minimized
+0BA3: samp dialog 1@ control 2@ free
+0BA4: samp dialog 1@ free
+0BA5: samp dialog 1@ set_focus_on_control 2@
+0BA6: samp dialog 1@ set_control 2@ size_XY 3@ 4@
+0BA7: samp dialog 1@ get_control 2@ size_to 3@ 4@
+0BA8: samp dialog 1@ set_control 2@ pos_XY 3@ 4@
+0BA9: samp dialog 1@ get_control 2@ pos_to 3@ 4@
+0BAA: samp dialog 1@ set_checkbox 2@ color 3@
+0BAB: samp 	dialog 1@ is_exists
+0C00: samp math 1@ = abs 0@ // (float)
+0C01: samp math 1@ = radian_to_angle 0@ // (float)
+0C02: samp math 1@ = angle_to_radian 0@ // (float)
+0C03: samp math 1@ = sine 0@ // (float)
+0C04: samp math 1@ = arcsine 0@ // (float)
+0C05: samp math 1@ = cosine 0@ // (float)
+0C06: samp math 1@ = arccosine 0@ // (float)
+0C07: samp math 1@ = tangent 0@ // (float)
+0C08: samp math 1@ = arctangent 0@ // (float)
+0C09: samp math 1@ = power 0@ 3.0 // (float)
+0C0A: samp math 1@ = ceil 0@ // (float)
+0C0B: samp math 1@ = floor 0@ // (float
+0C0C: samp 0@ = struct 1@ offset 0x10 size 4
+0C0D: samp struct 1@ offset 0x10 size 4 = 0@
+0C0E: samp 0@ = array 1@ element 2@
+0C0F: samp array 1@ element 2@ = 0@
+0C10: samp memcpy destination 0@ source 1@ size 0x10
+0C11: samp memset destination 0@ value 1@ size 0x4
+0C12: samp memcmp buffer1 0@ buffer2 1@ size 0x10
+0C13: samp strcpy destination 0@ source 1@
+0C14: samp strcmp string1 0@ string2 1@
+0C15: samp strcat destination 0@ source 1@
+0C16: samp 2@ = strtok string1 0@ string2 1@
+0C17: samp 1@ = strlen 0@
+0C18: samp 2@ = strstr string1 0@ string2 1@
+0C19: samp 2@ = strcspn string1 0@ string2 1@
+0C1A: samp 1@ = atoi 0@
+0C1B: samp 1@ = atof 0@
+0C1C: samp 2@ = itoa 0@ radix 10
+0C1D: samp 4@ = array 1@ element 2@ el_size 3@
+0C1E: samp array 1@ element 2@ el_size 3@ = 4@
+0C1F: samp 4@ = string_array 1@ element 2@ size 3@
+0C20: samp string_array 1@ element 2@ size 3@ = 4@
+0C21: samp stricmp string1 0@ string2 1@
+0B7A: samp 0@ = get_rakclient_interface
+0B7B: samp 0@ = get_rakpeer
+0B7C: samp 1@ = get_rakclient_func_by_index 0@
+0B7D: samp 1@ = get_rpc_func_by_index 0@
+0B7E: samp 1@ = get_rpc_node_by_index 0@
+0B7F: samp 0@ = get_samp_info_ptr
+0BAC: samp 0@ = get_server_settings_ptr
+0BAD: samp 0@ = get_samp_pools_ptr
+0BAE: samp 0@ = get_chat_info_ptr
+0BAF: samp 0@ = get_input_info_ptr
+0BB0: samp 0@ = get_dialog_info_ptr
+0BB1: samp 0@ = get_kill_info_ptr
+0BB2: samp 0@ = get_misc_info_ptr
+0BB3: samp 0@ = get_textdraw_pool_ptr
+0BB4: samp 0@ = get_object_pool_ptr
+0BB5: samp 0@ = get_gangzone_pool_ptr
+0BB6: samp 0@ = get_textlabel_pool_ptr
+0BB7: samp 0@ = get_player_pool_ptr
+0BB8: samp 0@ = get_vehicle_pool_ptr
+0BB9: samp 0@ = get_pickup_pool_ptr
+0BBA: samp store_player 0@ onfoot_data 1@
+0BBB: samp store_player 0@ incar_data 1@
+0BBC: samp store_player 0@ passenger_data 1@
+0BBD: samp store_player 0@ trailer_data 1@
+0BBE: samp store_player 0@ aim_data 1@
+0BBF: samp send_rcon_command 0@
+0BC0: samp send_onfoot_data 0@
+0BC1: samp send_incar_data 0@
+0BC2: samp send_passenger_data 0@
+0BC3: samp send_aim_data 0@
+0BC4: samp send_bullet_data 0@
+0BC5: samp send_trailer_data 0@
+0BC6: samp send_unoccupied_data 0@
+0BC7: samp send_spectator_data 0@
+0BC8: samp send_click_player 0@ source 1@
+0BC9: samp send_dialog_response dialog 0@ button 1@ listitem 2@ input 3@
+0BCA: samp send_click_textdraw 0@
+0BCB: samp send_give_damage playerid 0@ damage 1@ weapon 2@ bodypart 3@
+0BCC: samp send_take_damage issuerid 0@ damage 1@ weapon 2@ bodypart 3@
+0BCD: samp send_edit_object playerobject 0@ object 1@ response 2@ pos 3@ 4@ 5@ rotation 6@ 7@ 8@
+0BCE: samp send_edit_attached_object response 0@ index 1@ model 2@ bone 3@ offset 4@ 5@ 6@ rot 7@ 8@ 9@ scale 10@ 11@ 12@
+0BCF: samp send_interior_change 0@
+0BD0: samp send_request_spawn
+0BD1: samp send_picked_up_pickup 0@
+0BD2: samp send_menu_select_row 0@
+0BD3: samp send_menu_quit
+0BD4: samp send_vehicle_destroyed 0@
+0BD5:  samp is_scoreboard_opened
+0BD6: samp enable_scoreboard 0@
+0BD7: samp get_dialog_text 0@
+0BD8: samp get_dialog_caption 0@
+0BD9: samp set_dialog_clientside 0@
+0BDA:  samp is_dialog_clientside
+0BDB:  samp is_chat_visible
+0BDC: samp @ = get_chat_display_mode
+0BDD: samp set_chat_display_mode 0@
+0BDE: samp pause_thread 0@
+0BDF: samp resume_thread 0@
+0BE0: samp raknet hook_ret 0@
+0BE1: samp raknet setup_outcoming_rpc_hook 0@
+0BE2: samp raknet setup_outcoming_packet_hook 0@
+0BE3: samp raknet setup_incoming_rpc_hook 0@
+0BE4: samp raknet setup_incoming_packet_hook 0@
+0BE5: samp raknet 1@ = get_hook_param 0@
+0BE6: samp raknet set_hook_param 0@ = 1@
+0BE7: samp raknet 0@ = bit_stream_read 1@ type 2@
+0BE8: samp raknet bit_stream 0@ read_array 1@ size 2@
+0BE9: samp raknet bit_stream 0@ reset_read_pointer
+0BEA: samp raknet bit_stream 0@ reset_write_pointer
+0BEB: samp raknet bit_stream 0@ ignore_bits 8
+0BEC: samp raknet bit_stream 0@ set_write_offset 1@
+0BED: samp raknet bit_stream 0@ set_read_offset 1@
+0BEE: samp raknet 1@ = bit_stream 0@ get_number_of_bits_used
+0BEF: samp raknet 1@ = bit_stream 0@ get_number_of_bytes_used
+0BF0: samp raknet 1@ = bit_stream 0@ get_number_of_unread_bits
+0BF1: samp raknet 1@ = bit_stream 0@ get_write_offset
+0BF2: samp raknet 1@ = bit_stream 0@ get_read_offset
+0BF3: samp raknet 1@ = bit_stream 0@ get_data_ptr
+0BF4: samp raknet bit_stream 0@ decode_string 1@ size 2@
+0BF5: samp raknet bit_stream 0@ encode_string 1@ size 2@
+0BF6: samp raknet emul_rpc_receive 0@ bit_stream 1@
+0BF7: samp raknet emul_packet_receive 0@ bit_stream 1@
+0BF8: samp raknet 1@ = get_rpc_name 0@
+0BF9: samp raknet 1@ = get_packet_name 0@
+0BFA: samp push_vars
+0BFB: samp pop_vars
+0BFC: samp set_global_var "SFGLOBAL1" = 1@
+0BFD: samp 1@ = get_global_var "SFGLOBAL1"
+0BFE: samp 0@ = get_tick_count
+0BFF: samp process_line_of_sight start 0@ 1@ 2@ end 3@ 4@ 5@ check_solid true car true actor false object true particle false see_through_stuff false ignore_some_objects_for_camera true store_col_point_to 6@ entity_to 7@
+0C34: samp register_global_func "Power" to_label @globalFunc
+0C35: samp call_global_func "Power" params 2 values 10 3 result 0@
+0C36: samp func_ret 1 0@
+0C37: samp  is_global_func "MyFunc" defined
+0C38: samp get_global_func "MyFunc" thread 0@ label 1@
+0C39: samp samp unregister_global_func "MyFunc"
+0C3A: samp 1@ = string "MyString" pointer
+0C3B: samp render begin D3DPT_POINTLIST
+0C3C: samp render end
+0C3D: samp render color 0@
+0C3E: samp render vertex 0@ 1@
+0C3F: samp render set_tex_coord 0@ 1@
+0C40: samp render bind_texture 0@
+0C41: samp render 1@ = texture 0@ struct
+0C42: samp render 1@ = texture 0@ sprite
+0C43: samp render get_texture 0@ size_to 1@ 2@
+0C44: samp render set_render_state 0@ = 1@
+0C45: samp create_3d_text id 1337 text "SAMPFUNCS" color 2@ position 3@ 4@ 5@ view_distance 6@ show_behind_walls 7@ attached_to_player -1 attached_to_vehicle -1
+0C46: samp get_3d_text_info_by_id 0@ string_ptr 1@ color 2@ position 3@ 4@ 5@ view_distance 6@ show_behind_walls 7@ attached_to_player 8@ attached_to_vehicle 9@
+0C47: samp set_3d_text 0@ string 1@
+0C48: samp textdraw 0@ create "Textdraw" pos 1@ 2@
+0C49: samp textdraw 0@ set_box true color 2@ size 3@ 4@
+0C4A: samp textdraw 0@ set_align 1
+0C4B: samp textdraw 0@ set_proportional true
+0C4C: samp textdraw 0@ set_style 2
+0C4D: samp textdraw 0@ set_shadow 1 color 2@
+0C4E: samp textdraw 0@ set_outline 2 color 2@
+0C4F: samp textdraw 0@ set_model 1337 rotation 2@ 3@ 4@ zoom 1.0 veh_color 0 0
+0C50: samp textdraw 0@ set_string 1@
+0C51: samp textdraw 0@ set_pos 1@ 2@
+0C52: samp textdraw 0@ set_letter_size 1@ 2@ color 3@
+0C53: samp textdraw 0@ get_box_enabled 1@ color 2@ size 3@ 4@
+0C54: samp 1@ = textdraw 0@ get_align
+0C55: samp 1@ = textdraw 0@ get_proportional
+0C56: samp 1@ = textdraw 0@ get_style
+0C57: samp textdraw 0@ get_shadow 1@ color 2@
+0C58: samp textdraw 0@ get_outline 1@ color 2@
+0C59: samp textdraw 0@ get_model 1@ rotation 2@ 3@ 4@ zoom 5@ veh_color 6@ 7@
+0C5A: samp textdraw 0@ get_string_to 1@
+0C5B: samp textdraw 0@ get_pos 1@ 2@
+0C5C: samp textdraw 0@ get_letter_size 1@ 2@ color 3@
+0C5D: samp textdraw 0@ is_exists
+0C5E: samp textdraw 0@ delete
+0C5F: samp  is_global_var "GVar" defined
+0C22: samp bin 0@ to_hex 1@ size 2@
+0C23: samp hex 0@ to_bin 1@ buf_size 2@
+0C24: samp strncpy destination 0@ source 1@ size 2@
+0C25: samp strncmp string1 0@ string2 1@ size 2@
+0C26: samp strupr in 0@ out 1@
+0C27: samp strncat destination 0@ source 1@ size 2@
+0C28: samp strlwr in 0@ out 1@
+0C29: samp 2@ = stristr string1 0@ string2 1@
+0C2A: samp 2@ = strchr 0@ char 1@
+0C2B: samp 2@ = strpbrk string 0@ control 1@
+0C2C: samp 2@ = strrchr 0@ char 1@
+0C2D: samp strrev in 0@ out 1@
+0C2E: samp 2@ = strspn string1 0@ string2 1@
+0C2F: samp 3@ = strtol 0@ radix 1@ store_end_to 2@
+0C30: samp math matrix 0@ to_quat 1@
+0C31: samp math quat 0@ to_matrix 1@
+0C32: samp math matrix right 0@ 1@ 2@ front 3@ 4@ 5@ up 6@ 7@ 8@ to_quat 9@ 10@ 11@ 12@
+0C33: samp math quat 0@ 1@ 2@ 3@ to_matrix right 4@ 5@ 6@ front 7@ 8@ 9@ up 10@ 11@ 12@
+0C60: samp set_global_var "gvar" access_for_thread 0@ read true write false
+0C61: samp get_global_var "gvar" access_for_thread 0@ read_to 1@ write_to 2@
+1337: samp make_script_private true
+0C62: samp exec_console_command "threads active"
+0C63: samp register_console_command "command" to_label @label
+0C64: samp unregister_console_command "command"
+0C65: samp 3@ = download_url "http://boost.org/LICENSE_1_0.txt" to_file "boost_lic.txt"
+0C66: samp 1@ = get_download 0@ state
+0C67: samp get_windows_environment_variable "HOMEPATH" to 1@ size 2@
+0C68: samp unicode_string 0@ to_ansi 1@ size 2@
+0C69: samp ansi_string 0@ to_unicode 1@ size 2@
+0C6A: samp 1@ = create_custom_thread_at_label 0@
+0C6B: samp 1@ = create_custom_thread_at_pointer 0@
+0C6C: samp set_thread 0@ local_var 1@ = 2@
+0C6D: samp 2@ = get_thread 0@ local_var 1@
+0C6E: samp destroy_custom_thread 0@
+0C6F: samp restart_custom_thread 0@
+0C70: samp 1@ = get_module "samp.dll" handle
+0C71: samp 1@ = get_module 0@ proc 1@ address
+0C72: samp set_virtual_key 0@ down true
+0C73: samp set_char_key 0@ down false
+0C74: samp 2@ = create_timer_interval 0@ on_label 1@
+0C75: samp kill_timer 0@
+0C76: samp reset_timer 0@
+0C77: samp set_timer 1@ interval 1000
+0C78: samp set_timer 0@ active true
+0C79: samp	is_timer 1@ active
+0C7A: samp 1@ = get_timer 0@ interval
+0C7B: samp 1@ = get_timer 0@ time_elapsed
+0C7C: samp 1@ = get_timer 0@ time_left
+0C7D: samp release_download 1@
+0C7E: samp	is_console_active
+0C7F: samp set_client_command "cmd" description "info"
+0C80: samp set_console_command "concmd" description "info"
+0C81: samp force_vehicle_sync 0@
+0C82: samp force_unoccupied_sync 0@ seat_id 1@
+0C83: samp force_onfoot_sync
+0C84: samp force_aim_sync
+0C85: samp force_trailer_sync 0@
+0C86: samp force_passenger_sync 0@ seat_id 1@
+0C87: samp force_stats_sync
+0C88: samp force_weapons_sync
+0C89: samp  key_just_pressed 0x32
+0C8A: samp 1@ = get_max_player_id streamed_only 0@
+0C8B: samp 1@ = get_player_count streamed_only 0@
+0C8C: samp render 2@ = load_texture_from_file_in_memory 0@ size 1@
+0C8D: samp set_clipboard_text 0@
+0C8E: samp get_clipboard_text 0@ size 1@
+0C8F: samp process_chat_input "/save"
+0C90: samp  is_client_command_defined "cmd"
+0C91: samp  is_console_command_defined "cmd"
+0C92: samp 0@ = get_cleo_library_version
+0DF0: shader_api 0@ = load_shader_from_file "CLEO\blur.txt"
+0DF1: shader_api draw_shader 0@ technique "ShowScreen" at 0 0 0 0 
+0DF2: shader_api set_shader 0@ float_param "dist" to 0.0 
+0DF3: shader_api set_shader 0@ int_param "dist" to 0
+0DF4: shader_api set_shader 0@ bool_param "dist" to false
+0DF5: shader_api set_shader 0@ vector_param "dist" to 0 0 0 0 
+0DF6: shader_api set_shader 0@ matrix_param "dist" to 0 
+0DF7: shader_api set_shader 0@ dx_texture_param "dist" to "dist"
+0DF8: shader_api load_dx_texture 0@ from_file "CLEO\blur.png"
+0DF9: shader_api unload_dx_texture 0@ 
+0DFA: shader_api draw_shader 0@ technique "ShowScreen" at 0 0 0 0 as_hud_element 
+0DFB: shader_api set_shader 0@ rw_texture_param "dist" to 1@ 
