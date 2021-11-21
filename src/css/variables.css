@@ -1,20 +1,20 @@
 :root {
 	--color:#F9F9F9;
 	--ground:#16252c;
-	--hover: rgb(255 255 255 / 25%);
+	--hover:rgb(255 255 255 / 25%);
 	--font-size:1rem;
 
 	--bar-color:#000;/* black  */
 	--bar-ground:#4CAF50;/* green  */
 	--bar-border:#0F191E;
 	
-	--nav-color: #fff;
-	--nav-ground: #000;
-	--nav-size: .9rem;
+	--nav-color:#fff;
+	--nav-ground:#000;
+	--nav-size:.9rem;
 
-	--bar-color: #000;
-	--bar-ground: #4CAF50;
-	--bar-size: .9rem;
+	--bar-color:#000;
+	--bar-ground:#4CAF50;
+	--bar-size:.9rem;
 
 /*
 	--list-color: ;
@@ -22,9 +22,9 @@
 	--list-size: ;
 */
 
-	--scroll-color: #4CAF50;
-	--scroll-ground: #0F191E;
-	--scroll-size: .7rem;
+	--scroll-color:#4CAF50;
+	--scroll-ground:#0F191E;
+	--scroll-size:.7rem;
 
 	--op-text:#F9F9F9;
 	--op-ground:#0F191E;
