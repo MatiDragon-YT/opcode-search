@@ -130,11 +130,6 @@ export const settings = () => {
 	const display = (ELEMENT, MODE) => 
 		css([$('#' + ELEMENT), JSON.parse(`{"display": "${MODE}"}`)])
 
-	const modal = {
-		hide : () => display('modal', 'none'),
-		show : () => display('modal', 'grid')
-	}
-
 	const save = {
 		show : () => display('modal-save', 'initial'),
 		hide : () => display('modal-save', 'none')
@@ -155,8 +150,8 @@ export const settings = () => {
 	$('#file-load').onclick = () => load()
 	$('#file-clear').onclick = () => fileServer.clear($('#myInput'))
 
-	$('#pref-settings').onclick = () => modal.show()
-	$('#modal-close').onclick = () => modal.hide()
+	$('#pref-settings').onclick = () => display('modal', 'grid')
+	$('#modal-close').onclick = () => display('modal', 'none')
 	$('#modal-save').onclick = () => {
 		//get set
 		ITEMS[0].forEach(KEY => {
@@ -180,12 +175,14 @@ export const settings = () => {
 		}
 	}
 
+	const PREFIX = '--op-'
+
 	ITEMS[0].forEach((ELEMENT, index) => {
 		$('#' + ELEMENT).oninput = () => {
 			save.show()
 
 			if(index > 0) {
-				$(':root').style.setProperty('--op-' + ELEMENT, $('#' + ELEMENT).value)
+				$(':root').style.setProperty(PREFIX + ELEMENT, $('#' + ELEMENT).value)
 			}
 		}
 	})
@@ -197,17 +194,19 @@ export const settings = () => {
 			if(index > 0) {
 				const SAVED =
 					_get(ELEMENT)
-					|| css([$(':root'), '--op-' + ELEMENT])
+					|| css([$(':root'), PREFIX + ELEMENT])
 
 				$('#' + ELEMENT).value = SAVED
 					
-				$(':root').style.setProperty('--op-' + ELEMENT, $('#' + ELEMENT).value)
+				$(':root').style.setProperty(PREFIX + ELEMENT, $('#' + ELEMENT).value)
 			}
 
 		})
+		
 		$('#' + ITEMS[0][0]).value = _get(ITEMS[0][0]) || 50
 
 		const _h = location.hash
+		
 		if (_h) {
 			$('#myInput').value = _h.replace('#', '')
 			start()
