@@ -8,13 +8,21 @@ export function found(COUNTER = $('li[style=""]').length || 1) {
 		COUNTER + ((COUNTER > 1) ? '/' + $('#list').childElementCount : '')
 }
 
-export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){
-	fileServer.get(FILELIST, Data => {
-		fileServer.write(Data)
+export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){	
+	const _ = localStorage
+	const _get = _.getItem('OPs')
+	
+	if (_get) {
+		fileServer.write(_get)
 		fileServer.format($('ul'))
 		found()
 		start()
-	})
+	} else {
+		fileServer.get(FILELIST, Data => {
+			_.setItem('OPs', Data)
+			load()
+		})
+	}
 }
 
 export function restarRenderNav() {
@@ -44,7 +52,6 @@ export function start(){
 		TEXTVALUE.toUpperCase().indexOf(FILTER) > -1
 			? css([SELECTED, {display: ''}])
 			: css([SELECTED, {display: 'none'}])
-
 	}) 
 	
 	const MAX_COUNT_LI = $('#settings-limit-h').value
