@@ -1,5 +1,5 @@
 import { $, log } from './utils/dom.js'
-import { sanny, highlighter } from './utils/highlighter.js'
+import { highlighter } from './utils/highlighter.js'
 import { settings } from './settings.js'
 
 settings()
