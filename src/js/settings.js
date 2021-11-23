@@ -43,8 +43,11 @@ export const settings = () => {
 	}
 
 	$('#file-load').onclick = () => load()
-	$('#file-clear').onclick = () => fileServer.clear($input)
-
+	$('#file-clear').onclick = () => {
+		$list.innerHTML = ''
+		css([$('#sms'), {display : ''}])
+		found(0)
+	}
 	$('#pref-settings').onclick = () => display('modal', 'grid')
 	$('#modal-close').onclick = () => display('modal', 'none')
 	$('#modal-save').onclick = () => {
