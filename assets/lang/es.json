@@ -11,6 +11,7 @@
 	"issue" : "Avance",
 	"help" : "Ayuda",
 	"description": "Encuentra rapido y facil cualquier opcode de gta sa.",
+	"loading": "Cargando base de datos...",
 	"found" : "Encontrados",
 	"reverse" : "Revertir"
 }
