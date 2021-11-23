@@ -2,6 +2,7 @@ import { $, css, keyPressed, log } from './utils/dom.js'
 import { load, start }  from './search.js'
 import { fileServer }  from './utils/files.js'
 import { hash } from './utils/directories.js'
+import { local } from './utils/directories.js'
 
 export const settings = () => {
 	const $input = $('#myInput'),
@@ -102,6 +103,23 @@ export const settings = () => {
 		if (_h) {
 			$input.value = _h
 			start()
+		}
+
+		trans()
+
+		if (!_get('set-lang-at')) _set('set-lang-at', $('#lang').value)
+
+		$('#lang').onchange = () => {
+			_set('set-lang-at', $('#lang').value)
+			trans()
+		}
+		function trans () {
+			fileServer.get(local() + `assets/lang/${_get('set-lang-at') || $('#lang').value}.json`, json => {
+				Object.keys(json).forEach((a) => {
+					$(`[key="${a}"]`).innerText = json[a]
+				})
+			})
+			$(`#lang`).value = _get('set-lang-at')
 		}
 	}
 }

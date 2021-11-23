@@ -84,9 +84,9 @@ footer {
 }
 
 #sms {
-	display: grid;
-	height: 100%;
 	font-size: calc(var(--font-size) + 1rem);
-	align-items: center;
 	text-align: center;
+  position: fixed;
+  bottom: 46%;
+  width: 100%;
 }

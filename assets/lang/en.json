@@ -1,48 +1,16 @@
-[{
-	"head" : {
-		"title" : "Opcode Search",
-		"description" : "Find fast and easy any opcode of gta sa."
-	},
-	"nav" : {
-		"file" : {
-			"title" : "File",
-			"load" : "Load",
-			"load_from_local" : "Load from Local",
-			"save" : "Save",
-			"save_as" : "Save as",
-			"clear" : "Clear"
-		},
-		"pref" : {
-			"title" : "Preferences",
-			"settings" : "Settings",
-			"light" : "Theme Light"
-		},
-		"title" : {
-			"about" : "About"
-		}
-	},
-	"settings" : {
-		"description" : "With love for you ;)",
-		"limit" : {
-			"title" : "Highlighter opcodes",
-			"description" : "The higher the number, the longer it will take to display the results. With 0 disables the function and -1 you will highlight all.",
-			"value" : "Limited to number of found to"
-		},
-		"theme" : {
-			"title" : "Color theme",
-			"description" : "Enter any CSS3 variants (hex value, color name, or functions: hex, rbg, hsl, hsv, cmyk, linear-gradient, and so on). You will see the changes in real time, so it is recommended that you make your changes before loading the database or when there are few results.",
-			"head_e" : "Element",
-			"body_e" : "Text<br>Ground<br>Opcode<br>Operator<br>Number<br>String<br>Variable<br>Comment<br>Label",
-			"head_c" : "Color",
-			"head_v" : "View"
-		},
-		"danger" : {
-			"title" : "Danger Zone",
-			"reset" : "Reset settings"
-		}
-	},
-	"footer" : {
-		"found" : "Found",
-		"reverse" : "Reverse"
-	}
-}]
+{
+	"file" : "File",
+	"load" : "Load",
+	"save" : "Save",
+	"download" : "Download",
+	"clear" : "Clear",
+	"pref" : "Preferences",
+	"settings" : "Settings",
+	"seacher" : "Seacher",
+	"about" : "About",
+	"issue" : "Advance",
+	"help" : "Help",
+	"description": "Find fast and easy any opcode of gta sa.",
+	"found" : "Found",
+	"reverse" : "Reverse"
+}

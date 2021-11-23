@@ -1,0 +1,16 @@
+{
+	"file" : "Archivo",
+	"load" : "Cargar",
+	"save" : "Guardar",
+	"download" : "Descargar",
+	"clear" : "Limpiar",
+	"pref" : "Preferencias",
+	"settings" : "Ajustes",
+	"seacher" : "Buscador",
+	"about" : "Acerca",
+	"issue" : "Avance",
+	"help" : "Ayuda",
+	"description": "Encuentra rapido y facil cualquier opcode de gta sa.",
+	"found" : "Encontrados",
+	"reverse" : "Revertir"
+}

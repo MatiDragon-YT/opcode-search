@@ -1,9 +1,7 @@
-import { $, log } from './dom.js'
+import { $, log, css } from './dom.js'
 import { found } from '../search.js'
 export const fileServer = {
 	get : async function (URL, CALLBACK) {
-		$('#sms').innerHTML = 'Loading database...'
-
 		const TYPE = URL.replace(/(.*\.)/, '')
 
 		return await fetch(URL)
@@ -13,6 +11,7 @@ export const fileServer = {
 	},
 
 	write : (MESSAGE = '') => {
+		css([$('#sms'), {display : 'none'}])
 		$('#list').innerHTML = MESSAGE
 	},
 
@@ -23,7 +22,7 @@ export const fileServer = {
 	},
 
 	clear : (ELEMENT) => {
-		fileServer.write('<div id="sms">Find fast and easy any opcode of gta sa.</div>')
+		css([$('#sms'), {display : ''}])
 		ELEMENT.value = ''
 		found(0)
 	}

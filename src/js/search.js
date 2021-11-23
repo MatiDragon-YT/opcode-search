@@ -8,7 +8,8 @@ export function found(COUNTER = $('li[style=""]').length || 1) {
 		COUNTER + ((COUNTER > 1) ? '/' + $('#list').childElementCount : '')
 }
 
-export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){	
+export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){
+	$('#sms').innerHTML = 'Loading database...'
 	const _ = localStorage
 	const _get = _.getItem('OPs')
 	

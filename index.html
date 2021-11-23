@@ -19,31 +19,30 @@
 </head>
 <body>
 	<header id="searchBar">
-		<nav id="L">
-			<item>File
+		<nav>
+			<item><span key="file"></span>
 				<div>
-					<p id="file-load">Load</p>
-					<p disabled>Load from Local</p>
+					<p key="load" id="file-load"></p>
+					<p key="save" disabled></p>
 					<hr>
-					<a download href="assets/opcodes/sa.txt">Save</a>
-					<p disabled>Save as</p>
+					<a key="download" download href="assets/opcodes/sa.txt"></a>
 					<hr>
-					<p id="file-clear">Clear</p>
+					<p key="clear" id="file-clear"></p>
 				</div>
 			</item>
-			<item>Preferences
+			<item><span key="pref"></span>
 				<div>
-					<p id="pref-settings">Settings</p>
-					<hr>
-					<p disabled>Theme Light</p>
+					<p key="settings" id="pref-settings"></p>
 				</div>
 			</item>
-			<item>About
+			<item><span key="seacher"></span>
 				<div>
-					<a href="https://github.com/MatiDragon-YT/opcode-search">Opcode Search</a>
+					<a key="help" target="_black" href="https://github.com/MatiDragon-YT/opcode-search/discussions"></a>
+					<a key="issue" target="_black" href="https://github.com/MatiDragon-YT/opcode-search/issues"></a>
+					<a key="about" target="_black" href="https://github.com/MatiDragon-YT/opcode-search"></a>
 				</div>
 			</item>
-			<select id="lang" disabled>
+			<select id="lang">
 				<option value="en">English</option>
 				<option value="es">Español</option>
 				<option value="pt">Portuguese</option>
@@ -55,28 +54,19 @@
 	</header>
 	<main>
 		<section>
+			<div key="description" id="sms"></div>
 			<ul id="list">
-				<div id="sms">Find fast and easy any opcode of gta sa.</div>
 			</ul>
-			<div id="hidden-opcodes">
-				
-			</div>
 		</section>
 		<!--
 		<section class="pagenumbers" id="pagination"></section>
 		-->
 	</main>
 	<footer>
-		<section>Found: <span id="found">0</span></section>
+		<section><span key="found"></span>: <span id="found">0</span></section>
 		<section>
 			<item>
-				<!--Sort:
-				<select id="sort">
-					<option value="123">Opcode</option>
-					<option value="text">Text</option>
-				</select>
-				-->
-				<input type="checkbox" id="reverse"> <label for="reverse">Reverse</label>
+				<input type="checkbox" id="reverse"> <label key="reverse" for="reverse"></label>
 			</item>
 			<!--
 			<item>
