@@ -19,11 +19,5 @@ export const fileServer = {
 		OPCODES.innerHTML =
 		OPCODES.innerHTML
 		.replace(/^(.+)/gim, '<li style><pre>$1</pre></li>')
-	},
-
-	clear : (ELEMENT) => {
-		css([$('#sms'), {display : ''}])
-		ELEMENT.value = ''
-		found(0)
 	}
 }

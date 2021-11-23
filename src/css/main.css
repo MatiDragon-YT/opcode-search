@@ -83,10 +83,14 @@ footer {
 	justify-content: space-between;
 }
 
-#sms {
+#sms,#sms2 {
 	font-size: calc(var(--font-size) + 1rem);
 	text-align: center;
   position: fixed;
   bottom: 46%;
-  width: 100%;
+  width: 93.5vw;
+  text-align: center;
+}
+#sms2{
+	display: none;
 }
