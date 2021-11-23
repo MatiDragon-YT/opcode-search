@@ -107,8 +107,6 @@ export const settings = () => {
 
 		trans()
 
-		if (!_get('set-lang-at')) _set('set-lang-at', $('#lang').value)
-
 		$('#lang').onchange = () => {
 			_set('set-lang-at', $('#lang').value)
 			trans()
@@ -119,7 +117,7 @@ export const settings = () => {
 					$(`[key="${a}"]`).innerText = json[a]
 				})
 			})
-			$(`#lang`).value = _get('set-lang-at')
+			$(`#lang`).value = _get('set-lang-at') || 'en'
 		}
 	}
 }
