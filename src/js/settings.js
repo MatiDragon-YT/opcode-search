@@ -108,13 +108,13 @@ export const settings = () => {
 			start()
 		}
 
-		trans()
+		translate()
 
 		$('#lang').onchange = () => {
 			_set('set-lang-at', $('#lang').value)
-			trans()
+			translate()
 		}
-		function trans () {
+		function translate () {
 			fileServer.get(local() + `assets/lang/${_get('set-lang-at') || $('#lang').value}.json`, json => {
 				Object.keys(json).forEach((a) => {
 					$(`[key="${a}"]`).innerText = json[a]
