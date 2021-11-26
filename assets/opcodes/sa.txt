@@ -91,7 +91,7 @@
 0069: $GLOBAL *= $1 // (float)
 006A: 0@ *= 1@      // (int)
 006B: 0@ *= 1@      // (float)
-006C: $GLOBAL *= 0@ // $ *= @ (int)
+006C: $GLOBAL *= 0@ // (int)
 006D: $GLOBAL *= 0@ // (float)
 006E: 0@ *= $GLOBAL // (int)
 006F: 0@ *= $GLOBAL // (float)
@@ -135,7 +135,7 @@
 0095: make 0@ absolute_integer
 0096: make $GLOBAL absolute_float
 0097: make 0@ absolute_float
-0098: 0@ = random_float_in_ranges_0.0_to_0.0
+0098: 0@ = random_float_in_ranges_0.0_to_1.0
 0099: 0@ = random_int_in_ranges_0_to_32767
 009A: 0@ = create_actor #MALE01 pedtype 0 at 0.0 0.0 0.0
 009B: destroy_actor 0@
