@@ -4,10 +4,11 @@ import { fileServer }  from './utils/files.js'
 import { hash } from './utils/directories.js'
 import { local } from './utils/directories.js'
 
-export const settings = () => {
-	const $input = $('#myInput'),
-		  $list = $('#list')
+const $input = $('#myInput'),
+	  $list = $('#list'),
+	  $showed = $('#showed')
 
+export const settings = () => {
 	const ITEMS = [
 		[
 			'settings-limit-h', 'text', 'ground', 'opcode', 'operator',
@@ -45,6 +46,7 @@ export const settings = () => {
 	$('#file-load').onclick = () => load()
 	$('#file-clear').onclick = () => {
 		$list.innerHTML = ''
+		$showed.innerHTML = ''
 		css([$('#sms'), {display : ''}])
 		found(0)
 	}
@@ -64,10 +66,10 @@ export const settings = () => {
 	}
 	$('#reverse').onclick = () => {
 		if ($('#reverse').checked) {
-			css([$list, {"flex-direction" : 'column-reverse'}])
-			$list.scrollTop = $list.scrollHeight * -1
+			css([$showed, {"flex-direction" : 'column-reverse'}])
+			$showed.scrollTop = $showed.scrollHeight * -1
 		} else {
-			css([$list, {"flex-direction" : 'column'}])
+			css([$showed, {"flex-direction" : 'column'}])
 		}
 	}
 

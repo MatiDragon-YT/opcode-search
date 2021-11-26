@@ -1,5 +1,5 @@
 import { $ } from './dom.js'
-export const sanny = (ELEMENT = $('li[style=""] pre')) => {
+export const sanny = (ELEMENT = $('#showed li[style=""] pre')) => {
 	ELEMENT.forEach(SELECT => highlighter(SELECT))
 }
 export const highlighter = SELECT =>{
@@ -27,9 +27,9 @@ export const highlighter = SELECT =>{
 	/*** MODELS ***/
 	.replace(/(\#+\w+)/gm, `<hlN>$1<\/hlN>`)
 	/*** VARIABLES ***/
-	.replace(/(\d+)(\@s|\@v|\@)(\:|\s|\n|\]|\.|\,||\))/gm, `<hlV>$1$2<\/hlV>$3`)
-	.replace(/(\&amp\d+)/gim, `<hlV>$1<\/hlV>`)
-	.replace(/(s|v)?(\$[0-9A-Z_a-z]+)/gm, `<hlG>$1$2<\/hlG>`)
+	.replace(/\s(\d+)(\@s|\@v|\@)(\:|\s|\n|\]|\.|\,||\))/gm, ` <hlV>$1$2<\/hlV>$3`)
+	.replace(/\s(\&amp\d+)/gim, ` <hlV>$1<\/hlV>`)
+	.replace(/\s(s|v)?(\$[0-9A-Z_a-z]+)/gm, ` <hlG>$1$2<\/hlG>`)
 	/*** OPERADORS ***/
-	.replace(/\B(\+|\-|\*|\/|\^|\%|\||\&lt;|\&gt;|\&lt;\&lt;|\&gt;\&gt;|=)?(\+|\-|=|~|\*|\&lt;|\&gt;)\B/gmi,"<hlO>$1$2<\/hlO>")
+	.replace(/\s(\+|\-|\*|\/|\^|\%|\||\&lt;|\&gt;|\&lt;\&lt;|\&gt;\&gt;|=)?(\+|\-|=|~|\*|\&lt;|\&gt;)\s/gmi," <hlO>$1$2<\/hlO> ")
 }

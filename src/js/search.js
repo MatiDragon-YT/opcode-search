@@ -3,9 +3,13 @@ import { local } from './utils/directories.js'
 import { fileServer }  from './utils/files.js'
 import { sanny } from './utils/highlighter.js'
 
-export function found(COUNTER = $('li[style=""]').length || 1) {
+const $input = $('#myInput'),
+	  $list = $('#list'),
+	  $showed = $('#showed')
+
+export function found(COUNTER = $showed.childElementCount) {
 	$('#found').innerHTML =
-		COUNTER + ((COUNTER > 1) ? '/' + $('#list').childElementCount : '')
+		COUNTER + '/' + ($showed.childElementCount + $list.childElementCount)
 }
 
 export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){
@@ -14,7 +18,7 @@ export function load (FILELIST = local() + 'assets/opcodes/sa.txt'){
 	
 	if (_get) {
 		fileServer.write(_get)
-		fileServer.format($('ul'))
+		fileServer.format($list)
 		found()
 		start()
 	} else {
@@ -38,25 +42,32 @@ export function restarRenderNav() {
 }
 
 export function start(){
-	const FILTER = $('#myInput').value.toUpperCase().replaceAll(' ', '_')
-	const ELEMENTS = $('#list li')
+	const $filter = $('#myInput').value.toUpperCase().replaceAll(' ', '_')
+	const $invisibles = $('li', $list)
+	const $visibles = $('li', $showed)
 
-	if (ELEMENTS.length == 0 && FILTER != ''){
+	if ($visibles.length > 0) {
+		$visibles.forEach(e => {
+			$list.appendChild(e)
+		})
+	}
+
+	if ($invisibles.length == 0 && $filter != ''){
 		load()
 	}
 
-	ELEMENTS.forEach(SELECTED => {
-		const ELEMENT = SELECTED.getElementsByTagName('pre')[0]
-		const TEXTVALUE = ELEMENT.textContent || ELEMENT.innerText
+	$invisibles.forEach($selected => {
+		const $element = $selected.getElementsByTagName('pre')[0]
+		const TEXTVALUE = $element.textContent || $element.innerText
 
-		TEXTVALUE.toUpperCase().indexOf(FILTER) > -1
-			? css([SELECTED, {display: ''}])
-			: css([SELECTED, {display: 'none'}])
+		if (TEXTVALUE.toUpperCase().indexOf($filter) > -1) {
+			$showed.appendChild($selected)
+		}
 	}) 
 	
 	const MAX_COUNT_LI = $('#settings-limit-h').value
 
-	if (MAX_COUNT_LI == -1 || $('li[style=""]').length < MAX_COUNT_LI){
+	if (MAX_COUNT_LI == -1 || $('li[style=""]', $showed).length < MAX_COUNT_LI){
 		sanny()
 	}
 

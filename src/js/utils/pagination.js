@@ -25,7 +25,7 @@ const list_items = [
 	"Item 22"
 ];
 
-const list_element = $('#list');
+const list_element = $('#showed');
 const pagination_element = $('#pagination');
 
 let current_page = 1;
