@@ -6,6 +6,7 @@ nav {
     font-weight: normal;
     height: 1.4rem;
     cursor: default;
+    user-select: none;
 }
 nav item {
     position: relative;
