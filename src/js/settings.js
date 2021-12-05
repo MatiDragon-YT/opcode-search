@@ -117,12 +117,29 @@ export const settings = () => {
 			translate()
 		}
 		function translate () {
-			fileServer.get(local() + `assets/lang/${_get('set-lang-at') || $('#lang').value}.json`, json => {
-				Object.keys(json).forEach((a) => {
-					$(`[key="${a}"]`).innerText = json[a]
-				})
-			})
-			$(`#lang`).value = _get('set-lang-at') || 'en'
+			let n = navigator.language,
+				m = n[0] + n[1],
+				k = () =>{
+					switch (m) {
+						case 'es': return 'es'; break;
+						case 'pt': return 'pt'; break;
+						default:   return 'en'; break;
+					}
+				}
+
+			$(`#lang`).value = _get('set-lang-at') || k()
+			
+			fileServer.get(
+				local() + `assets/lang/${_get('set-lang-at')
+				|| $('#lang').value}.json`,
+
+				json => {
+					Object.keys(json).forEach((a) => {
+						$(`[key="${a}"]`).innerText = json[a]
+					})
+				}
+			)
+
 		}
 	}
 }
